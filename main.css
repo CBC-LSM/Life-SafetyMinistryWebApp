@@ -43,6 +43,43 @@ body{
 .bg-red{
   background-color: #FF7857;
 }
+.container {
+  width: 90%;
+  margin: 0 auto;
+  padding: 60px 0;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.mobile-only {
+  display: none;
+}
+tr {
+  border-bottom: 2px solid #333;
+}
+td, th {
+  padding: 10px 0;
+}
+@media screen and (max-width: 980px) {
+  thead {
+      display: none;
+  }
+  .mobile-only {
+      display: block;
+  }
+  td {
+      display: inline-block;
+      width: 32%;
+      margin-bottom: 10px;
+      padding: 15px 0;
+      text-align: left;
+      vertical-align: text-top;
+  }
+  td div {
+      color: #999;
+  }
+}
 .panel-default >.panel-heading{
   background-color: #f5f5f5;
   border-bottom: 2px solid #3498DB;

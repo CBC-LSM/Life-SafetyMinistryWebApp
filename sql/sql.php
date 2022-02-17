@@ -79,7 +79,7 @@ function findAllPositions(){
 }
 function findAllTeamStatus(){
 	global $db;
-	$sql = "SELECT s.id,s.nameID,s.positionID,s.radioID,s.dsmID,s.flashlightID,";
+	$sql = "SELECT s.id,s.nameID,s.positionID,s.radioID,s.dsmID,s.flashlightID,s.checkout,s.checkin,s.status,";
 	$sql .= "s.tourniquetID,m.membername,p.positionname,r.radioname,d.dsmname,t.tourniquetname,f.flashlightname from teamStatus s LEFT JOIN teamMembers m ON ";
 	$sql .= "s.nameID=m.id LEFT JOIN positions p on s.positionID = p.id ";
 	$sql .= "LEFT JOIN radio r on s.radioID = r.id LEFT JOIN dsm d on ";

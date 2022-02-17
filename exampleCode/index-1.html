@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <style>
+            .container {
+                width: 90%;
+                margin: 0 auto;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+
+            .mobile-only {
+                display: none;
+            }
+
+            tr {
+                border-bottom: 1px solid #333;
+            }
+
+            td, th {
+                padding: 10px 0;
+            }
+
+            @media screen and (max-width: 980px) {
+                thead {
+                    display: none;
+                }
+
+                .mobile-only {
+                    display: block;
+                }
+
+                td {
+                    display: inline-block;
+                    width: 32%;
+                    margin-bottom: 10px;
+                    padding: 5px 0;
+                }
+
+                td div {
+                    color: #999;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <table>
+                <thead>
+                    <th class="text-center" style="width: 10%;"><strong>Name</strong></th>
+                    <th class="text-center" style="width: 10%;"><strong>Position</strong></th>
+                    <th class="text-center" style="width: 10%;"><strong>Radio</strong></th>
+                    <th class="text-center" style="width: 10%;"><strong>DSM</strong></th>
+                    <th class="text-center" style="width: 10%;"><strong>Flashlight</strong></th>
+                    <th class="text-center" style="width: 10%;"><strong>Tourniquet</strong></th>
+                    <th class="text-center" style="width: 10%;"><strong>Check Out Time</strong></th>
+                    <th class="text-center" style="width: 10%;"><strong>Status</strong></th>
+                    <th class="text-center" style="width: 10%;"><strong>Checked In Time</strong></th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><div class="mobile-only">Name</div>Tyler Moore</td>
+                        <td><div class="mobile-only">Positiion</div>Office</td>
+                        <td><div class="mobile-only">Radio</div>#4</td>
+                        <td><div class="mobile-only">DSM</div>N/A</td>
+                        <td><div class="mobile-only">Flashlight</div>#18</td>
+                        <td><div class="mobile-only">Tourniquet</div>Yes</td>
+                        <td><div class="mobile-only">Check Out Time</div>11:43am</td>
+                        <td><div class="mobile-only">Status</div>Married</td>
+                        <td><div class="mobile-only">Checked In Time</div>7:48am</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>

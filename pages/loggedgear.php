@@ -25,8 +25,8 @@ $teamStatus = findAllTeamStatus();
             <span class="glyphicon glyphicon-plus-sign" style="color:#a0a0a0; font-size: 30px; vertical-align: middle;" aria-hidden="true"></span>
             Add Data
         </button>
-        <div class="table-responsive{-xl}">
-        <table class="table table-bordered table-hover">
+        <div class="container">
+        <table>
             <thead>
                 <tr style ="color: #D4D4C9; font-size: 100%; font-family: Arial  ;">
                     <th class="text-center" style="width: 5%;"><strong>Name</strong></th>
@@ -43,15 +43,15 @@ $teamStatus = findAllTeamStatus();
             <tbody>
                 <?php foreach($teamStatus as $team):?>
                     <tr style ="color: #D4D4C9; font-size: 100%; background-color:#1E1E1E;">
-                        <td class="text-left" VALIGN=MIDDLE><strong><?php echo $team['membername']; ?></strong></td>
-                        <td class="text-center" VALIGN=MIDDLE><?php echo $team['positionname']; ?></td>
-                        <td class="text-center" VALIGN=MIDDLE><?php echo $team['radioname']; ?></td>
-                        <td class="text-center" VALIGN=MIDDLE><?php echo $team['dsmname']; ?></td>
-                        <td class="text-center" VALIGN=MIDDLE><?php echo $team['flashlightname']; ?></td>
-                        <td class="text-center" VALIGN=MIDDLE><?php echo $team['tourniquetname']; ?></td>
-                        <td class="text-center" VALIGN=MIDDLE><?php echo $team['checkout']; ?></td>
-                        <td class="text-center" VALIGN=MIDDLE><?php echo $team['status']; ?></td>
-                        <td class="text-center" VALIGN=MIDDLE><?php echo $team['checkin']; ?></td>
+                        <td class="text-left"><div class="mobile-only"><strong>Name</strong></div><strong><?php echo $team['membername']; ?></strong></td>
+                        <td><div class="mobile-only"><strong>Position</strong></div><?php echo $team['positionname']; ?></td>
+                        <td><div class="mobile-only"><strong>Radio</strong></div><?php echo $team['radioname']; ?></td>
+                        <td><div class="mobile-only"><strong>DSM</strong></div><?php echo $team['dsmname']; ?></td>
+                        <td><div class="mobile-only"><strong>Flashlight#</strong></div><?php echo $team['flashlightname']; ?></td>
+                        <td><div class="mobile-only"><strong>Tourniquet</strong></div><?php echo $team['tourniquetname']; ?></td>
+                        <td><div class="mobile-only"><strong>Check Out Time</strong></div><?php echo $team['checkout']; ?></td>
+                        <td><div class="mobile-only"><strong>Status</strong></div><?php echo $team['status']; ?></td>
+                        <td><div class="mobile-only"><strong>Check In Time</strong></div><?php echo $team['checkin']; ?></td>
                     </tr>
                 <?php endforeach;?>     
             </tbody>
