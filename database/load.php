@@ -12,6 +12,7 @@ require_once 'database/database.php';
 require_once 'sql/sql.php';
 date_default_timezone_set('America/New_York');
 
+
 /*--------------------------------------------------------------*/
 /* Log user actions
 /*--------------------------------------------------------------*/

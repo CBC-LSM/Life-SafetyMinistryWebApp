@@ -1,35 +1,26 @@
 <script>
 $(document).ready(function() {
 	$('#insert').on('click', function() {
-		var product = $('#product').val();
-		var cord_color = $('#cord_color').val();
-		var quantity = $('#quantity').val();
-          var purchased_product = $('#purchased_component').val();
-		var price = $('#price').val();
-          var sale_type = $('#sale_type').val();
-          var orderid = $('#order_id').val();
-          var orderid = $('#order_id').val();
+		var name = $('#name').val();
+		var position = $('#position').val();
+		var radio = $('#radio').val();
+          var dsm = $('#dsm').val();
+		var flashlight = $('#flashlight').val();
+          var tourniquet = $('#tourniquet').val();
+          var utility_bag = $('#utility_bag').val();
           event.preventDefault();  
-           if($('#product').val() == ''&& purchased_product=="") 
+           if($('#name').val() == '') 
            {  
-                alert("Choose a product");  
+                alert("Must Select Name");  
            }  
-           else if($('#cord_color').val() == ''&& purchased_product=="")  
+           else if($('#position').val() == '')  
            {  
-                alert("Cord Color Required");  
+                alert("Must Choose Position: <br> use MISC if no relative position");  
            }  
-           else if($('#quantity').val() == '')  
+           else if($('#radio').val() == '')  
            {  
-                alert("Set quantity");  
+                alert("Radio Required");  
            }  
-           else if($('#price').val() == '')  
-           {  
-                alert("Set Price");  
-           }
-           else if($('#sale_type').val() == '')  
-           {  
-                alert("Set Sale Type");  
-           }
            else  
            {
                $.ajax({
@@ -46,13 +37,9 @@ $(document).ready(function() {
                     },
                     beforeSend:function(){  
                               $('#insert').val("Inserting");},
-
                     success: function(dataResult){
-
                          var dataResult = dataResult;
-                         var inputVal = document.getElementById("myInput").value;
-
-                         let baseURL = "http://www.ims.treehuggersystems.com/sales/add_sale_manually.php?id=";
+                         let baseURL = "index.php";
                          let newURL = baseURL.concat(dataResult);
                          window.location.replace(newURL);
 
@@ -64,5 +51,4 @@ $(document).ready(function() {
 
 	})
 });
-
 </script>

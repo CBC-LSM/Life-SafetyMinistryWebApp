@@ -6,7 +6,7 @@
  */
 
 
-require_once "database/config.php";
+// require_once "database/config.php";
 
 class MySqli_DB {
 

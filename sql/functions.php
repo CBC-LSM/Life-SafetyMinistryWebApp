@@ -12,3 +12,4 @@ function getTime()
 {
  return array_sum(explode(" ",microtime()));  
 }
+

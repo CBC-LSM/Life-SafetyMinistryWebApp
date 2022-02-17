@@ -19,15 +19,15 @@ $teamStatus = findAllTeamStatus();
     
 </div>
 <div class="panel-box">
-    <button type="button" class="btn btn-primary btn-lg" id ="add" data-toggle="modal" data-target="#add_data_modal">
-        <span class="glyphicon glyphicon-plus-sign" style="color:#a0a0a0; font-size: 20px; vertical-align: middle; padding: 0px 5% 0px 0px;" aria-hidden="true"></span>
+    <button type="button" class="btn btn-primary btn-lg" id ="add" data-toggle="modal" data-target="#add_data_modal" VALIGN=MIDDLE>
+        <span class="glyphicon glyphicon-plus-sign" style="color:#a0a0a0; font-size: 30px; vertical-align: middle; padding: 0px 0px 0px 0px;" aria-hidden="true"></span>
         <strong>Add Data</strong>
     </button>
     <div class="container">
     <table>
         <thead>
             <tr style ="color: #D4D4C9; font-size: 100%; font-family: Arial  ;">
-                <th class="text-center" style="width: 5%;"><strong>Name</strong></th>
+                <th class="text-left" style="width: 5%;"><strong>Name</strong></th>
                 <th class="text-center" style="width: 5%;"><strong>Position</strong></th>
                 <th class="text-center" style="width: 5%;"><strong>Radio</strong></th>
                 <th class="text-center" style="width: 5%;"><strong>DSM</strong></th>
@@ -35,6 +35,8 @@ $teamStatus = findAllTeamStatus();
                 <th class="text-center" style="width: 5%;"><strong>Tourniquet</strong></th>
                 <th class="text-center" style="width: 5%;"><strong>Utility Bag</strong></th>
                 <th class="text-center" style="width: 5%;"><strong>Status</strong></th>
+                <th class="text-center" style="width: 5%;"><strong>Modify</strong></th>
+                
             </tr>
         </thead>
         <tbody>
@@ -48,6 +50,17 @@ $teamStatus = findAllTeamStatus();
                     <td><div class="mobile-only"><strong>Tourniquet</strong></div><?php echo $team['tourniquetname']; ?></td>
                     <td><div class="mobile-only"><strong>Utility Bag</strong></div><?php echo $team['ubname']; ?></td>
                     <td><div class="mobile-only"><strong>Status</strong></div><?php echo $team['status']; ?></td>
+                    <td><div class="mobile-only"></div>
+                        <a href="delete.php?id=<?php echo $team['id'];?>"onClick="return confirm('Are you sure you want to delete?')" class="btn btn-danger btn-xs"  
+                        title="Delete Entry" data-toggle="tooltip"><span class="glyphicon glyphicon-remove"></span></a>
+                    <?php if ($team['status']=="Checked Out"):?>
+                        <a href="checkin.php?id=<?php echo $team['id'];?>"class="btn btn-warning btn-xs"  
+                        title="Check In" data-toggle="tooltip"><span class="glyphicon glyphicon-ok"></span></a>
+                    <?php else:?>
+                        <a href="checkout.php?id=<?php echo $team['id'];?>"class="btn btn-success btn-xs"  
+                        title="Check Out" data-toggle="tooltip"><span class="glyphicon glyphicon-ok"></span></a>
+                    <?php endif;?>
+                    </td>
                 </tr>
             <?php endforeach;?>     
         </tbody>
@@ -63,8 +76,9 @@ $teamStatus = findAllTeamStatus();
                 </div>   
                 <div class="modal-body">  
                      <form method="post" id="insert_form">  
-                            <label>Name<input list="name" name="myBrowser" class="form-control" placeholder="Name"/></label>
-                                <datalist id="name">
+                            <label for="Name-Choice">Name</label>
+                            <input list="names" name="Name-Choice" id= "Name-Choice" class="form-control" placeholder="Name"/>
+                                <datalist id="names">
                                 <?php  foreach ($AllNames as $name): ?>
                                         <option value="<?php echo $name['membername']; ?>" >
                                     <?php endforeach; ?>
@@ -148,3 +162,57 @@ $teamStatus = findAllTeamStatus();
       </div>  
  </div>
 
+ <script>
+$(document).ready(function() {
+	$('#insert').on('click', function() {
+		var name = $('#Name-Choice').val();
+		var position = $('#position').val();
+		var radio = $('#radio').val();
+          var dsm = $('#dsm').val();
+		var flashlight = $('#flashlight').val();
+          var tourniquet = $('#tourniquet').val();
+          var utility_bag = $('#utility_bag').val();
+          event.preventDefault();  
+           if($('#name').val() == '') 
+           {  
+                alert("Must Select Name");  
+           }  
+           else if($('#position').val() == '')  
+           {  
+                alert("Must Choose Position: \r\nUse MISC if no relative position");  
+           }  
+           else if($('#radio').val() == '')  
+           {  
+                alert("Radio Required");  
+           }  
+           else  
+           {
+               $.ajax({
+                    url: "insert.php",
+                    type: "POST",
+                    data: {
+                        name: name,
+                        position: position,
+                        radio: radio,
+                        dsm: dsm,
+                        flashlight: flashlight,
+                        tourniquet: tourniquet,
+                        utility_bag: utility_bag				
+                    },
+                    beforeSend:function(){  
+                              $('#insert').val("Inserting");},
+                    success: function(dataResult){
+                         var dataResult = dataResult;
+                         let baseURL = "";
+                         let newURL = baseURL.concat(dataResult);
+                         window.location.replace(newURL);
+
+                         }
+                         
+                    
+               });
+		}
+
+	})
+});
+</script>
