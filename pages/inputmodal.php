@@ -1,69 +1,14 @@
 <?php
-/**
- * includes/load.php
- *
- * @package default
- * @see index.php
- */
-$AllNames = findAllnames();
-$allRadios = findAllRadios();
-$allDSMs = findAllDSMs();
-$allFlashlights = findAllflashlights();
-$allTourniquets = findAllTourniquets();
-$allUtilityBags = findAllUtilityBags();
-$allPositions = findAllPositions();
-$teamStatus = findAllTeamStatus();
-
 ?>
-<div>
-    
-</div>
-<div class="panel-box">
-    <button type="button" class="btn btn-primary btn-lg" id ="add" data-toggle="modal" data-target="#add_data_modal">
-        <span class="glyphicon glyphicon-plus-sign" style="color:#a0a0a0; font-size: 20px; vertical-align: middle; padding: 0px 5% 0px 0px;" aria-hidden="true"></span>
-        <strong>Add Data</strong>
-    </button>
-    <div class="container">
-    <table>
-        <thead>
-            <tr style ="color: #D4D4C9; font-size: 100%; font-family: Arial  ;">
-                <th class="text-center" style="width: 5%;"><strong>Name</strong></th>
-                <th class="text-center" style="width: 5%;"><strong>Position</strong></th>
-                <th class="text-center" style="width: 5%;"><strong>Radio</strong></th>
-                <th class="text-center" style="width: 5%;"><strong>DSM</strong></th>
-                <th class="text-center" style="width: 5%;"><strong>Flashlight</strong></th>
-                <th class="text-center" style="width: 5%;"><strong>Tourniquet</strong></th>
-                <th class="text-center" style="width: 5%;"><strong>Utility Bag</strong></th>
-                <th class="text-center" style="width: 5%;"><strong>Status</strong></th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach($teamStatus as $team):?>
-                <tr style ="color: #D4D4C9; font-size: 100%; background-color:#1E1E1E;">
-                    <td class="text-left"><div class="mobile-only"><strong>Name</strong></div><strong><?php echo $team['membername']; ?></strong></td>
-                    <td><div class="mobile-only"><strong>Position</strong></div><?php echo $team['positionname']; ?></td>
-                    <td><div class="mobile-only"><strong>Radio</strong></div><?php echo $team['radioname']; ?></td>
-                    <td><div class="mobile-only"><strong>DSM</strong></div><?php echo $team['dsmname']; ?></td>
-                    <td><div class="mobile-only"><strong>Flashlight#</strong></div><?php echo $team['flashlightname']; ?></td>
-                    <td><div class="mobile-only"><strong>Tourniquet</strong></div><?php echo $team['tourniquetname']; ?></td>
-                    <td><div class="mobile-only"><strong>Utility Bag</strong></div><?php echo $team['ubname']; ?></td>
-                    <td><div class="mobile-only"><strong>Status</strong></div><?php echo $team['status']; ?></td>
-                </tr>
-            <?php endforeach;?>     
-        </tbody>
-    </table>
-    </div>
-</div>
-
 <div id="add_data_modal" class="modal fade">  
       <div class="modal-dialog">  
            <div class="modal-content">  
                 <div class="modal-header">  
-                     <h3 class="modal-title">Add Equipment Check Out</h4>
+                     <h4 class="modal-title">Add Equipment Check Out</h4>
                 </div>   
                 <div class="modal-body">  
                      <form method="post" id="insert_form">  
-                            <label>Name<input list="name" name="myBrowser" class="form-control" placeholder="Name"/></label>
+                            <label>Name<input list="name" name="myBrowser"class="form-control" placeholder="Name"/></label>
                                 <datalist id="name">
                                 <?php  foreach ($AllNames as $name): ?>
                                         <option value="<?php echo $name['membername']; ?>" >
@@ -147,4 +92,3 @@ $teamStatus = findAllTeamStatus();
            </div>  
       </div>  
  </div>
-

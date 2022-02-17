@@ -71,6 +71,12 @@ function findAllTourniquets(){
 	$result = find_by_sql($sql);
 	return $result;
 }
+function findAllUtilityBags(){
+	global $db;
+	$sql = "SELECT * FROM `ub` WHERE 1";
+	$result = find_by_sql($sql);
+	return $result;
+}
 function findAllPositions(){
 	global $db;
 	$sql = "SELECT * FROM `positions` ORDER by `positionname` ASC";
@@ -79,12 +85,12 @@ function findAllPositions(){
 }
 function findAllTeamStatus(){
 	global $db;
-	$sql = "SELECT s.id,s.nameID,s.positionID,s.radioID,s.dsmID,s.flashlightID,s.checkout,s.checkin,s.status,";
-	$sql .= "s.tourniquetID,m.membername,p.positionname,r.radioname,d.dsmname,t.tourniquetname,f.flashlightname from teamStatus s LEFT JOIN teamMembers m ON ";
+	$sql = "SELECT s.id,s.nameID,s.positionID,s.radioID,s.dsmID,s.flashlightID,s.status,";
+	$sql .= "s.tourniquetID,s.ubID,m.membername,p.positionname,r.radioname,d.dsmname,t.tourniquetname,f.flashlightname,u.ubname from teamStatus s LEFT JOIN teamMembers m ON ";
 	$sql .= "s.nameID=m.id LEFT JOIN positions p on s.positionID = p.id ";
 	$sql .= "LEFT JOIN radio r on s.radioID = r.id LEFT JOIN dsm d on ";
 	$sql .= "s.dsmID =d.id LEFT JOIN flashlights f on s.flashlightID = ";
-	$sql .= "f.id LEFT JOIN tourniquets t ON s.tourniquetID = t.id";
+	$sql .= "f.id LEFT JOIN tourniquets t ON s.tourniquetID = t.id LEFT JOIN ub u on s.ubID = u.id;";
 	$result = find_by_sql($sql);
 	return $result;
 }

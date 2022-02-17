@@ -1,11 +1,4 @@
 <script>
-function getInputValue(){
-  var inputVal = document.getElementById("myInput").value;
-  // alert(inputVal);
-  let baseURL = "http://www.ims.treehuggersystems.com/sales/add_sale_manually.php?id=";
-  let newURL = baseURL.concat(inputVal);
-  window.location.replace(newURL);
-}
 $(document).ready(function() {
 	$('#insert').on('click', function() {
 		var product = $('#product').val();
