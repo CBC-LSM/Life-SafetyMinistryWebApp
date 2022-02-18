@@ -12,8 +12,12 @@ $allFlashlights = findAllflashlights();
 $allTourniquets = findAllTourniquets();
 $allUtilityBags = findAllUtilityBags();
 $allPositions = findAllPositions();
-$teamStatus = findAllTeamStatus();
 
+$date1 = date('Y-m-d')." 00:00:00";
+$date2 = date('Y-m-d')." 23:59:00";
+$teamStatus = findAllTeamStatus($date1,$date2);
+
+$checkouttime   = date('Y-m-d H:i:s');
 ?>
 <div>
     
@@ -23,6 +27,7 @@ $teamStatus = findAllTeamStatus();
         <span class="glyphicon glyphicon-plus-sign" style="color:#a0a0a0; font-size: 30px; vertical-align: middle; padding: 0px 0px 0px 0px;" aria-hidden="true"></span>
         <strong>Add Data</strong>
     </button>
+    <!-- <div style ="color: #D4D4C9;"><?=$checkouttime."<br>"; echo $date1."<br>";echo $date2."<br>";?></div> -->
     <div class="container">
     <table>
         <thead>
@@ -163,6 +168,7 @@ $teamStatus = findAllTeamStatus();
  </div>
 
  <script>
+ 
 $(document).ready(function() {
 	$('#insert').on('click', function() {
 		var name = $('#Name-Choice').val();

@@ -83,14 +83,15 @@ function findAllPositions(){
 	$result = find_by_sql($sql);
 	return $result;
 }
-function findAllTeamStatus(){
+function findAllTeamStatus($date1,$date2){
 	global $db;
-	$sql = "SELECT s.id,s.nameID,s.positionID,s.radioID,s.dsmID,s.flashlightID,s.status,";
+	$sql = "SELECT s.id,s.nameID,s.positionID,s.radioID,s.dsmID,s.flashlightID,s.status,s.checkout,";
 	$sql .= "s.tourniquetID,s.ubID,m.membername,p.positionname,r.radioname,d.dsmname,t.tourniquetname,f.flashlightname,u.ubname from teamStatus s LEFT JOIN teamMembers m ON ";
 	$sql .= "s.nameID=m.id LEFT JOIN positions p on s.positionID = p.id ";
 	$sql .= "LEFT JOIN radio r on s.radioID = r.id LEFT JOIN dsm d on ";
 	$sql .= "s.dsmID =d.id LEFT JOIN flashlights f on s.flashlightID = ";
-	$sql .= "f.id LEFT JOIN tourniquets t ON s.tourniquetID = t.id LEFT JOIN ub u on s.ubID = u.id;";
+	$sql .= "f.id LEFT JOIN tourniquets t ON s.tourniquetID = t.id LEFT JOIN ub u on s.ubID = u.id where s.checkout between '{$date1}' and '{$date2}' ;";
+	// die(print_r($sql));
 	$result = find_by_sql($sql);
 	return $result;
 }
@@ -159,9 +160,9 @@ function findUbID($name){
 	$result = find_by_sql($sql);
 	return $result[0][0];
 }
-function updateStatusIN($id){
+function updateStatusIN($id,$time){
 	global $db;
-	$sql = "UPDATE `teamStatus` SET `status` = 'Checked In' WHERE `teamStatus`.`id` = '{$id}'";
+	$sql = "UPDATE `teamStatus` SET `status` = 'Checked In',`checkin` = '{$time}' WHERE `id` = '{$id}'";
 	$db->query($sql);
 	return ($db->affected_rows() === 1) ? true : false;
 }

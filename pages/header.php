@@ -23,11 +23,13 @@
 	</head>
 	
 	<body>
-	<div class="logo pull-left">
-      <img src="images/LSM_weblogo.png" height="10%" width="30%" style="padding: 10px 3px 0px 3px;"><a href="/"></a>
-	</div>
+	<!-- <div class="logo pull-left"> -->
+    <div class = "mainLogo">
+      <img src="images/LSM_weblogo.png" style="padding: 10px 3px 0px 3px;">
+    </div>
+  <!-- </div> -->
 
-  <div class="header-content">
+  <!-- <div class="header-content">
     <div class="pull-right clearfix">
       <ul class="info-menu list-inline list-unstyled">
         <li class="profile">
@@ -64,7 +66,7 @@
         </li>
       </ul>
     </div>
-  </div>
+  </div> -->
 		<!-- header -->
 
 		<!-- /header -->         

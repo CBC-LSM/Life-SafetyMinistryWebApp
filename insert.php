@@ -46,7 +46,7 @@ $tourniquetID   = findTourniquetID($tourniquet);
 if($tourniquetID){changeStatus($tourniquetID,"tourniquets","Checked Out");}
 $ubID           = findUbID($utility_bag);
 if($ubID){changeStatus($ubID,"ub","Checked Out");}
-$checkouttime   = date("H:i:s Y/m/d");
+$checkouttime   = date('Y-m-d H:i:s ');
 
 //add this new data to the teamStatus table
 
