@@ -22,7 +22,12 @@ $checkouttime   = date('Y-m-d H:i:s');
 <div>
     
 </div>
+
 <div class="panel-box">
+    <!-- <div class="container">
+        Search Here
+        <input type="text" name="search" id="search" placeholder="search here...." class="form-control">  
+    </div> -->
     <button type="button" class="btn btn-primary btn-lg" id ="add" data-toggle="modal" data-target="#add_data_modal" VALIGN=MIDDLE>
         <span class="glyphicon glyphicon-plus-sign" style="color:#a0a0a0; font-size: 30px; vertical-align: middle; padding: 0px 0px 0px 0px;" aria-hidden="true"></span>
         <strong>Add Data</strong>
@@ -80,7 +85,10 @@ $checkouttime   = date('Y-m-d H:i:s');
                      <h3 class="modal-title">Add Equipment Check Out</h4>
                 </div>   
                 <div class="modal-body">  
-                     <form method="post" id="insert_form">  
+                     <form method="post" id="insert_form">
+                            <!-- <label for="Name-Choice">Name</label>
+                            <input type="text" name="search" id="search" placeholder="search here...." class="form-control">   -->
+                            <!-- <br> -->
                             <label for="Name-Choice">Name</label>
                             <input list="names" name="Name-Choice" id= "Name-Choice" class="form-control" placeholder="Name"/>
                                 <datalist id="names">
@@ -167,8 +175,24 @@ $checkouttime   = date('Y-m-d H:i:s');
       </div>  
  </div>
 
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+ <!-- jQuery UI library -->
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
  <script>
- 
+  $( function() {
+    $( "#search" ).autocomplete({
+      source: 'ajax-db-search.php',
+      select: function( event, ui ) {
+            event.preventDefault();
+            $("#search").val(ui.item.id);
+      }
+    });
+  } );
+  </script>
+<script>
 $(document).ready(function() {
 	$('#insert').on('click', function() {
 		var name = $('#Name-Choice').val();
