@@ -43,7 +43,7 @@ function logAction($user_id, $remote_ip, $action) {
 
 function findAllnames(){
 	global $db;
-	$sql = "SELECT `membername` FROM `teamMembers` WHERE 1 ORDER by `membername` ASC";
+	$sql = "SELECT * FROM `teamMembers` WHERE 1 ORDER by `membername` ASC";
 	$result = find_by_sql($sql);
 	return $result;
 }
@@ -127,7 +127,9 @@ function findNameID($name){
 function findPositionID($name){
 	global $db;
 	$sql = "SELECT `id` FROM `positions` WHERE `positionname` ='{$name}'";
+	// die(print_r($sql));
 	$result = find_by_sql($sql);
+	// die(var_dump($result));
 	return $result[0][0];
 }
 function findRadioID($name){
@@ -190,7 +192,16 @@ function findComponentStatusID($id){
 	$result = find_by_sql($sql);
 	return $result;
 }
-
+function editCheckOut($id,$nameID,$position,$radio,$dsm,$flashlight,$tourniquet,$utility_bag,$checkouttime){
+	global $db;
+	$sql = "UPDATE `teamStatus` SET `id`='{$id}',`nameID`='{$nameID}',`positionID`='{$position}',`radioID`='{$radio}',";
+	$sql .= "`dsmID`='{$dsm}',`flashlightID`='{$flashlight}',`tourniquetID`='{$tourniquet}',`ubID`='{$utility_bag}',`status`='Checked Out',";
+	$sql .= "`checkout`='{$checkouttime}' WHERE `id`='{$id}'";
+	// die(print_r($sql));
+	$result = find_by_sql($sql);
+	$db->query($sql);
+	return ($db->affected_rows() === 1) ? true : false;
+}
 ?>
 
 

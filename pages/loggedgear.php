@@ -46,7 +46,6 @@ $checkouttime   = date('Y-m-d H:i:s');
                 <th class="text-center" style="width: 5%;"><strong>Utility Bag</strong></th>
                 <th class="text-center" style="width: 5%;"><strong>Status</strong></th>
                 <th class="text-center" style="width: 5%;"><strong>Modify</strong></th>
-                
             </tr>
         </thead>
         <tbody>
@@ -62,7 +61,14 @@ $checkouttime   = date('Y-m-d H:i:s');
                     <td><div class="mobile-only"><strong>Status</strong></div><?php echo $team['status']; ?></td>
                     <td><div class="mobile-only"></div>
                         <a href="delete.php?id=<?php echo $team['id'];?>"onClick="return confirm('Are you sure you want to delete?')" class="btn btn-danger btn-xs"  
-                        title="Delete Entry" data-toggle="tooltip"><span class="glyphicon glyphicon-remove"></span></a>
+                        title="Delete Entry" data-toggle="tooltip"><span class="glyphicon glyphicon-remove"></span>
+                        </a>
+                        <!-- <a href="#edit_data_modal" class="btn btn-warning btn-xs" title="Edit Entry" data-userid="<?=$team['id'];?>" 
+                        data-toggle="modal"><span class="glyphicon glyphicon-remove"></span>
+                        </a> -->
+                        <button type="button" class="btn btn-warning btn-xs" id ="edit" value = "<?php echo $team['id'];?>" onClick="<?php echo $team['id']?>" 
+                        data-toggle="modal" data-target="#edit_data_modal<?=$team['id'];?>" VALIGN=MIDDLE><span class="glyphicon glyphicon-edit"></button>
+                        <input type="hidden" name="user_id" value="<?php echo (int)$_GET['user_id'] ?>" />
                     <?php if ($team['status']=="Checked Out"):?>
                         <a href="checkin.php?id=<?php echo $team['id'];?>"class="btn btn-warning btn-xs"  
                         title="Check In" data-toggle="tooltip"><span class="glyphicon glyphicon-ok"></span></a>
@@ -71,7 +77,104 @@ $checkouttime   = date('Y-m-d H:i:s');
                         title="Check Out" data-toggle="tooltip"><span class="glyphicon glyphicon-ok"></span></a>
                     <?php endif;?>
                     </td>
-                </tr>
+                        <div id="edit_data_modal<?=$team['id'];?>" class="modal fade"> 
+                            <div class="panel-modal">
+                                <div class="modal-dialog">  
+                                    <div class="modal-content">  
+                                        <div class="modal-header">  
+                                            <h3 class="modal-title">Edit Equipment Check Out</h3>
+                                        </div>   
+                                        <div class="modal-body">  
+                                            <!-- <form method="post" id="edit_form" > -->
+                                            <form method="post" action="edit.php">
+                                                    <label for="Edit-Name-Choice">Name</label>
+                                                    <input list="edit-names" name="Edit-Name-Choice" id= "Edit-Name-Choice" class="form-control" value ="<?=$team['membername'];?> " placeholder="<?=$team['membername'];?>"/>
+                                                        <datalist id="edit-names">
+                                                        <!-- <option value = "<?php echo $name['membername']; ?>"></option> -->
+                                                        <?php  foreach ($AllNames as $name): ?>
+                                                                <option value="<?php echo $name['membername']; ?>" ></option>
+                                                            <?php endforeach; ?>
+                                                        </datalist>
+                                                    <br>
+                                                    <label>Position</label> 
+                                                    <select class="form-control" name="position" id="edit_position">
+                                                        <option value="<?php echo $team['positionID']; ?>"><?=$team['positionname'];?></option>
+                                                            <?php  foreach ($allPositions as $position): ?>
+                                                                <option value="<?php echo $position['positionname']; ?>" >
+                                                                    <?php echo $position['positionname']; ?></option>
+                                                            <?php endforeach; ?>
+                                                    </select>  
+                                                    <br>
+                                                    <label class="text-left">Radio</label> 
+                                                    <select class="form-control" name="radio" id="edit_radio">
+                                                        <option value="<?php echo $team['radioID']; ?>"><?php echo $team['radioname']; ?></option>
+                                                            <?php  foreach ($allRadios as $radio):
+                                                                    if ($radio['status']=="Checked In"):?>
+                                                                        <option value="<?php echo $radio['radioname']; ?>" >
+                                                                        <?php echo $radio['radioname']; ?></option>
+                                                                    <?php else:?>
+                                                                    <?php endif;?>  
+                                                                <?php endforeach; ?>
+                                                    </select>  
+                                                    <br>   
+                                                    <label>DSM</label>  
+                                                    <select class="form-control" name="dsm" id="edit_dsm">
+                                                        <option value="<?php echo $team['dsmID']; ?>"><?php echo $team['dsmname']; ?></option>
+                                                        <?php  foreach ($allDSMs as $DSM):
+                                                                    if ($DSM['status']=="Checked In"):?>
+                                                                        <option value="<?php echo $DSM['dsmname']; ?>" >
+                                                                        <?php echo $DSM['dsmname']; ?></option>
+                                                                    <?php else:?>
+                                                                    <?php endif;?>  
+                                                                <?php endforeach; ?>
+                                                    </select>
+                                                    <br>   
+                                                    <label>Flashlight</label> 
+                                                        <select class ="form-control" name="flashlight" id="edit_flashlight">
+                                                            <option value="<?php echo $team['flashlightID']; ?>"><?php echo $team['flashlightname']; ?></option>
+                                                            <?php  foreach ($allFlashlights as $flashlight):
+                                                                if ($flashlight['status']=="Checked In"):?>
+                                                                    <option value="<?php echo $flashlight['flashlightname']; ?>" >
+                                                                    <?php echo $flashlight['flashlightname']; ?></option>
+                                                                <?php else:?>
+                                                                <?php endif;?>  
+                                                            <?php endforeach; ?>
+                                                        </select>
+                                                    <br>
+                                                    <label>Tourniquet</label> 
+                                                        <select class ="form-control" name="tourniquet" id="edit_tourniquet">
+                                                            <option value="<?php echo $team['tourniquetID']; ?>"><?php echo $team['tourniquetname']; ?></option>
+                                                            <?php  foreach ($allTourniquets as $tourniquet):
+                                                                if ($tourniquet['status']=="Checked In"):?>
+                                                                    <option value="<?php echo $tourniquet['tourniquetname']; ?>" >
+                                                                    <?php echo $tourniquet['tourniquetname']; ?></option>
+                                                                <?php else:?>
+                                                                <?php endif;?>  
+                                                            <?php endforeach; ?>
+                                                        </select>
+                                                    <br>
+                                                    <label>Utility Bag</label> 
+                                                        <select class ="form-control" name="utility_bag" id="edit_utility_bag">
+                                                            <option value="<?php echo $team['ubID']; ?>"><?php echo $team['ubname']; ?></option>
+                                                            <?php  foreach ($allUtilityBags as $bag):
+                                                                if ($bag['status']=="Checked In"):?>
+                                                                    <option value="<?php echo $bag['ubname']; ?>" >
+                                                                    <?php echo $bag['ubname']; ?></option>
+                                                                <?php else:?>
+                                                                <?php endif;?>  
+                                                            <?php endforeach; ?>
+                                                        </select>
+                                                    <br>
+                                                <input type="hidden" name="id" id="id" value="<?=$team['id'];?>" />
+                                                <input type="submit" name="edit_insert" id="edit_insert<?=$team['id'];?>" value="Change" class="btn btn-success" /> 
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>  
+                                            </form> 
+                                        </div>  
+                                    </div>  
+                                </div>  
+                            </div>
+                        </div>
+                    </tr>
             <?php endforeach;?>     
         </tbody>
     </table>
@@ -165,24 +268,22 @@ $checkouttime   = date('Y-m-d H:i:s');
                                     <?php endif;?>  
                                 <?php endforeach; ?>
                             </select>
-                          <br>
-                          <input type="hidden" name="order_id" id="order_id" value="<?=$orderID;?>" />  
+                          <br> 
                           <input type="submit" name="insert" id="insert" value="Submit" class="btn btn-success" /> 
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>  
                      </form> 
                 </div>  
            </div>  
       </div>  
- </div>
+</div>
 
-
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
- <!-- jQuery UI library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- jQuery UI library -->
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
- <script>
-  $( function() {
+<script>
+$( function() {
     $( "#search" ).autocomplete({
       source: 'ajax-db-search.php',
       select: function( event, ui ) {
@@ -191,7 +292,7 @@ $checkouttime   = date('Y-m-d H:i:s');
       }
     });
   } );
-  </script>
+</script>
 <script>
 $(document).ready(function() {
 	$('#insert').on('click', function() {
@@ -203,20 +304,10 @@ $(document).ready(function() {
           var tourniquet = $('#tourniquet').val();
           var utility_bag = $('#utility_bag').val();
           event.preventDefault();  
-           if($('#name').val() == '') 
-           {  
-                alert("Must Select Name");  
-           }  
-           else if($('#position').val() == '')  
-           {  
-                alert("Must Choose Position: \r\nUse MISC if no relative position");  
-           }  
-           else if($('#radio').val() == '')  
-           {  
-                alert("Radio Required");  
-           }  
-           else  
-           {
+           if($('#name').val() == ''){alert("Must Select Name");  }  
+           else if($('#position').val() == ''){alert("Must Choose Position: \r\nUse MISC if no relative position");}  
+           else if($('#radio').val() == ''){alert("Radio Required");}  
+           else{
                $.ajax({
                     url: "insert.php",
                     type: "POST",
@@ -236,13 +327,43 @@ $(document).ready(function() {
                          let baseURL = "";
                          let newURL = baseURL.concat(dataResult);
                          window.location.replace(newURL);
-
                          }
-                         
-                    
                });
 		}
-
 	})
+});
+$(document).ready(function() {
+	$('#edit_insert').on('click', function() {
+        var status_id = 11;
+		var name = $('#Edit-Name-id').val();
+		var position = $('#edit_position').val();
+		var radio = $('#edit_radio').val();
+        var dsm = $('#edit_dsm').val();
+		var flashlight = $('#edit_flashlight').val();
+        var tourniquet = $('#edit_tourniquet').val();
+        var utility_bag = $('#edit_utility_bag').val();
+        $.ajax({
+                    url: "edit.php",
+                    type: "POST",
+                    data: {
+                        id: status_id,
+                        name: name,
+                        position: position,
+                        radio: radio,
+                        dsm: dsm,
+                        flashlight: flashlight,
+                        tourniquet: tourniquet,
+                        utility_bag: utility_bag				
+                    },
+                    // beforeSend:function(){  
+                    //           $('#edit_insert<?=$team['id'];?>').val("Changing");},
+                    // success: function(dataResult){
+                    //      var dataResult = dataResult;
+                    //      let baseURL = "";
+                    //      let newURL = baseURL.concat(dataResult);
+                    //      window.location.replace(newURL);
+                    //      }
+               });
+		})
 });
 </script>
