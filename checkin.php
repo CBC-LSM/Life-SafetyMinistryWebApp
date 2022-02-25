@@ -4,7 +4,7 @@ require 'database/load.php';
 
 $id = $_GET['id'];
 // echo $id;
-// $checkintime   = date('Y-m-d H:i:s');
+$checkintime   = date('Y-m-d H:i:s');
 $checkINstatus = updateStatusIN($id,$checkintime);
 // echo "check in status: ".$checkINstatus."<br>";
 
