@@ -21,6 +21,13 @@ $allPositions = findAllPositions();
 $date1 = date('Y-m-d')." 00:00:00";
 $date2 = date('Y-m-d')." 23:59:00";
 $teamStatus = findAllTeamStatus($date1,$date2);
+$allcheckouts = findallwithoutdate();
+foreach($allcheckouts as $checkout){
+    if ($checkout['status']=="Checked Out" && $checkout['checkout']<=$date1){
+        $checkintime   = date('Y-m-d H:i:s');
+        checkIn($checkout['id'],$checkintime);
+    }
+}
 
 $checkouttime   = date('Y-m-d H:i:s');
 
