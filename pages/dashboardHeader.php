@@ -26,7 +26,7 @@
 	<body>
 	<!-- <div class="logo pull-left"> -->
     <div class = "dashboardLogo">
-      <img src="images/LSM_weblogo.png" style="padding: 10px 3px 0px 3px;">
+      <img src="images/LSM_weblogo.png" style="padding: 2%;">
     </div>
   <!-- </div> -->
 

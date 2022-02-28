@@ -60,9 +60,9 @@ $checkouttime   = date('Y-m-d H:i:s');
                     <td><div class="mobile-only"><strong>Utility Bag</strong></div><?php echo $team['ubname']; ?></td>
                     <td><div class="mobile-only"><strong>Status</strong></div><?php echo $team['status']; ?></td>
                     <td><div class="mobile-only"></div>
-                        <a href="delete.php?id=<?php echo $team['id'];?>"onClick="return confirm('Are you sure you want to delete?')" class="btn btn-danger btn-xs"  
+                        <!-- <a href="delete.php?id=<?php echo $team['id'];?>"onClick="return confirm('Are you sure you want to delete?')" class="btn btn-danger btn-xs"  
                         title="Delete Entry" data-toggle="tooltip"><span class="glyphicon glyphicon-remove"></span>
-                        </a>
+                        </a> -->
                         <!-- <a href="#edit_data_modal" class="btn btn-warning btn-xs" title="Edit Entry" data-userid="<?=$team['id'];?>" 
                         data-toggle="modal"><span class="glyphicon glyphicon-remove"></span>
                         </a> -->
@@ -108,60 +108,45 @@ $checkouttime   = date('Y-m-d H:i:s');
                                                     <label class="text-left">Radio</label> 
                                                     <select class="form-control" name="radio" id="edit_radio">
                                                         <option value="<?php echo $team['radioID']; ?>"><?php echo $team['radioname']; ?></option>
-                                                            <?php  foreach ($allRadios as $radio):
-                                                                    if ($radio['status']=="Checked In"):?>
+                                                            <?php  foreach ($allRadios as $radio):?>
                                                                         <option value="<?php echo $radio['radioname']; ?>" >
                                                                         <?php echo $radio['radioname']; ?></option>
-                                                                    <?php else:?>
-                                                                    <?php endif;?>  
                                                                 <?php endforeach; ?>
                                                     </select>  
                                                     <br>   
                                                     <label>DSM</label>  
                                                     <select class="form-control" name="dsm" id="edit_dsm">
                                                         <option value="<?php echo $team['dsmID']; ?>"><?php echo $team['dsmname']; ?></option>
-                                                        <?php  foreach ($allDSMs as $DSM):
-                                                                    if ($DSM['status']=="Checked In"):?>
+                                                        <?php  foreach ($allDSMs as $DSM):?>
                                                                         <option value="<?php echo $DSM['dsmname']; ?>" >
                                                                         <?php echo $DSM['dsmname']; ?></option>
-                                                                    <?php else:?>
-                                                                    <?php endif;?>  
                                                                 <?php endforeach; ?>
                                                     </select>
                                                     <br>   
                                                     <label>Flashlight</label> 
                                                         <select class ="form-control" name="flashlight" id="edit_flashlight">
                                                             <option value="<?php echo $team['flashlightID']; ?>"><?php echo $team['flashlightname']; ?></option>
-                                                            <?php  foreach ($allFlashlights as $flashlight):
-                                                                if ($flashlight['status']=="Checked In"):?>
+                                                            <?php  foreach ($allFlashlights as $flashlight):?>
                                                                     <option value="<?php echo $flashlight['flashlightname']; ?>" >
                                                                     <?php echo $flashlight['flashlightname']; ?></option>
-                                                                <?php else:?>
-                                                                <?php endif;?>  
                                                             <?php endforeach; ?>
                                                         </select>
                                                     <br>
                                                     <label>Tourniquet</label> 
                                                         <select class ="form-control" name="tourniquet" id="edit_tourniquet">
                                                             <option value="<?php echo $team['tourniquetID']; ?>"><?php echo $team['tourniquetname']; ?></option>
-                                                            <?php  foreach ($allTourniquets as $tourniquet):
-                                                                if ($tourniquet['status']=="Checked In"):?>
+                                                            <?php  foreach ($allTourniquets as $tourniquet):?>
                                                                     <option value="<?php echo $tourniquet['tourniquetname']; ?>" >
                                                                     <?php echo $tourniquet['tourniquetname']; ?></option>
-                                                                <?php else:?>
-                                                                <?php endif;?>  
                                                             <?php endforeach; ?>
                                                         </select>
                                                     <br>
                                                     <label>Utility Bag</label> 
                                                         <select class ="form-control" name="utility_bag" id="edit_utility_bag">
                                                             <option value="<?php echo $team['ubID']; ?>"><?php echo $team['ubname']; ?></option>
-                                                            <?php  foreach ($allUtilityBags as $bag):
-                                                                if ($bag['status']=="Checked In"):?>
+                                                            <?php  foreach ($allUtilityBags as $bag):?>
                                                                     <option value="<?php echo $bag['ubname']; ?>" >
                                                                     <?php echo $bag['ubname']; ?></option>
-                                                                <?php else:?>
-                                                                <?php endif;?>  
                                                             <?php endforeach; ?>
                                                         </select>
                                                     <br>

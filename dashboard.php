@@ -52,14 +52,14 @@ $checkouttime   = date('Y-m-d H:i:s');
         <tbody>
             <?php foreach($teamStatus as $team):?>
                 <tr style ="color: #D4D4C9; background-color:#1E1E1E;">
-                    <td class="text-left"><strong><h3><?php echo $team['membername']; ?></h3></strong></td>
-                    <td><h3><?php echo $team['positionname']; ?></h3></td>
-                    <td><h3><?php echo $team['radioname']; ?></h3></td>
-                    <td><h3><?php echo $team['dsmname']; ?></h3></td>
-                    <td><h3><?php echo $team['flashlightname']; ?></h3></td>
-                    <td><h3><?php echo $team['tourniquetname']; ?></h3></td>
-                    <td><h3><?php echo $team['ubname']; ?></h3></td>
-                    <td><h3><?php echo $team['status']; ?></h3></td>
+                    <td class="text-left"><strong><p><?php echo $team['membername']; ?></p></strong></td>
+                    <td><p><?php echo $team['positionname']; ?></p></td>
+                    <td><p><?php echo $team['radioname']; ?></p></td>
+                    <td><p><?php echo $team['dsmname']; ?></p></td>
+                    <td><p><?php echo $team['flashlightname']; ?></p></td>
+                    <td><p><?php echo $team['tourniquetname']; ?></p></td>
+                    <td><p><?php echo $team['ubname']; ?></p></td>
+                    <td><p><?php echo $team['status']; ?></p></td>
                 </tr>
             <?php endforeach;?>     
         </tbody>

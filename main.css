@@ -82,8 +82,8 @@ td, th {
 }
 .dashboard-box{
   width: 100%;
-  height: 100%;
-  padding: 5% 5% 5% 5%;
+  height: 75%;
+  padding: 2%;
   text-align: center;
   border: none;
 }h2{
