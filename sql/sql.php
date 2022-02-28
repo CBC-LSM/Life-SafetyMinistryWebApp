@@ -214,7 +214,20 @@ function editCheckOut($id,$nameID,$position,$radio,$dsm,$flashlight,$tourniquet,
 	$db->query($sql);
 	return ($db->affected_rows() === 1) ? true : false;
 }
-
+function doorstatuschange($id,$status,$time){
+	global $db;
+	$sql = "UPDATE `doors` SET `status` = '{$status}', `timestamp`='{$time}' WHERE `id` = '{$id}'";
+	$db->query($sql);
+	return ($db->affected_rows() === 1) ? true : false;
+}
+function findDoorsAll(){
+	global $db;
+	$sql = "SELECT * FROM `doors`";
+	// echo $sql;
+	// die();
+	$results = find_by_sql($sql);
+	return $results;
+}
 ?>
 
 

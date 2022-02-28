@@ -14,7 +14,8 @@ include 'pages/header.php';
 ?>
 <body style="background-color:#1E1E1E"></body>
 
-<?php include 'pages/loggedgear.php';?>
+<?php include 'pages/main.php';?>
+<?php include 'doorstatus.php';?>
 
 <!-- This is where I need to include a table page to show -->
 

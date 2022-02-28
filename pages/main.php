@@ -28,6 +28,10 @@ $checkouttime   = date('Y-m-d H:i:s');
         Search Here
         <input type="text" name="search" id="search" placeholder="search here...." class="form-control">  
     </div> -->
+    <button type="button" class="btn btn-primary btn-lg" VALIGN=MIDDLE>
+        <span class="glyphicon glyphicon-road" style="color:#a0a0a0; font-size: 30px; vertical-align: middle; padding: 0px 0px 0px 0px;" aria-hidden="true"></span>
+        <strong>Door Status</strong>
+    </button>
     <button type="button" class="btn btn-primary btn-lg" id ="add" data-toggle="modal" data-target="#add_data_modal" VALIGN=MIDDLE>
         <span class="glyphicon glyphicon-plus-sign" style="color:#a0a0a0; font-size: 30px; vertical-align: middle; padding: 0px 0px 0px 0px;" aria-hidden="true"></span>
         <strong>Add Data</strong>
