@@ -24,12 +24,24 @@
 	</head>
 	
 	<body>
-	<!-- <div class="logo pull-left"> -->
-    <div class = "mainLogo">
-      <img src="images/LSM_weblogo.png" style="padding: 10px 3px 0px 3px;">
-    </div>
-  <!-- </div> -->
-
+  <div class="MainContainer">
+    <table class="header_table">
+      <tbody>
+      <tr>
+        <td></td>
+        <td><img src="images/LSM_weblogo.png" width="20%" height="15%"alt=""/></td>
+        <td></td>
+      </tr>
+      </tbody>
+    </table>
+    <header>
+    <nav class="secondary_header">
+        <ul>
+          <li><a href="/" target="_self">Gear Input</a></li>
+          <li><a href="rover.php" target="_self">Rover</a></li>
+        </ul>
+      </nav>
+    </header>
   <!-- <div class="header-content">
     <div class="pull-right clearfix">
       <ul class="info-menu list-inline list-unstyled">
