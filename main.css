@@ -1,4 +1,9 @@
 @charset "UTF-8";
+.tableContainer {
+  width: 75%;
+  margin: 0 auto;
+  padding-top: 25px;
+}
 .MainContainer {
   width: 100%;
   margin: 0 auto;

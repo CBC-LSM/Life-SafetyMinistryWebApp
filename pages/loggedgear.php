@@ -33,7 +33,7 @@ $checkouttime   = date('Y-m-d H:i:s');
         <strong>Add Data</strong>
     </button>
     <!-- <div style ="color: #D4D4C9;"><?=$checkouttime."<br>"; echo $date1."<br>";echo $date2."<br>";?></div> -->
-    <div class="container">
+    <div class="tableContainer">
     <table>
         <thead>
             <tr style ="color: #D4D4C9; font-size: 100%; font-family: Arial  ;">
