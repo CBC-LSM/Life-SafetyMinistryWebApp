@@ -60,9 +60,9 @@ $checkouttime   = date('Y-m-d H:i:s');
                     <td><div class="mobile-only"><strong>Utility Bag</strong></div><?php echo $team['ubname']; ?></td>
                     <td><div class="mobile-only"><strong>Status</strong></div><?php echo $team['status']; ?></td>
                     <td><div class="mobile-only"></div>
-                        <!-- <a href="delete.php?id=<?php echo $team['id'];?>"onClick="return confirm('Are you sure you want to delete?')" class="btn btn-danger btn-xs"  
+                        <a href="delete.php?id=<?php echo $team['id'];?>"onClick="return confirm('Are you sure you want to delete?')" class="btn btn-danger btn-xs"  
                         title="Delete Entry" data-toggle="tooltip"><span class="glyphicon glyphicon-remove"></span>
-                        </a> -->
+                        </a>
                         <!-- <a href="#edit_data_modal" class="btn btn-warning btn-xs" title="Edit Entry" data-userid="<?=$team['id'];?>" 
                         data-toggle="modal"><span class="glyphicon glyphicon-remove"></span>
                         </a> -->
@@ -174,6 +174,7 @@ $checkouttime   = date('Y-m-d H:i:s');
                 </div>   
                 <div class="modal-body">  
                      <form method="post" id="insert_form">
+                            <div class="test_modal_body">
                             <!-- <label for="Name-Choice">Name</label>
                             <input type="text" name="search" id="search" placeholder="search here...." class="form-control">   -->
                             <!-- <br> -->
@@ -255,7 +256,8 @@ $checkouttime   = date('Y-m-d H:i:s');
                             </select>
                           <br> 
                           <input type="submit" name="insert" id="insert" value="Submit" class="btn btn-success" /> 
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>  
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> 
+                          </div> 
                      </form> 
                 </div>  
            </div>  

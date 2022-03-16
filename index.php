@@ -7,7 +7,7 @@
  */
 
 
-$pageName = "CBC Gearpage";
+$pageName = "Sandbox CBC Gearpage";
 require_once 'database/load.php';
 include 'pages/header.php';
 
@@ -15,9 +15,6 @@ include 'pages/header.php';
 <body style="background-color:#1E1E1E"></body>
 
 <?php include 'pages/loggedgear.php';?>
-
-<!-- This is where I need to include a table page to show -->
-
 
 
 <?php include 'pages/footer.php';?>

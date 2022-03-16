@@ -29,58 +29,17 @@
       <tbody>
       <tr>
         <td></td>
-        <td><img src="images/LSM_weblogo.png" width="20%" height="15%"alt=""/></td>
-        <td></td>
+        <td><img src="images/LSM_weblogo.png" alt=""/></td>
+        <td>
+        <div class="dropdown">
+          <button class="dropbtn"><span class="glyphicon glyphicon-menu-hamburger"></span></button>
+          <div class="dropdown-content">
+            <a href="/" target="_self">Home</a>
+            <a href="/rover.php" target="_self">Rover Checklist</a>
+            <!-- <a href="/">Link 3</a> -->
+          </div>
+        </div>
+        </td>
       </tr>
       </tbody>
     </table>
-    <header>
-    <nav class="secondary_header">
-        <ul>
-          <li><a href="/" target="_self">Gear Input</a></li>
-          <li><a href="rover.php" target="_self">Rover</a></li>
-        </ul>
-      </nav>
-    </header>
-  <!-- <div class="header-content">
-    <div class="pull-right clearfix">
-      <ul class="info-menu list-inline list-unstyled">
-        <li class="profile">
-          <a href="#" data-toggle="dropdown" class="toggle" aria-expanded="false">
-            <img src="images/cbcfavicon.PNG" alt="user-image" class="img-circle img-inline"> 
-            <span>Tyler Moore<i class="caret"></i></span>
-          </a>
-          <ul class="dropdown-menu">
-            <li>
-              <a href="">
-                <i class="glyphicon glyphicon-user"></i>
-                  Profile
-              </a>
-            </li>
-            <li>
-              <a href="">
-                <i class="glyphicon glyphicon-cog"></i>
-                  Dashboard
-              </a>
-            </li>
-            <li>
-              <a href="">
-                <i class="glyphicon glyphicon-cog"></i>
-                  Dashboard
-              </a>
-            </li>
-            <li class="last">
-              <a href="">
-                <i class="glyphicon glyphicon-off"></i>
-                  Logout
-              </a>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-  </div> -->
-		<!-- header -->
-
-		<!-- /header -->         
-<!-- </body> -->

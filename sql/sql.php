@@ -214,7 +214,12 @@ function editCheckOut($id,$nameID,$position,$radio,$dsm,$flashlight,$tourniquet,
 	$db->query($sql);
 	return ($db->affected_rows() === 1) ? true : false;
 }
-
+function roverchecklist(){
+	global $db;
+	$sql = "SELECT * FROM `roverchecklist` WHERE 1";
+	$result = find_by_sql($sql);
+	return $result;
+}
 ?>
 
 
