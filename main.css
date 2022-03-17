@@ -39,6 +39,9 @@
   
   margin: 0 auto;
   text-align:center;
+}.rover-text-left{
+  text-align: left;
+  word-wrap: break-word;
 }
 .secondary_header ul li {
     list-style: none;
@@ -121,6 +124,28 @@
 
 .dropdown:hover .dropbtn {background-color: #414141;}
 
+#rover_checklist {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#rover_checklist td, #rover_checklist th {
+  border: 1px solid #414141;
+  padding: 8px;
+}
+
+/* #rover_checklist tr:nth-child(even){background-color: #f2f2f2;} */
+
+/* #rover_checklist tr:hover {background-color: #ddd;} */
+
+#rover_checklist th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  color: white;
+}
+
 @media screen and (max-width: 420px) {
   thead {
       display: none;
@@ -130,7 +155,7 @@
   }
   td {
       display: inline-block;
-      width: 32%;
+      width: 33%;
       margin-bottom: 10px;
       padding: 15px 0;
       text-align: left;
@@ -162,6 +187,17 @@
     text-align: right;
     padding:10%;
   }
+  .rover_container{
+    width:100%;
+    margin: auto;
+    text-align:center;
+    padding-top: 25px;
+  }.rover_container table{
+    
+    margin: 0 auto;
+    text-align:center;
+  }
+
   .dropbtn {
     background-color: #414141;
     border-radius: 10%;

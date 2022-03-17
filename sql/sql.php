@@ -220,6 +220,12 @@ function roverchecklist(){
 	$result = find_by_sql($sql);
 	return $result;
 }
+function roverComplete($id,$table,$status,$date){
+	global $db;
+	$sql = "UPDATE `{$table}` SET `status` = '{$status}',`timestamp`='{$date}' WHERE `id` = '{$id}'";
+	$db->query($sql);
+	return ($db->affected_rows() === 1) ? true : false;
+}
 ?>
 
 
