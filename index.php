@@ -7,7 +7,7 @@
  */
 
 
-$pageName = "Sandbox CBC Gearpage";
+$pageName = "CBC Gearpage";
 require_once 'database/load.php';
 include 'pages/header.php';
 
