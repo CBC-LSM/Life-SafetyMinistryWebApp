@@ -60,9 +60,9 @@ $checkouttime   = date('Y-m-d H:i:s');
                     <td><div class="mobile-only"><strong>Utility Bag</strong></div><?php echo $team['ubname']; ?></td>
                     <td><div class="mobile-only"><strong>Status</strong></div><?php echo $team['status']; ?></td>
                     <td><div class="mobile-only"></div>
-                        <a href="delete.php?id=<?php echo $team['id'];?>"onClick="return confirm('Are you sure you want to delete?')" class="btn btn-danger btn-xs"  
+                        <!-- <a href="delete.php?id=<?php echo $team['id'];?>"onClick="return confirm('Are you sure you want to delete?')" class="btn btn-danger btn-xs"  
                         title="Delete Entry" data-toggle="tooltip"><span class="glyphicon glyphicon-remove"></span>
-                        </a>
+                        </a> -->
                         <!-- <a href="#edit_data_modal" class="btn btn-warning btn-xs" title="Edit Entry" data-userid="<?=$team['id'];?>" 
                         data-toggle="modal"><span class="glyphicon glyphicon-remove"></span>
                         </a> -->
