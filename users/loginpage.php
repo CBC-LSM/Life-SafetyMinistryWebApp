@@ -5,11 +5,11 @@
  * @package default
  */
 // spaces before html can cause some servers to error.
-ob_start();
-require_once '../includes/load.php';
-if ($session->isUserLoggedIn()) { redirect('../users/home.php', false);}
+// ob_start();
+// require_once '../includes/load.php';
+// if ($session->isUserLoggedIn()) { redirect('../users/home.php', false);}
 ?>
-<?php include_once '../layouts/header.php'; ?>
+<?php include_once '/pages/header.php'; ?>
 <div class="login-page">
     <div class="text-center">
        <h1>Welcome</h1>

@@ -6,10 +6,17 @@
  * @see index.php
  */
 
-require_once 'database/config.php';
-require_once 'sql/functions.php';
-require_once 'database/database.php';
-require_once 'sql/sql.php';
+define("URL_SEPARATOR", '/');
+define("DS", DIRECTORY_SEPARATOR);
+defined('SITE_ROOT')? null: define('SITE_ROOT', realpath(dirname(__FILE__)));
+define("LIB_PATH_INC", SITE_ROOT.DS);
+
+
+require_once LIB_PATH_INC.'config.php';
+require_once LIB_PATH_INC.'../sql/functions.php';
+require_once LIB_PATH_INC.'session.php';
+require_once LIB_PATH_INC.'database.php';
+require_once LIB_PATH_INC.'../sql/sql.php';
 date_default_timezone_set('America/New_York');
 
 

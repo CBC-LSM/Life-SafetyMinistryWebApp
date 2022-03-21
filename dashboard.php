@@ -1,10 +1,6 @@
 <?php
-/**
- * includes/load.php
- *
- * @package default
- * @see index.php
- */
+
+
 $pageName = "Dashboard";
 require_once 'database/load.php';
 include 'pages/dashboardHeader.php';

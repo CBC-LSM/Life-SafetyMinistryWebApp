@@ -5,7 +5,7 @@
  * @package default
  */
 
-include 'database/load.php';
+include '../database/load.php';
 
 $name = $_POST['name'];
 $position =$_POST['position'];

@@ -1,6 +1,6 @@
 <?php 
 
-require 'database/load.php';
+require '../database/load.php';
 
 $id = $_GET['id'];
 // echo $id;

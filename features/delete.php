@@ -1,6 +1,6 @@
 <?php 
 
-require 'database/load.php';
+require '../database/load.php';
 
 $id = $_GET['id'];
 //get all equipment ID's from status table
@@ -33,5 +33,5 @@ $deleteStatus = deleteEntry($id);
 if (!$deleteStatus){
     echo "Error....";
 }else{
-    redirect('index.php', false);
+    redirect('/', false);
 }

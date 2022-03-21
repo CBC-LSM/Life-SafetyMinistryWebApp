@@ -8,8 +8,8 @@
 
 
 $pageName = "Rover Checklist";
-require_once 'database/load.php';
-include 'pages/header.php';
+require_once '../database/load.php';
+include '../pages/header.php';
 $roverchecklist = roverchecklist();
 
 ?>
@@ -30,10 +30,10 @@ $roverchecklist = roverchecklist();
                     <td><div class="mobile-only"><strong>Status</strong></div><?php echo $checklist['status']; ?></td>
                     <td><div class="mobile-only"></div>
                     <?php if ($checklist['status']!="Completed"):?>
-                        <a href="complete.php?id=<?php echo $checklist['id'];?>"class="btn btn-warning btn-xs"  
+                        <a href="../features/complete.php?id=<?php echo $checklist['id'];?>"class="btn btn-warning btn-xs"  
                         title="Check In" data-toggle="tooltip"><span class="glyphicon glyphicon-ok"></span></a>
                     <?php else:?>
-                        <a href="resetItem.php?id=<?php echo $checklist['id'];?>"class="btn btn-success btn-xs"  
+                        <a href="../features/resetItem.php?id=<?php echo $checklist['id'];?>"class="btn btn-success btn-xs"  
                         title="Check Out" data-toggle="tooltip"><span class="glyphicon glyphicon-ok"></span></a>
                     <?php endif;?>
                     </td>

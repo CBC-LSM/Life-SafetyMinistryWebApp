@@ -60,9 +60,9 @@ $checkouttime   = date('Y-m-d H:i:s');
                     <td><div class="mobile-only"><strong>Utility Bag</strong></div><?php echo $team['ubname']; ?></td>
                     <td><div class="mobile-only"><strong>Status</strong></div><?php echo $team['status']; ?></td>
                     <td><div class="mobile-only"></div>
-                        <!-- <a href="delete.php?id=<?php echo $team['id'];?>"onClick="return confirm('Are you sure you want to delete?')" class="btn btn-danger btn-xs"  
+                        <a href="/features/delete.php?id=<?php echo $team['id'];?>"onClick="return confirm('Are you sure you want to delete?')" class="btn btn-danger btn-xs"  
                         title="Delete Entry" data-toggle="tooltip"><span class="glyphicon glyphicon-remove"></span>
-                        </a> -->
+                        </a>
                         <!-- <a href="#edit_data_modal" class="btn btn-warning btn-xs" title="Edit Entry" data-userid="<?=$team['id'];?>" 
                         data-toggle="modal"><span class="glyphicon glyphicon-remove"></span>
                         </a> -->
@@ -86,7 +86,7 @@ $checkouttime   = date('Y-m-d H:i:s');
                                         </div>   
                                         <div class="modal-body">  
                                             <!-- <form method="post" id="edit_form" > -->
-                                            <form method="post" action="edit.php">
+                                            <form method="post" action="../features/edit.php">
                                                     <label for="Edit-Name-Choice">Name</label>
                                                     <input list="edit-names" name="Edit-Name-Choice" id= "Edit-Name-Choice" class="form-control" value ="<?=$team['membername'];?> " placeholder="<?=$team['membername'];?>"/>
                                                         <datalist id="edit-names">
@@ -296,7 +296,7 @@ $(document).ready(function() {
            else if($('#radio').val() == ''){alert("Radio Required");}  
            else{
                $.ajax({
-                    url: "insert.php",
+                    url: "../features/insert.php",
                     type: "POST",
                     data: {
                         name: name,
@@ -330,7 +330,7 @@ $(document).ready(function() {
         var tourniquet = $('#edit_tourniquet').val();
         var utility_bag = $('#edit_utility_bag').val();
         $.ajax({
-                    url: "edit.php",
+                    url: "../features/edit.php",
                     type: "POST",
                     data: {
                         id: status_id,

@@ -5,7 +5,7 @@
  * @package default
  */
 
-include 'database/load.php';
+include '../database/load.php';
 
 $id = $_POST['id'];
 
@@ -66,5 +66,5 @@ if($utility_bag){changeStatus($utility_bag,"ub","Checked Out");}
 
 // echo "Updated Status: ".$updated."<br>";
 
-redirect('index.php', false);
+redirect('/', false);
 //items are updating. now need to write in the logic for checking out the "new" items. Also, need to re-direct back to home page after completed.

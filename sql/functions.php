@@ -12,6 +12,34 @@ function getTime()
 {
  return array_sum(explode(" ",microtime()));  
 }
+/**
+ *
+ * @param unknown $str
+ * @return unknown
+ */
+function remove_junk($str) {
+	$str = nl2br($str);
+	$str = trim($str);
+	$str = stripslashes($str);
+	$str = htmlspecialchars(strip_tags($str, ENT_QUOTES));
+	return $str;
+}
+
+/**
+ *
+ * @param unknown $var
+ * @return unknown
+ */
+function validate_fields($var) {
+	global $errors;
+	foreach ($var as $field) {
+		$val = remove_junk($_POST[$field]);
+		if (isset($val) && $val=='') {
+			$errors = $field ." can't be blank.";
+			return $errors;
+		}
+	}
+}
 
 function checkIn($id,$time){
 	$checkINstatus = updateStatusIN($id,$time);
