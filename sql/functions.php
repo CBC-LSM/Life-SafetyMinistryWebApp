@@ -24,7 +24,28 @@ function remove_junk($str) {
 	$str = htmlspecialchars(strip_tags($str, ENT_QUOTES));
 	return $str;
 }
-
+function first_character($str) {
+	$val = str_replace('-', " ", $str);
+	$val = ucfirst($val);
+	return $val;
+}
+function make_date() {
+	return strftime("%Y-%m-%d %H:%M:%S", time());
+}
+function display_msg($msg ='') {
+	$output = array();
+	if (!empty($msg)) {
+		foreach ($msg as $key => $value) {
+			$output  = "<div class=\"alert alert-{$key}\">";
+			$output .= "<a href=\"#\" class=\"close\" data-dismiss=\"alert\">&times;</a>";
+			$output .= remove_junk(first_character($value));
+			$output .= "</div>";
+		}
+		return $output;
+	} else {
+		return "" ;
+	}
+}
 /**
  *
  * @param unknown $var
@@ -40,6 +61,7 @@ function validate_fields($var) {
 		}
 	}
 }
+
 
 function checkIn($id,$time){
 	$checkINstatus = updateStatusIN($id,$time);
@@ -60,7 +82,7 @@ function checkIn($id,$time){
 	if (!$checkINstatus){
 		echo "Error....";
 	}else{
-		redirect('index.php', false);
+		redirect('/', false);
 	}
 	
 }
@@ -85,7 +107,7 @@ function checkOut($id){
 	if (!$checkOUTstatus){
 		echo "Error....";
 	}else{
-		redirect('index.php', false);
+		redirect('/', false);
 	}
 
 }

@@ -39,6 +39,13 @@ class Session {
 	public function login($user_id) {
 		$_SESSION['user_id'] = $user_id;
 	}
+	public function userName($username) {
+		$_SESSION['username'] = $username;
+	}
+	public function userLevel($userLevel) {
+		$_SESSION['userLevel'] = $userLevel;
+	}
+	
 
 
 	/**
@@ -59,6 +66,8 @@ class Session {
 	 */
 	public function logout() {
 		unset($_SESSION['user_id']);
+		unset($_SESSION['username']);
+		unset($_SESSION['userLevel']);
 	}
 
 

@@ -19,6 +19,17 @@ function find_all($table) {
 		return find_by_sql("SELECT * FROM ".$db->escape($table));
 	}
 }
+function find_all_user() {
+	global $db;
+	$results = array();
+	$sql = "SELECT u.id,u.name,u.username,u.user_level,u.status,u.last_login,";
+	$sql .="g.group_name ";
+	$sql .="FROM users u ";
+	$sql .="LEFT JOIN user_groups g ";
+	$sql .="ON g.group_level=u.user_level ORDER BY u.name ASC";
+	$results = find_by_sql($sql);
+	return $results;
+}
 
 /**
  *
@@ -30,6 +41,50 @@ function find_by_sql($sql) {
 	$result = $db->query($sql);
 	$result_set = $db->while_loop($result);
 	return $result_set;
+}
+function tableExists($table) {
+	global $db;
+	$table_exit = $db->query('SHOW TABLES FROM '.DB_NAME.' LIKE "'.$db->escape($table).'"');
+	if ($table_exit) {
+		if ($db->num_rows($table_exit) > 0)
+			return true;
+		else
+			return false;
+	}
+}
+function updateLastLogIn($user_id) {
+	global $db;
+	$date = make_date();
+	$sql = "UPDATE users SET last_login='{$date}' WHERE id ='{$user_id}' LIMIT 1";
+	$result = $db->query($sql);
+	return $result && $db->affected_rows() === 1 ? true : false;
+}
+function authenticate($username='', $password='') {
+	global $db;
+	$username = $db->escape($username);
+	$password = $db->escape($password);
+	$sql  = sprintf("SELECT id,username,password,user_level FROM users WHERE username ='%s' LIMIT 1", $username);
+	$result = $db->query($sql);
+	if ($db->num_rows($result)) {
+		$user = $db->fetch_assoc($result);
+		$password_request = sha1($password);
+		if ($password_request === $user['password'] ) {
+			return $user['id'];
+		}
+	}
+	return false;
+}
+function userNameReturn($user_id){
+	global $db;
+	$sql = "SELECT `name` FROM users where `id`={$user_id}";
+	$result = find_by_sql($sql);
+	return $result[0][0];
+}
+function userLevelReturn($user_id){
+	global $db;
+	$sql = "SELECT `user_level` FROM users where `id`={$user_id}";
+	$result = find_by_sql($sql);
+	return $result[0][0];
 }
 
 function logAction($user_id, $remote_ip, $action) {

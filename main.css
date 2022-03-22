@@ -11,6 +11,10 @@
 }.login-page .text-center{
   margin-bottom: 10px;
   word-wrap: break-word;
+}.message-text-center{
+  width:25%;
+  text-align: center;
+  margin: 0 auto;
 }
 .tableContainer {
   width: 75%;
@@ -30,6 +34,8 @@
   display: table;
 }.header_table td{
   width:33%;
+  color: white;
+  font-size: 20px;
   /* border: 1px solid white; */
 }.header_table img{
   padding:10px 10px 10px 10px;

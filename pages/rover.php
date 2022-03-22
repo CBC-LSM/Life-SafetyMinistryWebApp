@@ -8,7 +8,9 @@
 
 
 $pageName = "Rover Checklist";
+
 require_once '../database/load.php';
+if (!$session->isUserLoggedIn()) { redirect('/', false);}
 include '../pages/header.php';
 $roverchecklist = roverchecklist();
 

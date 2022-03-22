@@ -60,9 +60,11 @@ $checkouttime   = date('Y-m-d H:i:s');
                     <td><div class="mobile-only"><strong>Utility Bag</strong></div><?php echo $team['ubname']; ?></td>
                     <td><div class="mobile-only"><strong>Status</strong></div><?php echo $team['status']; ?></td>
                     <td><div class="mobile-only"></div>
-                        <a href="/features/delete.php?id=<?php echo $team['id'];?>"onClick="return confirm('Are you sure you want to delete?')" class="btn btn-danger btn-xs"  
-                        title="Delete Entry" data-toggle="tooltip"><span class="glyphicon glyphicon-remove"></span>
-                        </a>
+                        <?php if ($_SESSION['userLevel'] ==1 and $_SESSION['userLevel']!=0):?>
+                            <a href="/features/delete.php?id=<?php echo $team['id'];?>"onClick="return confirm('Are you sure you want to delete?')" class="btn btn-danger btn-xs"  
+                            title="Delete Entry" data-toggle="tooltip"><span class="glyphicon glyphicon-remove"></span>
+                            </a>
+                        <?php endif;?>
                         <!-- <a href="#edit_data_modal" class="btn btn-warning btn-xs" title="Edit Entry" data-userid="<?=$team['id'];?>" 
                         data-toggle="modal"><span class="glyphicon glyphicon-remove"></span>
                         </a> -->
@@ -70,10 +72,10 @@ $checkouttime   = date('Y-m-d H:i:s');
                         data-toggle="modal" data-target="#edit_data_modal<?=$team['id'];?>" VALIGN=MIDDLE><span class="glyphicon glyphicon-edit"></button>
                         <input type="hidden" name="user_id" value="<?php echo (int)$_GET['user_id'] ?>" />
                     <?php if ($team['status']=="Checked Out"):?>
-                        <a href="checkin.php?id=<?php echo $team['id'];?>"class="btn btn-warning btn-xs"  
+                        <a href="/features/checkin.php?id=<?php echo $team['id'];?>"class="btn btn-warning btn-xs"  
                         title="Check In" data-toggle="tooltip"><span class="glyphicon glyphicon-ok"></span></a>
                     <?php else:?>
-                        <a href="checkout.php?id=<?php echo $team['id'];?>"class="btn btn-success btn-xs"  
+                        <a href="/features/checkout.php?id=<?php echo $team['id'];?>"class="btn btn-success btn-xs"  
                         title="Check Out" data-toggle="tooltip"><span class="glyphicon glyphicon-ok"></span></a>
                     <?php endif;?>
                     </td>

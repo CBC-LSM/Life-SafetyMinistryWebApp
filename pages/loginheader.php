@@ -32,21 +32,6 @@
         <td></td>
         <td><a href="/" target="_self"><img src="/images/LSM_weblogo.png" alt=""/></a></td>
         <td>
-        <div class="dropdown"><?=$_SESSION['username'];?>
-          <button class="dropbtn"><span class="glyphicon glyphicon-menu-hamburger"></span></button>
-          <div class="dropdown-content">
-            <a href="/" target="_self">Home</a>
-            <a href="/pages/rover.php" target="_self">Rover Checklist</a>
-            <?php if ($session->isUserLoggedIn()):?> 
-              <a href="/users/logout.php" target="_self">Logout</a>
-            <?php else:?>
-              <a href="/users/index.php" target="_self">Login</a>      
-            <?php endif;?>
-            <?php if ($_SESSION['userLevel']==1):?> 
-              <a href="/users/add_user.php" target="_self">Add User</a>
-            <?php endif;?>
-          </div>
-        </div>
         </td>
       </tr>
       </tbody>

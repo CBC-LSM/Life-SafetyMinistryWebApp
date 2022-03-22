@@ -19,6 +19,12 @@ require_once LIB_PATH_INC.'database.php';
 require_once LIB_PATH_INC.'../sql/sql.php';
 date_default_timezone_set('America/New_York');
 
+// if (isset( $_SESSION['user_id'] )) {
+// $userLevel = userLevelReturn($_SESSION['user_id']);
+// }else{
+// 	$userLevel = 5;
+// }
+
 
 /*--------------------------------------------------------------*/
 /* Log user actions

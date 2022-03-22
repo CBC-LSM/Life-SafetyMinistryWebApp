@@ -14,7 +14,9 @@ include 'pages/header.php';
 ?>
 <body style="background-color:#1E1E1E"></body>
 
-<?php include 'pages/loggedgear.php';?>
+<?php 
+
+redirect('/users/index.php', false);?>
 
 
 <?php include 'pages/footer.php';?>
