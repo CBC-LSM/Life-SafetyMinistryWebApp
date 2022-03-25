@@ -20,7 +20,7 @@
       	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />  
       	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> 
       	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="scripts/modal.js"></script>
+        <script src="../scripts/modal.js"></script>
         
 	</head>
 	
@@ -37,22 +37,32 @@
           <div class="dropdown-content">
             <a href="/" target="_self">Home</a>
             <a href="/pages/rover.php" target="_self">Rover Checklist</a>
+            <?php $user['id']=$_SESSION['user_id'];?>
+
             <?php if ($session->isUserLoggedIn()):?> 
-              <a href="#" data-toggle="modal" data-target="#edit_password_modal<?=$_SESSION['user_id'];?>">Edit Password</a>
-                <?php include '../users/edit_password_modal.php'; ?>
-              <a href="#" data-toggle="modal" data-target="#edit_user_modal<?=$_SESSION['user_id'];?>">Edit Account</a>
-                <?php include '../users/edit_user_modal.php'; ?>
+              <button type="button" class="astext" id ="edit" title="Edit Password" value = "<?php echo $_SESSION['user_id'];?>" onClick="<?php echo $_SESSION['user_id']?>" 
+              data-toggle="modal" data-target="#edit_password_modal<?=$user['id'];?>" >Edit Password</button>
+              <!-- <button type="button" class="astext" id ="edit" title="Edit Password" value = "<?php echo $_SESSION['user_id'];?>" onClick="<?php echo $_SESSION['user_id']?>" 
+              data-toggle="modal" data-target="#edit_password_modal<?=$_SESSION['user_id'];?>"> New Edit Password</button>
+              <?php //require '../users/edit_password_modal.php'.$user['id']; ?>
+              <?php //include '../users/edit_password_modal.php'; ?> -->
+
               <a href="/users/logout.php" target="_self">Logout</a>
+            
             <?php else:?>
               <a href="/users/index.php" target="_self">Login</a>      
             <?php endif;?>
+            
             <?php if ($_SESSION['userLevel']==1):?> 
               <a href="/users/add_user.php" target="_self">Add User</a>
               <a href="/users/users.php" target="_self">Users</a>
             <?php endif;?>
+            
           </div>
         </div>
         </td>
       </tr>
       </tbody>
     </table>
+    <?php include '../users/edit_user_modal.php'; ?>
+    <?php include '../users/edit_password_modal.php'; ?>

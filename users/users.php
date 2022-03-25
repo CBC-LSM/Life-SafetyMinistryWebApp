@@ -14,6 +14,7 @@ if (!$session->isUserLoggedIn()) { redirect('/', false);}
 
 ?>
 <div class="panel-box">
+    <?php echo display_msg($msg); ?>
     <div class="tableContainer">
     <table>
         <thead>
@@ -51,8 +52,8 @@ if (!$session->isUserLoggedIn()) { redirect('/', false);}
                         <button type="button" class="btn btn-warning btn-xs" id ="edit" title="Edit User" value = "<?php echo $user['id'];?>" onClick="<?php echo $user['id']?>" 
                         data-toggle="modal" data-target="#edit_user_modal<?=$user['id'];?>" VALIGN=MIDDLE><span class="glyphicon glyphicon-edit"></button>
                     </td>
-                        <?php include '../users/edit_user_modal.php'; ?>
-                        <?php include '../users/edit_password_modal.php'; ?>
+                    <?php include '../users/edit_user_modal.php'; ?>
+            <?php include '../users/edit_password_modal.php'; ?>
                     </tr>
             <?php endforeach;?>     
         </tbody>

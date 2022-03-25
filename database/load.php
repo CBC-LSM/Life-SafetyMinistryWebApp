@@ -17,6 +17,10 @@ require_once LIB_PATH_INC.'../sql/functions.php';
 require_once LIB_PATH_INC.'session.php';
 require_once LIB_PATH_INC.'database.php';
 require_once LIB_PATH_INC.'../sql/sql.php';
+// include LIB_PATH_INC.'../users/edit_user_modal.php';
+// include LIB_PATH_INC.'../users/edit_password_modal.php.php';
+
+
 date_default_timezone_set('America/New_York');
 
 // if (isset( $_SESSION['user_id'] )) {
