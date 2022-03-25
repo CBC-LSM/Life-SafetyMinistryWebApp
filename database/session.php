@@ -28,6 +28,11 @@ class Session {
 	 * @return unknown
 	 */
 	public function isUserLoggedIn() {
+		if (isset($_SESSION['user_id'])) {
+			$this->user_is_logged_in = true;
+		} else {
+			$this->user_is_logged_in = false;
+		}
 		return $this->user_is_logged_in;
 	}
 

@@ -23,7 +23,25 @@
         <script src="../scripts/modal.js"></script>
         
 	</head>
-	
+<?php 
+$user['id']=$_SESSION['user_id'];
+$userFind = find_user($user['id'])[0];
+$user['name']=$userFind['name'];
+$user['username']=$userFind['username'];
+$user['status']=$userFind['status'];
+$user['group_name']=$userFind['group_name'];
+
+if ($user['status'] == 1){
+  $status = "Active";
+  }
+  else{
+      $status = "Not Active";
+  }
+
+$group_names = find_all_groups();
+
+?>
+
 	<body style="background-color:#1E1E1E">
   <div class="MainContainer">
     <table class="header_table">
@@ -37,15 +55,12 @@
           <div class="dropdown-content">
             <a href="/" target="_self">Home</a>
             <a href="/pages/rover.php" target="_self">Rover Checklist</a>
-            <?php $user['id']=$_SESSION['user_id'];?>
+            
 
             <?php if ($session->isUserLoggedIn()):?> 
-              <button type="button" class="astext" id ="edit" title="Edit Password" value = "<?php echo $_SESSION['user_id'];?>" onClick="<?php echo $_SESSION['user_id']?>" 
-              data-toggle="modal" data-target="#edit_password_modal<?=$user['id'];?>" >Edit Password</button>
-              <!-- <button type="button" class="astext" id ="edit" title="Edit Password" value = "<?php echo $_SESSION['user_id'];?>" onClick="<?php echo $_SESSION['user_id']?>" 
-              data-toggle="modal" data-target="#edit_password_modal<?=$_SESSION['user_id'];?>"> New Edit Password</button>
-              <?php //require '../users/edit_password_modal.php'.$user['id']; ?>
-              <?php //include '../users/edit_password_modal.php'; ?> -->
+              <button type="button" class="astext" id ="edit" title="Edit Password" data-toggle="modal" data-target="#edit_password_modal<?=$user['id'];?>" >Edit Password</button>
+
+              <button type="button" class="astext" id ="edit" title="Edit Account" data-toggle="modal" data-target="#edit_user_modal<?=$user['id'];?>" >Edit Account</button>
 
               <a href="/users/logout.php" target="_self">Logout</a>
             

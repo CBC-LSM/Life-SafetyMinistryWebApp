@@ -23,16 +23,27 @@ function find_all_user() {
 	global $db;
 	$results = array();
 	$sql = "SELECT u.id,u.name,u.username,u.user_level,u.status,u.last_login,";
-	$sql .="g.group_name ";
+	$sql .="g.group_name,g.group_level ";
 	$sql .="FROM users u ";
 	$sql .="LEFT JOIN user_groups g ";
 	$sql .="ON g.group_level=u.user_level ORDER BY u.name ASC";
 	$results = find_by_sql($sql);
 	return $results;
 }
+function find_user($id) {
+	global $db;
+	$results = array();
+	$sql = "SELECT u.id,u.name,u.username,u.user_level,u.status,u.last_login,";
+	$sql .="g.group_name,g.group_level ";
+	$sql .="FROM users u ";
+	$sql .="LEFT JOIN user_groups g ";
+	$sql .="ON g.group_level=u.user_level WHERE u.id = '{$id}'";
+	$results = find_by_sql($sql);
+	return $results;
+}
 function find_all_groups() {
 	global $db;
-	$sql = "SELECT `group_name` from `user_groups` WHERE 1";
+	$sql = "SELECT `group_name`,`group_level` from `user_groups` WHERE 1";
 	$results = find_by_sql($sql);
 	return $results;
 }

@@ -4,7 +4,6 @@
                                     <div class="modal-content">  
                                         <div class="modal-header">  
                                             <h3 class="modal-title">Edit Password</h3>
-                                            <h3 class="modal-title">ID: <?=$user['id'];?></h3>
                                         </div>   
                                         <div class="modal-body">  
                                             <!-- <form method="post" id="edit_form" > -->

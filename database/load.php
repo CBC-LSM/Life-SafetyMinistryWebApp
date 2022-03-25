@@ -14,7 +14,7 @@ define("LIB_PATH_INC", SITE_ROOT.DS);
 
 require_once LIB_PATH_INC.'config.php';
 require_once LIB_PATH_INC.'../sql/functions.php';
-require_once LIB_PATH_INC.'session.php';
+require_once LIB_PATH_INC.'../database/session.php';
 require_once LIB_PATH_INC.'database.php';
 require_once LIB_PATH_INC.'../sql/sql.php';
 // include LIB_PATH_INC.'../users/edit_user_modal.php';

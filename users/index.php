@@ -8,6 +8,7 @@
 ob_start();
 require_once '../database/load.php';
 if ($session->isUserLoggedIn()) { redirect('../pages/index.php', false);}
+if ($session->isUserLoggedIn()) { redirect('../pages/index.php', false);}
 ?>
 <?php include_once '../pages/loginheader.php'; ?>
 <div class="login-page">
