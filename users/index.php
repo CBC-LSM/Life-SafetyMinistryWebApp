@@ -5,6 +5,7 @@
  * @package default
  */
 // spaces before html can cause some servers to error.
+$pageName = "CBC Gearpage login";
 ob_start();
 require_once '../database/load.php';
 if ($session->isUserLoggedIn()) { redirect('../pages/index.php', false);}
