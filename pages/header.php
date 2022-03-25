@@ -55,14 +55,12 @@ $group_names = find_all_groups();
           <div class="dropdown-content">
             <a href="/" target="_self">Home</a>
             <a href="/pages/rover.php" target="_self">Rover Checklist</a>
-            
-
             <?php if ($session->isUserLoggedIn()):?> 
-              <button type="button" class="astext" id ="edit" title="Edit Password" data-toggle="modal" data-target="#edit_password_modal<?=$user['id'];?>" >Edit Password</button>
-              <button type="button" class="astext" id ="edit" title="Edit Account" data-toggle="modal" data-target="#edit_user_modal<?=$user['id'];?>" >Edit Account</button>
               <?php if ($_SESSION['userLevel']==1):?> 
               <a href="/users/add_user.php" target="_self">Add User</a>
               <a href="/users/users.php" target="_self">Users</a>
+              <a href="" id ="edit" title="Edit Password" data-toggle="modal" data-target="#edit_password_modal<?=$user['id'];?>" >Edit Password</a>
+              <a href="" id ="edit" title="Edit Account" data-toggle="modal" data-target="#edit_user_modal<?=$user['id'];?>" >Edit Account</a>
             <?php endif;?>
             <a href="/users/logout.php" target="_self">Logout</a>
             <?php else:?>

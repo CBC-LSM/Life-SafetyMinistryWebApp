@@ -211,6 +211,23 @@
 
 
 @media screen and (max-width: 420px) {
+  .login-page{
+    width: 100%;
+    margin: 0% auto;
+    margin-top: 5%;
+    padding: 0 5%;
+    color: white;
+    background-color: #414141;
+    border: 1px solid #f2f2f2;
+    border-radius: 5%;
+  }.login-page .text-center{
+    margin-bottom: 10px;
+    word-wrap: break-word;
+  }.message-text-center{
+    width:55%;
+    text-align: center;
+    margin: 0 auto;
+  }
   thead {
       display: none;
   }
