@@ -8,7 +8,7 @@
 
 /*
 |--------------------------------------------------------------------------
-| Inventory Database Configuration
+| Database Configuration
 |--------------------------------------------------------------------------
 */
 define( 'DB_HOST', 'localhost' );          // Set database host

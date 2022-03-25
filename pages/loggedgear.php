@@ -5,6 +5,7 @@
  * @package default
  * @see index.php
  */
+if (!$session->isUserLoggedIn()) { redirect('/', false);}
 $AllNames = findAllnames();
 $allRadios = findAllRadios();
 $allDSMs = findAllDSMs();
@@ -70,7 +71,7 @@ $checkouttime   = date('Y-m-d H:i:s');
                         </a> -->
                         <button type="button" class="btn btn-warning btn-xs" id ="edit" value = "<?php echo $team['id'];?>" onClick="<?php echo $team['id']?>" 
                         data-toggle="modal" data-target="#edit_data_modal<?=$team['id'];?>" VALIGN=MIDDLE><span class="glyphicon glyphicon-edit"></button>
-                        <input type="hidden" name="user_id" value="<?php echo (int)$_GET['user_id'] ?>" />
+
                     <?php if ($team['status']=="Checked Out"):?>
                         <a href="/features/checkin.php?id=<?php echo $team['id'];?>"class="btn btn-warning btn-xs"  
                         title="Check In" data-toggle="tooltip"><span class="glyphicon glyphicon-ok"></span></a>

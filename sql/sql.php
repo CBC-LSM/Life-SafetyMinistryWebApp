@@ -30,6 +30,12 @@ function find_all_user() {
 	$results = find_by_sql($sql);
 	return $results;
 }
+function find_all_groups() {
+	global $db;
+	$sql = "SELECT `group_name` from `user_groups` WHERE 1";
+	$results = find_by_sql($sql);
+	return $results;
+}
 
 /**
  *

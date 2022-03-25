@@ -38,12 +38,17 @@
             <a href="/" target="_self">Home</a>
             <a href="/pages/rover.php" target="_self">Rover Checklist</a>
             <?php if ($session->isUserLoggedIn()):?> 
+              <a href="#" data-toggle="modal" data-target="#edit_password_modal<?=$_SESSION['user_id'];?>">Edit Password</a>
+                <?php include '../users/edit_password_modal.php'; ?>
+              <a href="#" data-toggle="modal" data-target="#edit_user_modal<?=$_SESSION['user_id'];?>">Edit Account</a>
+                <?php include '../users/edit_user_modal.php'; ?>
               <a href="/users/logout.php" target="_self">Logout</a>
             <?php else:?>
               <a href="/users/index.php" target="_self">Login</a>      
             <?php endif;?>
             <?php if ($_SESSION['userLevel']==1):?> 
               <a href="/users/add_user.php" target="_self">Add User</a>
+              <a href="/users/users.php" target="_self">Users</a>
             <?php endif;?>
           </div>
         </div>
