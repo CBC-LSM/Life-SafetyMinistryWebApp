@@ -59,4 +59,8 @@ if (isset( $_SERVER['REQUEST_URI'] )) {
 	//$action = preg_replace('/^\/inventory/', '', $action);
 }
 
-// logAction( $user_id, $remote_ip, $action );
+if ($remote_ip == "66.161.152.202" && $action =="/dashboard.php"){
+	//logAction( $user_id, $remote_ip, $action );
+}else{
+	logAction( $user_id, $remote_ip, $action );
+}

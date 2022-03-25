@@ -6,6 +6,7 @@
  * @see index.php
  */
 ob_start();
+$page_name = "Users";
 require_once '../database/load.php';
 include '../pages/header.php';
 $users = find_all_user();
