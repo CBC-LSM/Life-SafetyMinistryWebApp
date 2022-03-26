@@ -212,7 +212,7 @@
 
 @media screen and (max-width: 420px) {
   .login-page{
-    width: 100%;
+    width: 90%;
     margin: 0% auto;
     margin-top: 5%;
     padding: 0 5%;
