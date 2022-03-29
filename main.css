@@ -156,8 +156,10 @@
 }
 
 #rover_checklist td, #rover_checklist th {
-  border: 1px solid #414141;
+  /* border: 1px solid #414141; */
   padding: 8px;
+}#rover_checklist tr{
+  border-bottom: 1px solid #414141;
 }
 
 #rover_checklist th {
@@ -207,6 +209,13 @@
   padding-left:5px;
 }.body-text-center{
   text-align: center;
+}.mobile-name-header{
+  font-size: 20px;
+}
+#text_input{
+  color:black;
+  width:90%;
+  font-size: 15px;
 }
 
 
@@ -283,14 +292,18 @@
     background-color: #414141;
     border-radius: 10%;
     color: white;
-    padding: 16px;
-    font-size: 16px;
+    padding: 10px;
+    font-size: 20px;
     border: none;
   }
   
   .dropdown {
     position: absolute;
-    display: block;
+    /* display: inline-block; */
+  }
+  .mobile-name-header{
+    font-size: 15px;
+    color: white;
   }
   
   .dropdown-content {

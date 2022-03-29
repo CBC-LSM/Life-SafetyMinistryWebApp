@@ -6,7 +6,7 @@
  */
 
 
-$page_title = 'Add User';
+$pageName = 'Add User';
 require_once '../database/load.php';
 include '../pages/header.php';
 // Checkin What level user has permission to view this page
@@ -69,7 +69,7 @@ if (isset($_POST['add_user'])) {
     <div class="text-center">
          <h1>Add New User</h1>
       </div>
-          <form method="post" action="../users/add_user.php">
+          <form method="post" action="../features/add_user_sql.php">
             <div class="form-group">
                 <label for="name">Name</label>
                 <input type="text" class="form-control" name="full-name" placeholder="Full Name">

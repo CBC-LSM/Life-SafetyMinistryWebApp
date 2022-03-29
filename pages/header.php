@@ -47,21 +47,24 @@ $group_names = find_all_groups();
     <table class="header_table">
       <tbody>
       <tr>
-        <td></td>
+        <td><div class="mobile-name-header"><?=$_SESSION['username'];?></div></td>
         <td><a href="/" target="_self"><img src="/images/LSM_weblogo.png" alt=""/></a></td>
         <td>
-        <div class="dropdown"><?=$_SESSION['username'];?>
+        <div class="dropdown">
           <button class="dropbtn"><span class="glyphicon glyphicon-menu-hamburger"></span></button>
           <div class="dropdown-content">
             <a href="/" target="_self">Home</a>
             <a href="/pages/rover.php" target="_self">Rover Checklist</a>
             <?php if ($session->isUserLoggedIn()):?> 
-              <?php if ($_SESSION['userLevel']==1):?> 
+              <?php if ($_SESSION['userLevel']>=1 && $_SESSION['userLevel']<=3):?> 
+                  <a href="/pages/add_rover_checklist.php" target="_self">Add Rover Checklist Item</a>
+                <?php endif;?>
+              <?php if ($_SESSION['userLevel']==1):?>  
               <a href="/users/add_user.php" target="_self">Add User</a>
               <a href="/users/users.php" target="_self">Users</a>
-              <a href="" id ="edit" title="Edit Password" data-toggle="modal" data-target="#edit_password_modal<?=$user['id'];?>" >Edit Password</a>
-              <a href="" id ="edit" title="Edit Account" data-toggle="modal" data-target="#edit_user_modal<?=$user['id'];?>" >Edit Account</a>
-            <?php endif;?>
+              <?php endif;?>
+            <a href="" id ="edit" title="Edit Password" data-toggle="modal" data-target="#edit_password_modal<?=$user['id'];?>" >Edit Password</a>
+            <a href="" id ="edit" title="Edit Account" data-toggle="modal" data-target="#edit_user_modal<?=$user['id'];?>" >Edit Account</a>
             <a href="/users/logout.php" target="_self">Logout</a>
             <?php else:?>
               <a href="/users/index.php" target="_self">Login</a>      

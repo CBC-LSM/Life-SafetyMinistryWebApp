@@ -47,7 +47,12 @@ function find_all_groups() {
 	$results = find_by_sql($sql);
 	return $results;
 }
-
+function deleteUser($id){
+	global $db;
+	$sql = "DELETE FROM `users` WHERE `users`.`id` = '{$id}';";
+	$db->query($sql);
+	return ($db->affected_rows() === 1) ? true : false;
+}
 /**
  *
  * @param unknown $sql
