@@ -32,9 +32,9 @@ $checkouttime   = date('Y-m-d H:i:s');
                 <th class="header-text-left">Name</th>
                 <th class="header-text-center">Position</th>
                 <th class="header-text-center">Radio</th>
-                <th class="header-text-center">DSM</th>
-                <th class="header-text-center">Flashlight</th>
-                <th class="header-text-center">Tourniquet</th>
+                <!-- <th class="header-text-center">DSM</th> -->
+                <!-- <th class="header-text-center">Flashlight</th> -->
+                <!-- <th class="header-text-center">Tourniquet</th> -->
                 <th class="header-text-center">Utility Bag</th>
                 <th class="header-text-center">Status</th>              
             </tr>
@@ -45,9 +45,9 @@ $checkouttime   = date('Y-m-d H:i:s');
                     <td class="body-text-left"><?php echo $team['membername']; ?></td>
                     <td class="body-text-center"><?php echo $team['radioname']; ?></td>
                     <td class="body-text-center"><?php echo $team['positionname']; ?></td>
-                    <td class="body-text-center"><?php echo $team['dsmname']; ?></td>
-                    <td class="body-text-center"><?php echo $team['flashlightname']; ?></td>
-                    <td class="body-text-center"><?php echo $team['tourniquetname']; ?></td>
+                    <!-- <td class="body-text-center"><?php echo $team['dsmname']; ?></td> -->
+                    <!-- <td class="body-text-center"><?php echo $team['flashlightname']; ?></td> -->
+                    <!-- <td class="body-text-center"><?php echo $team['tourniquetname']; ?></td> -->
                     <td class="body-text-center"><?php echo $team['ubname']; ?></td>
                     <td class="body-text-center"><?php echo $team['status']; ?></td>
                 </tr>

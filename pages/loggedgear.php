@@ -37,30 +37,30 @@ $checkouttime   = date('Y-m-d H:i:s');
     <div class="tableContainer">
     <table>
         <thead>
-            <tr style ="color: #D4D4C9; font-size: 100%; font-family: Arial  ;">
-                <th class="text-left" style="width: 5%;"><strong>Name</strong></th>
-                <th class="text-center" style="width: 5%;"><strong>Position</strong></th>
-                <th class="text-center" style="width: 5%;"><strong>Radio</strong></th>
-                <th class="text-center" style="width: 5%;"><strong>DSM</strong></th>
-                <th class="text-center" style="width: 5%;"><strong>Flashlight</strong></th>
-                <th class="text-center" style="width: 5%;"><strong>Tourniquet</strong></th>
-                <th class="text-center" style="width: 5%;"><strong>Utility Bag</strong></th>
-                <th class="text-center" style="width: 5%;"><strong>Status</strong></th>
+            <tr class = "entry_header" style ="color: #D4D4C9; font-family: Arial  ;">
+                <th class="text-left" style="width: 15%;"><strong>Name</strong></th>
+                <th class="text-center" style="width: 15%;"><strong>Position</strong></th>
+                <th class="text-center" style="width: 15%;"><strong>Radio</strong></th>
+                <!-- <th class="text-center" style="width: 5%;"><strong>DSM</strong></th> -->
+                <!-- <th class="text-center" style="width: 5%;"><strong>Flashlight</strong></th> -->
+                <!-- <th class="text-center" style="width: 5%;"><strong>Tourniquet</strong></th> -->
+                <th class="text-center" style="width: 15%;"><strong>Utility Bag</strong></th>
+                <th class="text-center" style="width: 15%;"><strong>Status</strong></th>
                 <th class="text-center" style="width: 5%;"><strong>Modify</strong></th>
             </tr>
         </thead>
         <tbody>
             <?php foreach($teamStatus as $team):?>
                 <tr style ="color: #D4D4C9; font-size: 100%; background-color:#1E1E1E;">
-                    <td class="text-left"><div class="mobile-only"><strong>Name</strong></div><strong><?php echo $team['membername']; ?></strong></td>
-                    <td><div class="mobile-only"><strong>Position</strong></div><?php echo $team['positionname']; ?></td>
-                    <td><div class="mobile-only"><strong>Radio</strong></div><?php echo $team['radioname']; ?></td>
-                    <td><div class="mobile-only"><strong>DSM</strong></div><?php echo $team['dsmname']; ?></td>
-                    <td><div class="mobile-only"><strong>Flashlight#</strong></div><?php echo $team['flashlightname']; ?></td>
-                    <td><div class="mobile-only"><strong>Tourniquet</strong></div><?php echo $team['tourniquetname']; ?></td>
-                    <td><div class="mobile-only"><strong>Utility Bag</strong></div><?php echo $team['ubname']; ?></td>
-                    <td><div class="mobile-only"><strong>Status</strong></div><?php echo $team['status']; ?></td>
-                    <td><div class="mobile-only"></div>
+                    <td class="text-left entry_input"><div class="mobile-only"><strong>Name</strong></div><strong><?php echo $team['membername']; ?></strong></td>
+                    <td class="entry_input"><div class="mobile-only"><strong>Position</strong></div><?php echo $team['positionname']; ?></td>
+                    <td class="entry_input"><div class="mobile-only"><strong>Radio</strong></div><?php echo $team['radioname']; ?></td>
+                    <!-- <td><div class="mobile-only"><strong>DSM</strong></div><?php echo $team['dsmname']; ?></td> -->
+                    <!-- <td><div class="mobile-only"><strong>Flashlight#</strong></div><?php echo $team['flashlightname']; ?></td> -->
+                    <!-- <td><div class="mobile-only"><strong>Tourniquet</strong></div><?php echo $team['tourniquetname']; ?></td> -->
+                    <td class="entry_input"><div class="mobile-only"><strong>Utility Bag</strong></div><?php echo $team['ubname']; ?></td>
+                    <td class="entry_input"><div class="mobile-only"><strong>Status</strong></div><?php echo $team['status']; ?></td>
+                    <td class="entry_input"><div class="mobile-only"></div>
                         <?php if ($_SESSION['userLevel'] ==1 and $_SESSION['userLevel']!=0):?>
                             <a href="/features/delete.php?id=<?php echo $team['id'];?>"onClick="return confirm('Are you sure you want to delete?')" class="btn btn-danger btn-xs"  
                             title="Delete Entry" data-toggle="tooltip"><span class="glyphicon glyphicon-remove"></span>
@@ -117,7 +117,7 @@ $checkouttime   = date('Y-m-d H:i:s');
                                                                 <?php endforeach; ?>
                                                     </select>  
                                                     <br>   
-                                                    <label>DSM</label>  
+                                                    <!-- <label>DSM</label>  
                                                     <select class="form-control" name="dsm" id="edit_dsm">
                                                         <option value="<?php echo $team['dsmID']; ?>"><?php echo $team['dsmname']; ?></option>
                                                         <?php  foreach ($allDSMs as $DSM):?>
@@ -143,7 +143,7 @@ $checkouttime   = date('Y-m-d H:i:s');
                                                                     <?php echo $tourniquet['tourniquetname']; ?></option>
                                                             <?php endforeach; ?>
                                                         </select>
-                                                    <br>
+                                                    <br> -->
                                                     <label>Utility Bag</label> 
                                                         <select class ="form-control" name="utility_bag" id="edit_utility_bag">
                                                             <option value="<?php echo $team['ubID']; ?>"><?php echo $team['ubname']; ?></option>
@@ -210,7 +210,7 @@ $checkouttime   = date('Y-m-d H:i:s');
                                     <?php endforeach; ?>
                           </select>  
                           <br>   
-                          <label>DSM</label>  
+                          <!-- <label>DSM</label>  
                           <select class="form-control" name="dsm" id="dsm">
                               <option value="">DSM</option>
                               <?php  foreach ($allDSMs as $DSM):
@@ -245,7 +245,7 @@ $checkouttime   = date('Y-m-d H:i:s');
                                     <?php endif;?>  
                                 <?php endforeach; ?>
                             </select>
-                          <br>
+                          <br> -->
                           <label>Utility Bag</label> 
                             <select class ="form-control" name="utility_bag" id="utility_bag">
                                 <option value="">Utility Bag</option>

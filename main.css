@@ -47,6 +47,12 @@
   padding:10px 10px 10px 10px;
   width:50%;
 }
+.entry_header{
+  font-size: 160%;
+}
+.entry_input{
+  font-size:150%;
+}
 .secondary_header {
   width: 100%;
   background-color: #414141;
@@ -236,6 +242,9 @@
     width:55%;
     text-align: center;
     margin: 0 auto;
+  }
+  .entry_header{
+    font-size: 100%;
   }
   thead {
       display: none;
