@@ -17,11 +17,6 @@ if ($_SESSION['userLevel']!=1) { redirect('/', false);}
 
 <div class="panel-box">
     <?php echo display_msg($msg); ?>
-    <button type="button" class="btn btn-primary btn-lg" id ="add" data-toggle="modal" data-target="#add_data_modal" VALIGN=MIDDLE>
-        <span class="glyphicon glyphicon-plus-sign" style="color:#a0a0a0; font-size: 30px; vertical-align: middle; padding: 0px 10px 0px 0px;" aria-hidden="true"></span>
-        <strong>Register Badge</strong>
-    </button>
-    <?php include '../rfid/registerRFID.php'; //This is what loads the modal for the RFID registration?>
     <div class="tableContainer">
     <table>
         <thead>
@@ -51,7 +46,7 @@ if ($_SESSION['userLevel']!=1) { redirect('/', false);}
                     <td><div class="mobile-only"><strong>Status</strong></div><?php echo $status; ?></td>
                     <td><div class="mobile-only"><strong>Last Login</strong></div><?php echo $user['last_login']; ?></td>
                     <td><div class="mobile-only"><strong>User Level</strong></div><?php echo $user['group_name']; ?></td>
-                    <td><div class="mobile-only"><strong>RFID Active</strong></div><?php if ($user['RFIDtag'] >0){echo "Found";}else{echo "none";} ?></td>
+                    <td><div class="mobile-only"><strong>RFID Active</strong></div><?php echo $user['RFIDtag']; ?></td>
                     <td><div class="mobile-only"><strong>Modify</strong></div>
                         <a href="/features/delete_user.php?id=<?php echo $user['id'];?>"onClick="return confirm('Are you sure you want to delete?')" class="btn btn-danger btn-xs"  
                         title="Delete Entry" data-toggle="tooltip"><span class="glyphicon glyphicon-remove"></span>

@@ -22,7 +22,7 @@ function find_all($table) {
 function find_all_user() {
 	global $db;
 	$results = array();
-	$sql = "SELECT u.id,u.name,u.username,u.user_level,u.status,u.last_login,";
+	$sql = "SELECT u.id,u.name,u.username,u.user_level,u.status,u.last_login,u.RFIDtag,";
 	$sql .="g.group_name,g.group_level ";
 	$sql .="FROM users u ";
 	$sql .="LEFT JOIN user_groups g ";
@@ -207,6 +207,19 @@ function addTeamStatus($nameID,$positionID,$radioID,$dsmID,$flashlightID,$tourni
 	$db->query($sql);
 	return ($db->affected_rows() === 1) ? true : false;
 }
+function addToRFIDRegistration($id,$name,$date){
+	global $db;
+	$sql = "INSERT INTO `RFID`(`id`, `Name`, `tagid`, `Status`, `createdTimeStamp`, `updatedTimeStamp`) VALUES ";
+	$sql .= "('','{$name}','{$id}','1','{$date}','{$date}');";
+	$db->query($sql);
+	return ($db->affected_rows() === 1) ? true : false;
+}
+function find_all_RFID_user(){
+	global $db;
+	$sql = "SELECT * FROM `RFID` WHERE 1";
+	$result = find_by_sql($sql);
+	return $result;
+}
 function findNameID($name){
 	global $db;
 	$sql = "SELECT `id` FROM `teamMembers` WHERE `membername` ='{$name}'";
@@ -302,6 +315,19 @@ function roverComplete($id,$table,$status,$date){
 	$sql = "UPDATE `{$table}` SET `status` = '{$status}',`timestamp`='{$date}' WHERE `id` = '{$id}'";
 	$db->query($sql);
 	return ($db->affected_rows() === 1) ? true : false;
+}
+
+// RFID Functions 
+function find_RFID_user($id) {
+	global $db;
+	$results = array();
+	$sql = "SELECT u.id,u.name,u.username,u.user_level,u.status,u.last_login,";
+	$sql .="g.group_name,g.group_level ";
+	$sql .="FROM users u ";
+	$sql .="LEFT JOIN user_groups g ";
+	$sql .="ON g.group_level=u.user_level WHERE u.id = '{$id}'";
+	$results = find_by_sql($sql);
+	return $results;
 }
 ?>
 
