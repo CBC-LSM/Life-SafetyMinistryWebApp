@@ -7,13 +7,11 @@
 
 include '../database/load.php';
 
-$id = $_POST['id'];
+$tagid = $_POST['id'];
 $name =$_POST['name'];
 
 $date   = date('Y-m-d H:i:s ');
 
+$userID= findUserID($name);
 
-addToRFIDRegistration($id,$name,$date);
-
-
-$added = addTeamStatus($nameID,$positionID,$radioID,$dsmID,$flashlightID,$tourniquetID,$ubID,$checkouttime);
+updateRFIDRegistration($tagid,$userID,$date);

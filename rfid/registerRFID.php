@@ -1,12 +1,12 @@
 <?php
 	$Write="<?php $" . "UIDresult=''; " . "echo $" . "UIDresult;" . " ?>";
-	file_put_contents('UIDContainer.php',$Write);
+	file_put_contents('../rfid/UIDContainer.php',$Write);
 ?>
 		<script>
 			$(document).ready(function(){
-				 $("#getUID").load("UIDContainer.php");
+				 $("#getUID").load("../rfid/UIDContainer.php");
 				setInterval(function() {
-					$("#getUID").load("UIDContainer.php");
+					$("#getUID").load("../rfid/UIDContainer.php");
 				}, 500);
 			});
 		</script>
@@ -44,7 +44,7 @@ $(document).ready(function() {
 		var id = $('#getUID').val();
 		var name = $('#name').val();
         $.ajax({
-            url: "insert.php",
+            url: "../rfid/insert.php",
             type: "POST",
             data: {
                 id: id,
