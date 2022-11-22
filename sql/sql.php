@@ -22,7 +22,7 @@ function find_all($table) {
 function find_all_user() {
 	global $db;
 	$results = array();
-	$sql = "SELECT u.id,u.name,u.username,u.user_level,u.status,u.last_login,u.RFIDtag,";
+	$sql = "SELECT u.id,u.name,u.username,u.user_level,u.status,u.last_login,u.lastrfidscan,u.RFIDtag,";
 	$sql .="g.group_name,g.group_level ";
 	$sql .="FROM users u ";
 	$sql .="LEFT JOIN user_groups g ";
@@ -313,17 +313,7 @@ function findUserID($name){
 }
 
 // RFID Functions 
-// function find_RFID_user($id) {
-// 	global $db;
-// 	$results = array();
-// 	$sql = "SELECT u.id,u.name,u.username,u.user_level,u.status,u.last_login,";
-// 	$sql .="g.group_name,g.group_level ";
-// 	$sql .="FROM users u ";
-// 	$sql .="LEFT JOIN user_groups g ";
-// 	$sql .="ON g.group_level=u.user_level WHERE u.id = '{$id}'";
-// 	$results = find_by_sql($sql);
-// 	return $results;
-// }
+
 function updateRFIDRegistration($tagid,$userID,$date){
 	global $db;
 	$sql = "UPDATE `users` SET `RFIDtag` = '{$tagid}', `lastrfidscan` = '{$date}' ";
@@ -334,6 +324,15 @@ function updateRFIDRegistration($tagid,$userID,$date){
 function find_all_RFID_user(){
 	global $db;
 	$sql = "SELECT * FROM `RFID` WHERE 1";
+	$result = find_by_sql($sql);
+	return $result;
+}
+function findallrfidlogs(){
+	global $db;
+	$sql = "SELECT u.name, d.doorName, r.tagid, r.Status, r.timestamp FROM rfidlog r ";
+	$sql .="LEFT JOIN users u ON r.userid = u.id LEFT JOIN rfidDoors d ON r.doorName = d.id ";
+	$sql .= "ORDER BY r.timestamp DESC LIMIT 25";
+	// die(print_r)
 	$result = find_by_sql($sql);
 	return $result;
 }

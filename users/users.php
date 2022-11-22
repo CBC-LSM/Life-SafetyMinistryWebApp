@@ -32,6 +32,7 @@ if ($_SESSION['userLevel']!=1) { redirect('/', false);}
                 <th class="text-center" style="width: 5%;"><strong>Last Login</strong></th>
                 <th class="text-center" style="width: 5%;"><strong>User Level</strong></th>
                 <th class="text-center" style="width: 5%;"><strong>RFID Active</strong></th>
+                <th class="text-center" style="width: 5%;"><strong>Last RFID Scan</strong></th>
                 <th class="text-center" style="width: 5%;"><strong>Modify</strong></th>
             </tr>
         </thead>
@@ -52,6 +53,7 @@ if ($_SESSION['userLevel']!=1) { redirect('/', false);}
                     <td><div class="mobile-only"><strong>Last Login</strong></div><?php echo $user['last_login']; ?></td>
                     <td><div class="mobile-only"><strong>User Level</strong></div><?php echo $user['group_name']; ?></td>
                     <td><div class="mobile-only"><strong>RFID Active</strong></div><?php if ($user['RFIDtag'] >0){echo "Found";}else{echo "none";} ?></td>
+                    <td><div class="mobile-only"><strong>Last RFID Scan</strong></div><?php echo $user['lastrfidscan']; ?></td>
                     <td><div class="mobile-only"><strong>Modify</strong></div>
                         <a href="/features/delete_user.php?id=<?php echo $user['id'];?>"onClick="return confirm('Are you sure you want to delete?')" class="btn btn-danger btn-xs"  
                         title="Delete Entry" data-toggle="tooltip"><span class="glyphicon glyphicon-remove"></span>

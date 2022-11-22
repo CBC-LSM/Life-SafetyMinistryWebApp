@@ -62,7 +62,7 @@ $group_names = find_all_groups();
               <?php if ($_SESSION['userLevel']==1):?>
               <a href="/users/add_user.php" target="_self">Add User</a>
               <a href="/users/users.php" target="_self">Users</a>
-							<a href="/rfid/rfidusers.php" target="_self">Badge Registration</a>
+              <a href="/rfid/accesslog.php" target="_self">Access Log</a>
               <?php endif;?>
             <a href="" id ="edit" title="Edit Password" data-toggle="modal" data-target="#edit_password_modal<?=$user['id'];?>" >Edit Password</a>
             <a href="" id ="edit" title="Edit Account" data-toggle="modal" data-target="#edit_user_modal<?=$user['id'];?>" >Edit Account</a>
