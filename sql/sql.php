@@ -342,6 +342,15 @@ function findalldoors(){
 	$result = find_by_sql($sql);
 	return $result;
 }
+function updateAccessLog($tagid,$userid,$doorname,$status,$date){
+	global $db;
+	$sql = "INSERT INTO `rfidlog`(`id`, `tagid`, `userid`, `doorname`, `Status`, `timestamp`) VALUES ('','{$tagid}','{$userid}','{$doorname}','{$status}','{$date}')";
+	$db->query($sql);
+	return ($db->affected_rows() === 1) ? true : false;
+}
+	
+
+
 ?>
 
 

@@ -30,7 +30,7 @@ if ($_SESSION['userLevel']!=1) { redirect('/', false);}
         <tbody>
             <?php foreach($logs as $log):?>
                 <tr style ="color: #D4D4C9; font-size: 100%; background-color:#1E1E1E;">
-                    <td class="text-left"><div class="mobile-only"><strong>Name</strong></div><strong><?php echo $log['name']; ?></strong></td>
+                    <td class="text-left"><div class="mobile-only"><strong>Name</strong></div><strong><?php if(empty($log['name'])){echo "USER NOT FOUND";}else{echo $log['name'];} ?></strong></td>
                     <td><div class="mobile-only"><strong>RFID Tag</strong></div><?php echo $log['tagid']; ?></td>
                     <td><div class="mobile-only"><strong>Door Name</strong></div><?php echo $log['doorName']; ?></td>
                     <td><div class="mobile-only"><strong>Status</strong></div><?php echo $log['Status']; ?></td>
