@@ -29,6 +29,7 @@ if ($_SESSION['userLevel']!=1) { redirect('/', false);}
                 <th class="text-left" style="width: 5%;"><strong>Name</strong></th>
                 <th class="text-center" style="width: 5%;"><strong>Username</strong></th>
                 <th class="text-center" style="width: 5%;"><strong>Status</strong></th>
+                <th class="text-center" style="width: 5%;"><strong>Image</strong></th>
                 <th class="text-center" style="width: 5%;"><strong>Last Login</strong></th>
                 <th class="text-center" style="width: 5%;"><strong>User Level</strong></th>
                 <th class="text-center" style="width: 5%;"><strong>RFID Active</strong></th>
@@ -50,6 +51,7 @@ if ($_SESSION['userLevel']!=1) { redirect('/', false);}
                     <td class="text-left"><div class="mobile-only"><strong>Name</strong></div><strong><?php echo $user['name']; ?></strong></td>
                     <td><div class="mobile-only"><strong>Username</strong></div><?php echo $user['username']; ?></td>
                     <td><div class="mobile-only"><strong>Status</strong></div><?php echo $status; ?></td>
+                    <td><div class="mobile-only"><strong>Status</strong></div><a href="<?='/images/users/'.$user['img'];?>" title="View Image" target="_blank"><?=$user['img'];?> </a></td>
                     <td><div class="mobile-only"><strong>Last Login</strong></div><?php echo $user['last_login']; ?></td>
                     <td><div class="mobile-only"><strong>User Level</strong></div><?php echo $user['group_name']; ?></td>
                     <td><div class="mobile-only"><strong>RFID Active</strong></div><?php if ($user['RFIDtag'] >0){echo "Found";}else{echo "none";} ?></td>

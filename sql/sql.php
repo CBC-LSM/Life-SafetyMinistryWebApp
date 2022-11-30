@@ -23,7 +23,7 @@ function find_all_user() {
 	global $db;
 	$results = array();
 	$sql = "SELECT u.id,u.name,u.username,u.user_level,u.status,u.last_login,u.lastrfidscan,u.RFIDtag,";
-	$sql .="g.group_name,g.group_level ";
+	$sql .="g.group_name,g.group_level,u.img ";
 	$sql .="FROM users u ";
 	$sql .="LEFT JOIN user_groups g ";
 	$sql .="ON g.group_level=u.user_level ORDER BY u.name ASC";
@@ -333,6 +333,12 @@ function findallrfidlogs(){
 	$sql .="LEFT JOIN users u ON r.userid = u.id LEFT JOIN rfidDoors d ON r.doorName = d.id ";
 	$sql .= "ORDER BY r.timestamp DESC LIMIT 25";
 	// die(print_r)
+	$result = find_by_sql($sql);
+	return $result;
+}
+function findalldoors(){
+	global $db;
+	$sql = "SELECT * FROM rfidDoors";
 	$result = find_by_sql($sql);
 	return $result;
 }

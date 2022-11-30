@@ -14,7 +14,7 @@
                                                 $redirectURL="../users/users.php";
                                             }else{
                                                 $redirectURL="/";
-                                            }
+                                            }                                            
                                             ?>
                                         </div>   
                                         <div class="modal-body">  
@@ -45,6 +45,20 @@
                                                             <?php endforeach; ?>
                                                     </select>  
                                                     <br>
+                                                    <?php
+                                                        // $dir = "../images/users";
+                                                        // $files = scandir($dir);
+                                                    ?>
+                                                    <!-- <label>Select Image</label><?=$user['img'];?> -->
+                                                    <!-- replace with current image -->
+                                                    <!-- <select class="form-control" name="image" id="image" <?=$user['img'];?>>  -->
+                                                        <!-- <option value="<?php echo $user['img']; ?>"><?=$user['img'];?></option> -->
+                                                            <!-- <?php  //foreach ($files as $file): ?> -->
+                                                                <!-- <option value="<?php //echo $file; ?>" > -->
+                                                                    <!-- <?php //echo $file; ?></option> -->
+                                                            <!-- <?php //endforeach; ?> -->
+                                                    <!-- </select> -->
+                                                    <!-- <br> -->
                                                 <input type="hidden" name="id" id="id" value="<?=$user['id'];?>" />
                                                 <input type="hidden" name="redirect" id="redirect" value="<?=$redirectURL;?>" />
                                                 <input type="submit" name="edit_insert" id="edit_insert<?=$user['id'];?>" value="Change" class="btn btn-success" /> 
