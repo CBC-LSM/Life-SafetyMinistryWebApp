@@ -348,7 +348,12 @@ function updateAccessLog($tagid,$userid,$doorname,$status,$date){
 	$db->query($sql);
 	return ($db->affected_rows() === 1) ? true : false;
 }
-	
+ function find_rfid($tagid){
+	global $db;
+	$sql = "SELECT * FROM `users` WHERE `RFIDtag` like '{$tagid}'";
+	$result = find_by_sql($sql);
+	return $result;
+ }	
 
 
 ?>
