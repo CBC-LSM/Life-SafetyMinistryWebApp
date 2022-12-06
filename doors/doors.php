@@ -10,8 +10,9 @@ $pageName = "Door Schedule";
 require_once '../database/load.php';
 include '../pages/header.php';
 $doors = findalldoors();
-$users = find_all_user();
-$group_names = find_all_groups();
+$doorschedules =finddoorschedule();
+// $users = find_all_user();
+// $group_names = find_all_groups();
 // die(var_dump($users));
 if ($_SESSION['userLevel']!=1) { redirect('/', false);}
 ?> 
@@ -34,12 +35,53 @@ if ($_SESSION['userLevel']!=1) { redirect('/', false);}
             </tr>
         </thead>
         <tbody>
-            <!-- Add information here regarding the schedules for the doors   -->
+            <?php foreach($doorschedules as $doorschedule):;?>
+                <tr style ="color: #D4D4C9; font-size: 100%; background-color:#1E1E1E;">
+                    <td class="text-left"><div class="mobile-only"><strong>Door</strong></div><strong><?php echo $doorschedule['doorName']; ?></strong></td>
+                    <?php 
+                    $schedule = ucwords($doorschedule['startday'])." ".date("H:i",strtotime($doorschedule['starttime']));
+                    $schedule .=" - ".ucwords($doorschedule['endday'])." ".date("H:i",strtotime($doorschedule['endtime']));
+                    ?>
+                    <td><div class="mobile-only"><strong>Schedule</strong></div><?php echo $schedule; ?></td>
+                    <td><div class="mobile-only"><strong>Action</strong></div><?php echo ucwords($doorschedule['action']); ?></td>
+
+                    <!-- need to finish adding the modification modal and delete icon. This needs to be completed soon. -->
+                    <!-- Add information here regarding the schedules for the doors   -->
+
+            <?php endforeach;?>
         </tbody>
     </table>
     </div>
 </div>
-
+<script>
+$(document).ready(function() {
+	$('#register').on('click', function() {
+		var id = $('#getUID').val();
+		var name = $('#name').val();
+        event.preventDefault();
+            if($('#getUID').val() ==''){alert("Must scan badge before entering");}
+            else if ($('#name').val()==''){alert("Must select name");}
+            else{
+                $.ajax({
+                    url: "../rfid/insert.php",
+                    type: "POST",
+                    data: {
+                        id: id,
+                        name: name			
+                    },
+                    beforeSend:function(){  
+                                $('#register').val("registering");},
+                    success: function(dataResult){
+                            var dataResult = dataResult;
+                            let baseURL = "";
+                            let newURL = baseURL.concat(dataResult);
+                            window.location.replace(newURL);
+                            }
+                });
+            }
+	})
+});
+</script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <!-- jQuery UI library -->

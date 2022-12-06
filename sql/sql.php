@@ -340,6 +340,7 @@ function findalldoors(){
 	global $db;
 	$sql = "SELECT * FROM rfidDoors";
 	$result = find_by_sql($sql);
+	// die(var_dump($result));
 	return $result;
 }
 function updateAccessLog($tagid,$userid,$doorname,$status,$date){
@@ -355,7 +356,20 @@ function updateAccessLog($tagid,$userid,$doorname,$status,$date){
 	return $result;
  }	
 
-
+ function adddoorscheduletodb($doorid,$startday,$starttime,$endday,$endtime,$action){
+	 global $db;
+	 $sql = "INSERT INTO `rfiddoorschedule`(`id`, `doorid`, `startday`, `starttime`, `endday`, `endtime`, `action`) ";
+	 $sql .= "VALUES ('','{$doorid}','{$startday}','{$starttime}','{$endday}','{$endtime}','{$action}')";
+	 $db->query($sql);
+	 return ($db->affected_rows() === 1) ? true : false;
+ }
+function finddoorschedule(){
+	global $db;
+	$sql = "SELECT d.id, d.doorid, d.startday, d.starttime, d.endday, d.endtime, d.action, r.doorName FROM ";
+	$sql .="`rfiddoorschedule` d left JOIN rfidDoors r ON r.id = d.doorid ORDER by d.doorid ASC";
+	$result = find_by_sql($sql);
+	return $result;
+}
 ?>
 
 
