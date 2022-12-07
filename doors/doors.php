@@ -44,7 +44,16 @@ if ($_SESSION['userLevel']!=1) { redirect('/', false);}
                     ?>
                     <td><div class="mobile-only"><strong>Schedule</strong></div><?php echo $schedule; ?></td>
                     <td><div class="mobile-only"><strong>Action</strong></div><?php echo ucwords($doorschedule['action']); ?></td>
+                    <td><div class="mobile-only"><strong>Modify</strong></div>
+                        <a href="/doors/deletedoorschedule.php?id=<?php echo $doorschedule['id'];?>"onClick="return confirm('Are you sure you want to delete?')" class="btn btn-danger btn-xs"  
+                        title="Delete" data-toggle="tooltip"><span class="glyphicon glyphicon-remove"></span>
+                        </a>
 
+                        <button type="button" class="btn btn-warning btn-xs" id ="edit" title="Edit" value = "<?php echo $user['id'];?>" onClick="<?php echo $user['id']?>" 
+                        data-toggle="modal" data-target="#edit_schedule<?=$doorschedule['id'];?>" VALIGN=MIDDLE><span class="glyphicon glyphicon-pencil"></button>
+                    </td>
+                    <?php include '../doors/editdoorschedulemodal.php'; ?>
+                </tr>
                     <!-- need to finish adding the modification modal and delete icon. This needs to be completed soon. -->
                     <!-- Add information here regarding the schedules for the doors   -->
 

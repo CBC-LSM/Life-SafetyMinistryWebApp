@@ -8,9 +8,9 @@
 if (!$session->isUserLoggedIn()) { redirect('/', false);}
 $AllNames = findAllnames();
 $allRadios = findAllRadios();
-$allDSMs = findAllDSMs();
-$allFlashlights = findAllflashlights();
-$allTourniquets = findAllTourniquets();
+// $allDSMs = findAllDSMs();
+// $allFlashlights = findAllflashlights();
+// $allTourniquets = findAllTourniquets();
 $allUtilityBags = findAllUtilityBags();
 $allPositions = findAllPositions();
 
@@ -63,7 +63,7 @@ $checkouttime   = date('Y-m-d H:i:s');
                         data-toggle="modal"><span class="glyphicon glyphicon-remove"></span>
                         </a> -->
                         <button type="button" class="btn btn-warning btn-xs" id ="edit" value = "<?php echo $team['id'];?>" onClick="<?php echo $team['id']?>" 
-                        data-toggle="modal" data-target="#edit_data_modal<?=$team['id'];?>" VALIGN=MIDDLE><span class="glyphicon glyphicon-edit"></button>
+                        data-toggle="modal" title="Edit Entry" data-target="#edit_data_modal<?=$team['id'];?>" VALIGN=MIDDLE><span class="glyphicon glyphicon-edit"></button>
 
                     <?php if ($team['status']=="Checked Out"):?>
                         <a href="/features/checkin.php?id=<?php echo $team['id'];?>"class="btn btn-warning btn-xs"  
@@ -81,89 +81,7 @@ $checkouttime   = date('Y-m-d H:i:s');
                     <!-- <td><div class="mobile-only"><strong>Tourniquet</strong></div><?php echo $team['tourniquetname']; ?></td> -->
                     <td class="entry_input"><div class="mobile-only"><strong>Utility Bag</strong></div><?php echo $team['ubname']; ?></td>
                     <td class="entry_input"><div class="mobile-only"><strong>Status</strong></div><?php echo $team['status']; ?></td>
-                    
-                        <div id="edit_data_modal<?=$team['id'];?>" class="modal fade"> 
-                            <div class="panel-modal">
-                                <div class="modal-dialog">  
-                                    <div class="modal-content">  
-                                        <div class="modal-header">  
-                                            <h3 class="modal-title">Edit Equipment Check Out</h3>
-                                        </div>   
-                                        <div class="modal-body">  
-                                            <!-- <form method="post" id="edit_form" > -->
-                                            <form method="post" action="../features/edit.php">
-                                                    <label for="Edit-Name-Choice">Name</label>
-                                                    <input list="edit-names" name="Edit-Name-Choice" id= "Edit-Name-Choice" class="form-control" value ="<?=$team['membername'];?> " placeholder="<?=$team['membername'];?>"/>
-                                                        <datalist id="edit-names">
-                                                        <!-- <option value = "<?php echo $name['membername']; ?>"></option> -->
-                                                        <?php  foreach ($AllNames as $name): ?>
-                                                                <option value="<?php echo $name['membername']; ?>" ></option>
-                                                            <?php endforeach; ?>
-                                                        </datalist>
-                                                    <br>
-                                                    <label>Position</label> 
-                                                    <select class="form-control" name="position" id="edit_position">
-                                                        <option value="<?php echo $team['positionID']; ?>"><?=$team['positionname'];?></option>
-                                                            <?php  foreach ($allPositions as $position): ?>
-                                                                <option value="<?php echo $position['positionname']; ?>" >
-                                                                    <?php echo $position['positionname']; ?></option>
-                                                            <?php endforeach; ?>
-                                                    </select>  
-                                                    <br>
-                                                    <label class="text-left">Radio</label> 
-                                                    <select class="form-control" name="radio" id="edit_radio">
-                                                        <option value="<?php echo $team['radioID']; ?>"><?php echo $team['radioname']; ?></option>
-                                                            <?php  foreach ($allRadios as $radio):?>
-                                                                        <option value="<?php echo $radio['radioname']; ?>" >
-                                                                        <?php echo $radio['radioname']; ?></option>
-                                                                <?php endforeach; ?>
-                                                    </select>  
-                                                    <br>   
-                                                    <!-- <label>DSM</label>  
-                                                    <select class="form-control" name="dsm" id="edit_dsm">
-                                                        <option value="<?php echo $team['dsmID']; ?>"><?php echo $team['dsmname']; ?></option>
-                                                        <?php  foreach ($allDSMs as $DSM):?>
-                                                                        <option value="<?php echo $DSM['dsmname']; ?>" >
-                                                                        <?php echo $DSM['dsmname']; ?></option>
-                                                                <?php endforeach; ?>
-                                                    </select>
-                                                    <br>   
-                                                    <label>Flashlight</label> 
-                                                        <select class ="form-control" name="flashlight" id="edit_flashlight">
-                                                            <option value="<?php echo $team['flashlightID']; ?>"><?php echo $team['flashlightname']; ?></option>
-                                                            <?php  foreach ($allFlashlights as $flashlight):?>
-                                                                    <option value="<?php echo $flashlight['flashlightname']; ?>" >
-                                                                    <?php echo $flashlight['flashlightname']; ?></option>
-                                                            <?php endforeach; ?>
-                                                        </select>
-                                                    <br>
-                                                    <label>Tourniquet</label> 
-                                                        <select class ="form-control" name="tourniquet" id="edit_tourniquet">
-                                                            <option value="<?php echo $team['tourniquetID']; ?>"><?php echo $team['tourniquetname']; ?></option>
-                                                            <?php  foreach ($allTourniquets as $tourniquet):?>
-                                                                    <option value="<?php echo $tourniquet['tourniquetname']; ?>" >
-                                                                    <?php echo $tourniquet['tourniquetname']; ?></option>
-                                                            <?php endforeach; ?>
-                                                        </select>
-                                                    <br> -->
-                                                    <label>Utility Bag</label> 
-                                                        <select class ="form-control" name="utility_bag" id="edit_utility_bag">
-                                                            <option value="<?php echo $team['ubID']; ?>"><?php echo $team['ubname']; ?></option>
-                                                            <?php  foreach ($allUtilityBags as $bag):?>
-                                                                    <option value="<?php echo $bag['ubname']; ?>" >
-                                                                    <?php echo $bag['ubname']; ?></option>
-                                                            <?php endforeach; ?>
-                                                        </select>
-                                                    <br>
-                                                <input type="hidden" name="id" id="id" value="<?=$team['id'];?>" />
-                                                <input type="submit" name="edit_insert" id="edit_insert<?=$team['id'];?>" value="Change" class="btn btn-success" /> 
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>  
-                                            </form> 
-                                        </div>  
-                                    </div>  
-                                </div>  
-                            </div>
-                        </div>
+                    <?php include '../pages/edit_data_modal.php'; ?>    
                     </tr>
             <?php endforeach;?>     
         </tbody>
@@ -171,103 +89,7 @@ $checkouttime   = date('Y-m-d H:i:s');
     </div>
 </div>
 
-<div id="add_data_modal" class="modal fade">  
-      <div class="modal-dialog">  
-           <div class="modal-content">  
-                <div class="modal-header">  
-                     <h3 class="modal-title">Add Equipment Check Out</h4>
-                </div>   
-                <div class="modal-body">  
-                     <form method="post" id="insert_form">
-                            <div class="test_modal_body">
-                            <!-- <label for="Name-Choice">Name</label>
-                            <input type="text" name="search" id="search" placeholder="search here...." class="form-control">   -->
-                            <!-- <br> -->
-                            <label for="Name-Choice">Name</label>
-                            <input list="names" name="Name-Choice" id= "Name-Choice" class="form-control" placeholder="Name"/>
-                                <datalist id="names">
-                                <?php  foreach ($AllNames as $name): ?>
-                                        <option value="<?php echo $name['membername']; ?>" >
-                                    <?php endforeach; ?>
-                                </datalist>
-                            <br>
-                          <label>Position</label> 
-                          <select class="form-control" name="position" id="position">
-                              <option value="">Position</option>
-                                <?php  foreach ($allPositions as $position): ?>
-                                    <option value="<?php echo $position['positionname']; ?>" >
-                                        <?php echo $position['positionname']; ?></option>
-                                <?php endforeach; ?>
-                          </select>  
-                          <br>
-                          <label>Radio</label> 
-                          <select class="form-control" name="radio" id="radio">
-                              <option value="">Radio</option>
-                                   <?php  foreach ($allRadios as $radio):
-                                        if ($radio['status']=="Checked In"):?>
-                                            <option value="<?php echo $radio['radioname']; ?>" >
-                                            <?php echo $radio['radioname']; ?></option>
-                                        <?php else:?>
-                                        <?php endif;?>  
-                                    <?php endforeach; ?>
-                          </select>  
-                          <br>   
-                          <!-- <label>DSM</label>  
-                          <select class="form-control" name="dsm" id="dsm">
-                              <option value="">DSM</option>
-                              <?php  foreach ($allDSMs as $DSM):
-                                        if ($DSM['status']=="Checked In"):?>
-                                            <option value="<?php echo $DSM['dsmname']; ?>" >
-                                            <?php echo $DSM['dsmname']; ?></option>
-                                        <?php else:?>
-                                        <?php endif;?>  
-                                    <?php endforeach; ?>
-                          </select>
-                          <br>   
-                          <label>Flashlight</label> 
-                            <select class ="form-control" name="flashlight" id="flashlight">
-                                <option value="">Flashlight</option>
-                                <?php  foreach ($allFlashlights as $flashlight):
-                                    if ($flashlight['status']=="Checked In"):?>
-                                        <option value="<?php echo $flashlight['flashlightname']; ?>" >
-                                        <?php echo $flashlight['flashlightname']; ?></option>
-                                    <?php else:?>
-                                    <?php endif;?>  
-                                <?php endforeach; ?>
-                            </select>
-                          <br>
-                          <label>Tourniquet</label> 
-                            <select class ="form-control" name="tourniquet" id="tourniquet">
-                                <option value="">Tourniquet</option>
-                                <?php  foreach ($allTourniquets as $tourniquet):
-                                    if ($tourniquet['status']=="Checked In"):?>
-                                        <option value="<?php echo $tourniquet['tourniquetname']; ?>" >
-                                        <?php echo $tourniquet['tourniquetname']; ?></option>
-                                    <?php else:?>
-                                    <?php endif;?>  
-                                <?php endforeach; ?>
-                            </select>
-                          <br> -->
-                          <label>Utility Bag</label> 
-                            <select class ="form-control" name="utility_bag" id="utility_bag">
-                                <option value="">Utility Bag</option>
-                                <?php  foreach ($allUtilityBags as $bag):
-                                    if ($bag['status']=="Checked In"):?>
-                                        <option value="<?php echo $bag['ubname']; ?>" >
-                                        <?php echo $bag['ubname']; ?></option>
-                                    <?php else:?>
-                                    <?php endif;?>  
-                                <?php endforeach; ?>
-                            </select>
-                          <br> 
-                          <input type="submit" name="insert" id="insert" value="Submit" class="btn btn-success" /> 
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> 
-                          </div> 
-                     </form> 
-                </div>  
-           </div>  
-      </div>  
-</div>
+<?php include '../pages/add_data_modal.php'; ?>  
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <!-- jQuery UI library -->

@@ -370,6 +370,13 @@ function finddoorschedule(){
 	$result = find_by_sql($sql);
 	return $result;
 }
+function deleteschedule($id){
+	global $db;
+	$sql = "DELETE FROM `rfiddoorschedule` WHERE `id` = '{$id}';";
+	// die(print_r($sql));
+	$db->query($sql);
+	return ($db->affected_rows() === 1) ? true : false;
+}
 ?>
 
 
