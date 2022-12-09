@@ -86,8 +86,6 @@
                       <input type="submit" name="edit_insert" id="edit_insert<?=$user['id'];?>" value="Add New Schedule" class="btn btn-success" /> 
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>  
                   </form> 
-                  <!--Script-->
-                <script src="../scripts/script.js"></script>
               </div>  
           </div>  
       </div>  
