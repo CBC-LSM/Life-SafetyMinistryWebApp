@@ -23,7 +23,7 @@ if ($_SESSION['userLevel']!=1) { redirect('/', false);}
         <span class="glyphicon glyphicon-plus-sign" style="color:#a0a0a0; font-size: 30px; vertical-align: middle; padding: 0px 10px 0px 0px;" aria-hidden="true"></span>
         <strong>Add Door Schedule</strong>
     </button>
-    <?php include '../doors/doorschedulesetup.php'; ?>
+    <?php include '../doors/adddoorschedulemodal.php'; ?>
     <div class="tableContainer">
     <table>
         <thead>
@@ -39,11 +39,11 @@ if ($_SESSION['userLevel']!=1) { redirect('/', false);}
                 <tr style ="color: #D4D4C9; font-size: 100%; background-color:#1E1E1E;">
                     <td class="text-left"><div class="mobile-only"><strong>Door</strong></div><strong><?php echo $doorschedule['doorName']; ?></strong></td>
                     <?php 
-                    $schedule = ucwords($doorschedule['startday'])." ".date("H:i",strtotime($doorschedule['starttime']));
-                    $schedule .=" - ".ucwords($doorschedule['endday'])." ".date("H:i",strtotime($doorschedule['endtime']));
+                    $schedule = substr($doorschedule['startday'],0,3)." ".date("H:i",strtotime($doorschedule['starttime']));
+                    $schedule .=" - ".substr($doorschedule['endday'],0,3)." ".date("H:i",strtotime($doorschedule['endtime']));
                     ?>
                     <td><div class="mobile-only"><strong>Schedule</strong></div><?php echo $schedule; ?></td>
-                    <td><div class="mobile-only"><strong>Action</strong></div><?php echo ucwords($doorschedule['action']); ?></td>
+                    <td><div class="mobile-only"><strong>Action</strong></div><?php echo $doorschedule['action']; ?></td>
                     <td><div class="mobile-only"><strong>Modify</strong></div>
                         <a href="/doors/deletedoorschedule.php?id=<?php echo $doorschedule['id'];?>"onClick="return confirm('Are you sure you want to delete?')" class="btn btn-danger btn-xs"  
                         title="Delete" data-toggle="tooltip"><span class="glyphicon glyphicon-remove"></span>

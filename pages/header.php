@@ -56,14 +56,15 @@ $group_names = find_all_groups();
           <button class="dropbtn"><span class="glyphicon glyphicon-menu-hamburger"></span></button>
           <div class="dropdown-content">
             <a href="/" target="_self">Home</a>
-            <a href="/pages/rover.php" target="_self">Rover Checklist</a>
             <?php if ($session->isUserLoggedIn()):?>
+              <a href="/pages/rover.php" target="_self">Rover Checklist</a>
               <?php if ($_SESSION['userLevel']>=1 && $_SESSION['userLevel']<=3):?>
                   <a href="/pages/add_rover_checklist.php" target="_self">Add Rover Checklist Item</a>
+                  <a href="/users/users.php" target="_self">Users</a>
                 <?php endif;?>
               <?php if ($_SESSION['userLevel']==1):?> <!--admins -->
               <a href="/users/add_user.php" target="_self">Add User</a>
-              <a href="/users/users.php" target="_self">Users</a>
+              <!-- <a href="/users/users.php" target="_self">Users</a> -->
               <a href="/rfid/accesslog.php" target="_self">Access Log</a>
               <a href="/doors/doors.php" target="_self">Door Schedules</a>
               <?php endif;?>

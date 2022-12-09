@@ -377,6 +377,14 @@ function deleteschedule($id){
 	$db->query($sql);
 	return ($db->affected_rows() === 1) ? true : false;
 }
+function editdoorschedule($id,$doorid,$startday,$starttime,$endday,$endtime,$action){
+	global $db;
+	$sql = "UPDATE `rfiddoorschedule` SET `doorid`='{$doorid}',`startday`='{$startday}',`starttime`='{$starttime}',`endday` = '{$endday}',"; 
+	$sql .="`endtime` = '{$endtime}',`action`='{$action}' ";
+	$sql .= "WHERE `rfiddoorschedule`.`id` = '{$id}';";
+	$db->query($sql);
+	return ($db->affected_rows() === 1) ? true : false;
+}
 ?>
 
 

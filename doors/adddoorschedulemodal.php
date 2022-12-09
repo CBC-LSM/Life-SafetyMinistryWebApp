@@ -29,13 +29,13 @@
                           <label for="startday" class="control-label">Start</label>
                             <select class="form-control" name="startday" id="startday" required>
                                 <option value ="">Choose Day</option>
-                                <option value ="sun">Sunday</option>
-                                <option value ="mon">Monday</option>
-                                <option value ="tues">Tuesday</option>
-                                <option value ="wed">Wednesday</option>
-                                <option value ="thurs">Thursday</option>
-                                <option value ="fri">Friday</option>
-                                <option value ="sat">Saturday</option>
+                                <option value ="Sunday">Sunday</option>
+                                <option value ="Monday">Monday</option>
+                                <option value ="Tuesday">Tuesday</option>
+                                <option value ="Wednesday">Wednesday</option>
+                                <option value ="Thursday">Thursday</option>
+                                <option value ="Friday">Friday</option>
+                                <option value ="Saturday">Saturday</option>
                             </select>
                           </div>
                           <label>Start Time</label> 
@@ -45,13 +45,13 @@
                           <label for="endday" class="control-label">End</label>
                             <select class="form-control" name="endday" id="endday" required>
                                 <option value ="">Choose Day</option>
-                                <option value ="sun">Sunday</option>
-                                <option value ="mon">Monday</option>
-                                <option value ="tues">Tuesday</option>
-                                <option value ="wed">Wednesday</option>
-                                <option value ="thurs">Thursday</option>
-                                <option value ="fri">Friday</option>
-                                <option value ="sat">Saturday</option>
+                                <option value ="Sunday">Sunday</option>
+                                <option value ="Monday">Monday</option>
+                                <option value ="Tuesday">Tuesday</option>
+                                <option value ="Wednesday">Wednesday</option>
+                                <option value ="Thursday">Thursday</option>
+                                <option value ="Friday">Friday</option>
+                                <option value ="Saturday">Saturday</option>
                             </select>
                           </div>
                           <label>Stop Time</label> 
@@ -60,8 +60,8 @@
                           <label>Action</label> 
                             <select class="form-control" name="dooraction" id="dooraction" required>
                                 <option value ="">Choose Action</option>
-                                <option value ="lock">Lock</option>
-                                <option value ="unlock">Unlock</option>
+                                <option value ="Lock">Lock</option>
+                                <option value ="Unlock">Unlock</option>
                             </select>  
                           <br>
                           <!-- <div class="wrapper">
