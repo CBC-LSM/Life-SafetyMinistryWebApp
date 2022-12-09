@@ -58,7 +58,7 @@ $group_names = find_all_groups();
             <?php if ($session->isUserLoggedIn()):?>
               <a href="/pages/rover.php" target="_self">Rover Checklist</a>
               <?php if ($_SESSION['userLevel']>=1 && $_SESSION['userLevel']<=3):?>
-                  <a href="/pages/add_rover_checklist.php" target="_self">Add Rover Checklist Item</a>
+                  <a href="/gearpage/add_rover_checklist.php" target="_self">Add Rover Checklist Item</a>
                   <a href="/users/users.php" target="_self">Users</a>
                 <?php endif;?>
               <?php if ($_SESSION['userLevel']==1):?> <!--admins -->
@@ -78,7 +78,17 @@ $group_names = find_all_groups();
         </div>
         </td>
       </tr>
+      <nav class="nav_header" id="menu">
+        <ul>
+            <li><a href="/" target="_self">Home</a></li>
+            <li><a href="/gearpage/gearpage.php" target="_self">Gear Page</a></li>
+            <li><a href="/rfid/accesslog.php" target="_self">RFID Scan Log</a></li>
+            <li><a href="/users/users.php" target="_self">User</a></li>
+            <!-- <li><a href="/pages/contactus.php" target="_self">Contact Us</a></li> -->
+        </ul>
+      </nav>
       </tbody>
+      
     </table>
     <?php include '../users/edit_user_modal.php'; ?>
     <?php include '../users/edit_password_modal.php'; ?>

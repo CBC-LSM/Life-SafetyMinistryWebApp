@@ -33,5 +33,5 @@ $deleteStatus = deleteEntry($id);
 if (!$deleteStatus){
     echo "Error....";
 }else{
-    redirect('/', false);
+    redirect('../gearpage/gearpage.php', false);
 }

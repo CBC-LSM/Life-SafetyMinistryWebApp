@@ -13,9 +13,9 @@ $query = "INSERT INTO `roverchecklist` (`item`,`status`) values ('{$newItem}','N
 if ($db->query($query)) {
     //sucess
     $session->msg('s', "Item Added to Check List! ");
-    redirect('../pages/add_rover_checklist.php', false);
+    redirect('../gearpage/add_rover_checklist.php', false);
 } else {
     //failed
     $session->msg('d', ' Sorry, failed to add!');
-    redirect('../pages/add_rover_checklist.php', false);
+    redirect('../gearpage/add_rover_checklist.php', false);
 }

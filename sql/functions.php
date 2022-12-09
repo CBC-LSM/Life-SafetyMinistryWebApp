@@ -81,7 +81,7 @@ function checkIn($id,$time){
 	if (!$checkINstatus){
 		echo "Error....";
 	}else{
-		redirect('/', false);
+		redirect('../gearpage/gearpage.php', false);
 	}
 	
 }
@@ -106,7 +106,7 @@ function checkOut($id){
 	if (!$checkOUTstatus){
 		echo "Error....";
 	}else{
-		redirect('/', false);
+		redirect('../gearpage/gearpage.php', false);
 	}
 
 }

@@ -13,8 +13,8 @@ validate_fields($req_fields);
 $username = remove_junk($_POST['username']);
 $password = remove_junk($_POST['password']);
 
-echo $username."<br>";
-echo $password."<br>";
+// echo $username."<br>";
+// echo $password."<br>";
 
 if (empty($errors)) {
 	$user_id = authenticate($username, $password);

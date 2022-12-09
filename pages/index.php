@@ -7,7 +7,7 @@
  */
 
 
-$pageName = "CBC Gearpage";
+$pageName = "CBC Life and Safety Ministry";
 require_once '../database/load.php';
 include 'header.php';
 
@@ -16,8 +16,11 @@ include 'header.php';
 <div class = "message-text-center">
     <?php echo display_msg($msg); ?>
 </div>
-
-<?php include 'loggedgear.php';?>
-
-
+<div class="login-page">
+    <div class="text-center">
+       <h1>Events and Updates</h1>
+       <p>I am making this a section where I can hopefully put updates for us to see every so often if needed.
+            Perhpas items to keep in mind and see when we first login on a weekly basis as reminders.</p>
+    </div>
+</div>
 <?php include 'footer.php';?>

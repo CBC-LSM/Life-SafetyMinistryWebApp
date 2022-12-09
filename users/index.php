@@ -22,18 +22,18 @@ if ($session->isUserLoggedIn()) { redirect('../pages/index.php', false);}
       <form method="post" action="../users/auth.php" class="clearfix">
         <div class="form-group">
               <label for="username" class="control-label">Username</label>
-              <input type="name" class="form-control" name="username" value="<?php echo $username;?>" placeholder="Username">
+              <input type="name" class="form-control" name="username" value="" placeholder="Username">
         </div>
         <div class="form-group">
             <label for="Password" class="control-label">Password</label>
-            <input type="password" class="form-control" name="password" value="<?php echo $password;?>" placeholder="Password">
+            <input type="password" class="form-control" name="password" value="" placeholder="Password">
         </div>
         <div class="form-group">
                 <button type="submit" class="btn btn-info  pull-right">Login</button>
         </div>
     </form>
     <div class="text-center">
-       <p>If you do not have login credentials check with admin</p>
+       <p>If you do not have login credentials check with Admin</p>
      </div>
 </div>
 <?php include_once '../pages/footer.php'; ?>

@@ -66,5 +66,5 @@ if($utility_bag){changeStatus($utility_bag,"ub","Checked Out");}
 
 // echo "Updated Status: ".$updated."<br>";
 
-redirect('/', false);
+redirect('../gearpage/gearpage.php', false);
 //items are updating. now need to write in the logic for checking out the "new" items. Also, need to re-direct back to home page after completed.

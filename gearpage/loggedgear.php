@@ -81,7 +81,7 @@ $checkouttime   = date('Y-m-d H:i:s');
                     <!-- <td><div class="mobile-only"><strong>Tourniquet</strong></div><?php echo $team['tourniquetname']; ?></td> -->
                     <td class="entry_input"><div class="mobile-only"><strong>Utility Bag</strong></div><?php echo $team['ubname']; ?></td>
                     <td class="entry_input"><div class="mobile-only"><strong>Status</strong></div><?php echo $team['status']; ?></td>
-                    <?php include '../pages/edit_data_modal.php'; ?>    
+                    <?php include '../gearpage/edit_data_modal.php'; ?>    
                     </tr>
             <?php endforeach;?>     
         </tbody>
@@ -89,7 +89,7 @@ $checkouttime   = date('Y-m-d H:i:s');
     </div>
 </div>
 
-<?php include '../pages/add_data_modal.php'; ?>  
+<?php include '../gearpage/add_data_modal.php'; ?>  
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <!-- jQuery UI library -->
