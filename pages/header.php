@@ -60,9 +60,10 @@ $group_names = find_all_groups();
               <?php if ($_SESSION['userLevel']>=1 && $_SESSION['userLevel']<=3):?>
                   <a href="/gearpage/add_rover_checklist.php" target="_self">Add Rover Checklist Item</a>
                   <a href="/users/users.php" target="_self">Users</a>
+                  <a href="/users/add_user.php" target="_self">Add User</a>
                 <?php endif;?>
               <?php if ($_SESSION['userLevel']==1):?> <!--admins -->
-              <a href="/users/add_user.php" target="_self">Add User</a>
+              
               <!-- <a href="/users/users.php" target="_self">Users</a> -->
               <a href="/rfid/accesslog.php" target="_self">Access Log</a>
               <a href="/doors/doors.php" target="_self">Door Schedules</a>

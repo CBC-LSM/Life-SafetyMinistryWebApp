@@ -16,14 +16,33 @@
                                                 $redirectURL="/";
                                             }                                            
                                             ?>
-                                        </div>   
-                                        <div class="modal-body">  
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <img class="img-circle img-size-2" src="../images/users/<?php echo $user['img'];?>" alt="">
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <form class="form" action="../users/edit_user_picture.php" method="POST" enctype="multipart/form-data">
+                                                        <div class="form-group">
+                                                            <input type="file" name="file_upload" multiple="multiple" class="btn btn-default btn-file"/>
+                                                        </div>
+                                                        <div class="form-group">
+                                                         <input type="hidden" name="id" id="id" value="<?=$user['id'];?>" />
+                                                            <button type="submit" name="submit" class="btn btn-warning">Change</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-body">
                                             <!-- <form method="post" id="edit_form" > -->
                                             <form method="post" action="../users/updateAccount.php">
                                                     <div class="form-group">
                                                             <label for="name" class="control-label">Name</label>
                                                             <input type="name" class="form-control" name="name" value="<?php echo ucwords($user['name']); ?>">
                                                     </div>
+                                                    
                                                     <div class="form-group">
                                                             <label for="username" class="control-label">Username</label>
                                                             <input type="username" class="form-control" name="username" value="<?php echo $user['username']; ?>">
@@ -45,20 +64,6 @@
                                                             <?php endforeach; ?>
                                                     </select>  
                                                     <br>
-                                                    <?php
-                                                        // $dir = "../images/users";
-                                                        // $files = scandir($dir);
-                                                    ?>
-                                                    <!-- <label>Select Image</label><?=$user['img'];?> -->
-                                                    <!-- replace with current image -->
-                                                    <!-- <select class="form-control" name="image" id="image" <?=$user['img'];?>>  -->
-                                                        <!-- <option value="<?php echo $user['img']; ?>"><?=$user['img'];?></option> -->
-                                                            <!-- <?php  //foreach ($files as $file): ?> -->
-                                                                <!-- <option value="<?php //echo $file; ?>" > -->
-                                                                    <!-- <?php //echo $file; ?></option> -->
-                                                            <!-- <?php //endforeach; ?> -->
-                                                    <!-- </select> -->
-                                                    <!-- <br> -->
                                                 <input type="hidden" name="id" id="id" value="<?=$user['id'];?>" />
                                                 <input type="hidden" name="redirect" id="redirect" value="<?=$redirectURL;?>" />
                                                 <input type="submit" name="edit_insert" id="edit_insert<?=$user['id'];?>" value="Change" class="btn btn-success" /> 

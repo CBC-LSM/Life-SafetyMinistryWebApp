@@ -33,3 +33,4 @@ if ($db->query($query)) {
     $session->msg('d', ' Sorry, failed to Update');
     redirect($redirectURL, false);
 }
+

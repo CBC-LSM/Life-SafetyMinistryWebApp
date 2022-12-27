@@ -21,6 +21,13 @@ include 'header.php';
        <h1>Events and Updates</h1>
        <p>I am making this a section where I can hopefully put updates for us to see every so often if needed.
             Perhpas items to keep in mind and see when we first login on a weekly basis as reminders.</p>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
     </div>
 </div>
 <?php include 'footer.php';?>

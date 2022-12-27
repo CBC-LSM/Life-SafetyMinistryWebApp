@@ -17,6 +17,8 @@ require_once LIB_PATH_INC.'../sql/functions.php';
 require_once LIB_PATH_INC.'../database/session.php';
 require_once LIB_PATH_INC.'database.php';
 require_once LIB_PATH_INC.'../sql/sql.php';
+require_once LIB_PATH_INC.'../database/upload.php';
+
 // include LIB_PATH_INC.'../users/edit_user_modal.php';
 // include LIB_PATH_INC.'../users/edit_password_modal.php.php';
 

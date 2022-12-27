@@ -25,7 +25,7 @@ if (isset($_POST['add_user'])) {
 			if ( $username == $a_user['username'] ) {
 				//failed
 				$session->msg('d', ' Sorry, username already used!');
-				redirect('../users/add_user.php', false);
+				redirect('../users/users.php', false);
 			}
 		}
 
@@ -34,7 +34,7 @@ if (isset($_POST['add_user'])) {
     
     if ($password !== $confirmpassword){
       $session->msg('d', "Passwords are not the same");
-			redirect('../users/add_user.php', false);
+			redirect('../users/users.php', false);
     }
 
 		$user_level = (int)$db->escape($_POST['level']);
@@ -47,14 +47,14 @@ if (isset($_POST['add_user'])) {
 		if ($db->query($query)) {
 			//sucess
 			$session->msg('s', "User account has been created! ");
-			redirect('../users/add_user.php', false);
+			redirect('../users/users.php', false);
 		} else {
 			//failed
 			$session->msg('d', ' Sorry, failed to create account!');
-			redirect('../users/add_user.php', false);
+			redirect('../users/users.php', false);
 		}
 	} else {
 		$session->msg("d", $errors);
-		redirect('../users/add_user.php', false);
+		redirect('../users/users.php', false);
 	}
 }

@@ -1,5 +1,24 @@
 <?php
 
+/*--------------------------------------------------------------*/
+/* Function for Creting random string
+/*--------------------------------------------------------------*/
+
+
+/**
+ *
+ * @param unknown $length (optional)
+ * @return unknown
+ */
+function randString($length = 5) {
+	$str='';
+	$cha = "0123456789abcdefghijklmnopqrstuvwxyz";
+
+	for ($x=0; $x<$length; $x++)
+		$str .= $cha[mt_rand(0, strlen($cha))];
+	return $str;
+}
+
 function redirect($url, $permanent = false) {
 	if (headers_sent() === false) {
 		header('Location: ' . $url, true, ($permanent === true) ? 301 : 302);

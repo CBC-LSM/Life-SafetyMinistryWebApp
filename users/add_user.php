@@ -37,7 +37,7 @@ if (isset($_POST['add_user'])) {
     
     if ($password !== $confirmpassword){
       $session->msg('d', "Passwords are not the same");
-			redirect('../users/add_user.php', false);
+			redirect('../users/users.php', false);
     }
 
 		$user_level = (int)$db->escape($_POST['level']);
@@ -50,15 +50,15 @@ if (isset($_POST['add_user'])) {
 		if ($db->query($query)) {
 			//sucess
 			$session->msg('s', "User account has been created! ");
-			redirect('../users/add_user.php', false);
+			redirect('../users/users.php', false);
 		} else {
 			//failed
 			$session->msg('d', ' Sorry, failed to create account!');
-			redirect('../users/add_user.php', false);
+			redirect('../users/users.php', false);
 		}
 	} else {
 		$session->msg("d", $errors);
-		redirect('../users/add_user.php', false);
+		redirect('../users/users.php', false);
 	}
 }
 ?>
@@ -90,7 +90,7 @@ if (isset($_POST['add_user'])) {
               <label for="level">User Role</label>
                 <select class="form-control" name="level">
                   <?php foreach ($groups as $group ):?>
-                   <option value="<?php echo $group['group_level'];?>"><?php echo ucwords($group['group_name']);?></option>
+                   <option value="<?php echo $group['group_level'];?>"<?php if($_SESSION['userLevel']>$group['group_level']){echo "disabled";};?>><?php echo ucwords($group['group_name']);?></option>
                 <?php endforeach;?>
                 </select>
             </div>

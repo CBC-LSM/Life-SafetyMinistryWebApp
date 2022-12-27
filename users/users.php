@@ -60,15 +60,16 @@ if ($_SESSION['userLevel']!=1 && $_SESSION['userLevel']!=2 ) { redirect('/', fal
                     <td><div class="mobile-only"><strong>RFID Active</strong></div><?php if ($user['RFIDtag'] >0){echo "Found";}else{echo "none";} ?></td>
                     <td><div class="mobile-only"><strong>Last RFID Scan</strong></div><?php echo $user['lastrfidscan']; ?></td>
                     <td><div class="mobile-only"><strong>Modify</strong></div>
-                        <?php if($_SESSION['userLevel']==1):?>
-                            <a href="/features/delete_user.php?id=<?php echo $user['id'];?>"onClick="return confirm('Are you sure you want to delete?')" class="btn btn-danger btn-xs"  
+                        <?php if($_SESSION['userLevel']<=2):?>
+                            <button type="button" class="btn btn-warning btn-xs" id ="edit" title="Edit User" value = "<?php echo $user['id'];?>" onClick="<?php echo $user['id']?>" 
+                                data-toggle="modal" data-target="#edit_user_modal<?=$user['id'];?>" VALIGN=MIDDLE><span class="glyphicon glyphicon-edit"></button>
+                            <?php if($_SESSION['userLevel']<=1):?>
+                                <a href="/features/delete_user.php?id=<?php echo $user['id'];?>"onClick="return confirm('Are you sure you want to delete?')" class="btn btn-danger btn-xs"  
                             title="Delete Entry" data-toggle="tooltip"><span class="glyphicon glyphicon-remove"></span>
                             </a>
                             <button type="button" class="btn btn-warning btn-xs" id ="edit" title="Edit Password" value = "<?php echo $user['id'];?>" onClick="<?php echo $user['id']?>" 
                                 data-toggle="modal" data-target="#edit_password_modal<?=$user['id'];?>" VALIGN=MIDDLE><span class="glyphicon glyphicon-pencil"></button>
-
-                                <button type="button" class="btn btn-warning btn-xs" id ="edit" title="Edit User" value = "<?php echo $user['id'];?>" onClick="<?php echo $user['id']?>" 
-                                data-toggle="modal" data-target="#edit_user_modal<?=$user['id'];?>" VALIGN=MIDDLE><span class="glyphicon glyphicon-edit"></button>
+                            <?php endif;?>
                             </td>
                         <?php endif;?>
                     <?php include '../users/userpicmodal.php'; ?>    
