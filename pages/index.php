@@ -16,15 +16,13 @@ include 'header.php';
 <div class = "message-text-center">
     <?php echo display_msg($msg); ?>
 </div>
-<div class="login-page">
+<div class="event-page">
     <div class="text-center">
        <h1>Events and Updates</h1>
-       <p>I am making this a section where I can hopefully put updates for us to see every so often if needed.
-            Perhpas items to keep in mind and see when we first login on a weekly basis as reminders.</p>
-            <br>
-            <br>
-            <br>
-            <br>
+       <h2>ATTENTION: <br>Don't forget to get a picture of everyone who checks in. This will needed as we move forward. If you have any questions ask Tyler. If you need to see
+       who has already had their picture taken, please visit this page.</h2>
+       <h3><a href="/users/users.php" target="_self">Users</a></h3>
+       <p> Note: The Users page can now receive uploads of pictures as they are taken. Create a new user if needed and upload the picture taken. </p>
             <br>
             <br>
             <br>

@@ -21,6 +21,15 @@
   margin:0;
   padding:0;
   cursor: pointer;
+}.event-page{
+  width: 75%;
+  margin: auto;
+  margin-top: 5%;
+  padding: 0 5%;
+  color: white;
+  background-color: #414141;
+  border: 1px solid #f2f2f2;
+  border-radius: 10px;
 }
 .close {
   position: absolute;
