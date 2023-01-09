@@ -190,7 +190,7 @@ function findAllTeamStatus($date1,$date2){
 	$sql .= "s.nameID=m.id LEFT JOIN positions p on s.positionID = p.id ";
 	$sql .= "LEFT JOIN radio r on s.radioID = r.id LEFT JOIN dsm d on ";
 	$sql .= "s.dsmID =d.id LEFT JOIN flashlights f on s.flashlightID = ";
-	$sql .= "f.id LEFT JOIN tourniquets t ON s.tourniquetID = t.id LEFT JOIN ub u on s.ubID = u.id where s.checkout between '{$date1}' and '{$date2}' ;";
+	$sql .= "f.id LEFT JOIN tourniquets t ON s.tourniquetID = t.id LEFT JOIN ub u on s.ubID = u.id where s.checkout between '{$date1}' and '{$date2}' order by s.status ASC;";
 	// die(print_r($sql));
 	$result = find_by_sql($sql);
 	return $result;

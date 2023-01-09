@@ -49,7 +49,13 @@ $checkouttime   = date('Y-m-d H:i:s');
                     <!-- <td class="body-text-center"><?php echo $team['flashlightname']; ?></td> -->
                     <!-- <td class="body-text-center"><?php echo $team['tourniquetname']; ?></td> -->
                     <td class="body-text-center"><?php echo $team['ubname']; ?></td>
-                    <td class="body-text-center"><?php echo $team['status']; ?></td>
+                    <td class="body-text-center"><?php 
+                    if ($team['status'] == "Checked Out"):?>
+                        <div class="btn btn-warning">Checked Out</div>
+                    <?php else:?>
+                        <div class="btn btn-success">Checked In</div>
+                    <?php endif; ?>
+                    </td>
                 </tr>
             <?php endforeach;?>     
         </tbody>
