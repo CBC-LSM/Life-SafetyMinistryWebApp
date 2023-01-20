@@ -5,7 +5,7 @@
  * @package default
  * @see index.php
  */
-if (!$session->isUserLoggedIn()) { redirect('/', false);}
+
 $AllNames = findAllnames();
 $allRadios = findAllRadios();
 // $allDSMs = findAllDSMs();

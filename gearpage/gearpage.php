@@ -8,10 +8,11 @@
 
 
 $pageName = "CBC Life and Safety Ministry";
-require_once '../database/load.php';
+include '../database/load.php';
+if (!$session->isUserLoggedIn()){redirect("/",false);}
 include '../pages/header.php';
-
 ?>
+
 
 <?php include '../gearpage/loggedgear.php';?>
 
