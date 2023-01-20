@@ -71,8 +71,6 @@ $group_names = find_all_groups();
             <a href="" id ="edit" title="Edit Password" data-toggle="modal" data-target="#edit_password_modal<?=$user['id'];?>" >Edit Password</a>
             <a href="" id ="edit" title="Edit Account" data-toggle="modal" data-target="#edit_user_modal<?=$user['id'];?>" >Edit Account</a>
             <a href="/users/logout.php" target="_self">Logout</a>
-            <?php else:?>
-              <a href="/users/index.php" target="_self">Login</a>
             <?php endif;?>
 
           </div>
@@ -82,6 +80,7 @@ $group_names = find_all_groups();
       <nav class="nav_header" id="menu">
         <ul>
             <li><a href="/" target="_self">Home</a></li>
+            <li><a href="/PCO2/index.php" target="_self">Emergency Roster</a></li>
             <li><a href="/gearpage/gearpage.php" target="_self">Gear Page</a></li>
             <li><a href="/rfid/accesslog.php" target="_self">RFID Scan Log</a></li>
             <li><a href="/users/users.php" target="_self">User</a></li>
