@@ -1,0 +1,16 @@
+https://github.com/averias/phpredis-json
+
+    // $myJSON = json_decode($checkInJSON,true);
+    // print "<pre>";
+    // print_r($myJSON);
+    // print "</pre>";
+    // die();
+    
+    // die(var_dump($myJSON));
+    // echo $myJSON;
+
+    // die();
+
+    //if you want to see if the system is still running/updating like it should pcoCall.php is 
+    //running every 30seconds on crontab -e. You can log into the terminal and run
+    // cat /tmp/date.log. This will report back the latest run of the php script date/time only.

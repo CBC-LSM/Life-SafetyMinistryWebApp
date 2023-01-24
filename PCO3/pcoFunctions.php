@@ -1,7 +1,7 @@
 <?php
 
 function pcoCall($URL){
-    global $username,$password,$datas,$includes;
+    global $username,$password,$datas,$includes,$subincludes;
     // die(print_r($URL));
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL,$URL);
@@ -18,16 +18,13 @@ function pcoCall($URL){
     // die(var_dump($results));
     $datas = $results['data'];
     $includes = $results['included'];
+    $subincludes = $results['included'];
+    // var_dump($includes);
     $next = $results['links']['next'];
-    // echo $next;
-    // return $next;
-    // print "<pre>";
-    // print_r($includes);
-    // print "</pre>";
-    // die();
+    return $next;
 }
 function timeConvert($datetime){
-    //Convert local time to UTC time to get accurate account
+    //Convert local server time to UTC time to get accurate account
     $dateTime = $datetime; 
     $newDateTime = new DateTime($dateTime); 
     $newDateTime->setTimezone(new DateTimeZone("America/New_York")); 
@@ -35,3 +32,4 @@ function timeConvert($datetime){
     // die(print_r($dateTimeNYC));
     return $dateTimeNYC;
 }
+

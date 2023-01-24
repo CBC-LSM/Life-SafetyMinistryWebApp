@@ -4,7 +4,7 @@ $dateTime = date("Y-m-d");
 $newDateTime = new DateTime($dateTime); 
 $newDateTime->setTimezone(new DateTimeZone("UTC")); 
 $dateTimeUTC = $newDateTime->format("Y-m-d");
-$dateTimeUTC = "2023-01-15";
+// $dateTimeUTC = "2023-01-22";
 // echo "local: ".$dateTime."<br>";
 // echo "UTC: ".$dateTimeUTC."<br>";
 
