@@ -1,5 +1,6 @@
 <?php
 
+require_once '../database/load.php';
 require_once 'common.php';
 require_once 'pcoFunctions.php';
 require_once 'redisFunctions.php';
@@ -9,17 +10,17 @@ $next = " "; //setting up $next to not be null at first pass.
 $checkInObj[] = new stdClass();//New Event (key) is being looped through so reset the object.
 $integer = 0;
 while(!is_null($next)){
-    die(print_r($URL));
+    // die(print_r($URL));
     $next = pcoCall($URL);
     //This works to iterate through all the "current" check in datas
     //Add a redis comand that will add the "event id's" to a key
     foreach($includes as $included){
-        if ($included["type"]=="Event"){
-            $EventID = $included["id"];
-            $EventName = $included['attributes']['name'];
+        if ($included["type"]=="Location"){
+            $LocationId = $included["id"];
+            $LocationName = $included['attributes']['name'];
             foreach($datas as $data){ 
                 //here we will find who is associated to the found event (key)
-                if ($data['relationships']['event']['data']['id']==$EventID){
+                if ($data['relationships']['locations']['data'][0]['id']==$LocationId){
                     $firstName = $data['attributes']['first_name'];
                     $lastName = $data['attributes']['last_name'];
                     $CheckInTime = $data['attributes']['created_at'];
@@ -27,6 +28,7 @@ while(!is_null($next)){
                     $emergencyContactName = $data['attributes']['emergency_contact_name'];
                     $emergencyContactNumber = $data['attributes']['emergency_contact_phone_number'];
                     $checkedOutTime = $data['attributes']['checked_out_at'];
+                    $securityCode = $data['attributes']['security_code'];
                     //find personal attributes in the include section
                     foreach($includes as $included){
                         //Find attributes to the specific person found and then report the data.
@@ -41,21 +43,23 @@ while(!is_null($next)){
                             $age = $age->y;
                             //report only if a child
                             if($childStatus && is_null($checkedOutTime)){
-                                $checkInObj[$EventID]->name = $EventName;
-                                $checkInObj[$EventID]->id = $EventID;
-                                $checkInObj[$EventID]->date = $dateTimeUTC;
-                                $checkInObj[$EventID]->data->$integer->first_name= $firstName;
-                                $checkInObj[$EventID]->data->$integer->last_name=$lastName;
-                                $checkInObj[$EventID]->data->$integer->emergency_contact_name = $emergencyContactName;
-                                $checkInObj[$EventID]->data->$integer->emergency_contact_number = $emergencyContactNumber;
-                                $checkInObj[$EventID]->data->$integer->check_in_time = $CheckInTime;
-                                $checkInObj[$EventID]->data->$integer->check_out_time = $checkedOutTime;
-                                $checkInObj[$EventID]->data->$integer->personal_id = $personalID;
-                                $checkInObj[$EventID]->data->$integer->child_status = $childStatus;
-                                $checkInObj[$EventID]->data->$integer->grade = $grade;
-                                $checkInObj[$EventID]->data->$integer->age = $age;
-                                $checkInObj[$EventID]->data->$integer->birthdate = $birthdate;
-                                $checkInObj[$EventID]->data->$integer->EventID = $EventID;
+                                $checkInObj[$LocationId]->name = $LocationName;
+                                $checkInObj[$LocationId]->id = $LocationId;
+                                $checkInObj[$LocationId]->date = $dateTimeUTC;
+                                $checkInObj[$LocationId]->data->$integer->first_name= $firstName;
+                                $checkInObj[$LocationId]->data->$integer->last_name=$lastName;
+                                $checkInObj[$LocationId]->data->$integer->emergency_contact_name = $emergencyContactName;
+                                $checkInObj[$LocationId]->data->$integer->emergency_contact_number = $emergencyContactNumber;
+                                $checkInObj[$LocationId]->data->$integer->check_in_time = $CheckInTime;
+                                $checkInObj[$LocationId]->data->$integer->check_out_time = $checkedOutTime;
+                                $checkInObj[$LocationId]->data->$integer->personal_id = $personalID;
+                                $checkInObj[$LocationId]->data->$integer->child_status = $childStatus;
+                                $checkInObj[$LocationId]->data->$integer->grade = $grade;
+                                $checkInObj[$LocationId]->data->$integer->age = $age;
+                                $checkInObj[$LocationId]->data->$integer->security_code = $securityCode;
+                                $checkInObj[$LocationId]->data->$integer->birthdate = $birthdate;
+                                $checkInObj[$LocationId]->data->$integer->EventID = $EventID;
+                                echo "done ".$integer."<br>";
                                 $integer++;
                             }
                         }

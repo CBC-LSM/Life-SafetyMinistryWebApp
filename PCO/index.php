@@ -12,31 +12,22 @@ require_once 'pcoFunctions.php';
 $checkInObj[] = new stdClass();//New Event (key) is being looped through so reset the object.
 $keyValues = $arList = $redis->keys("*");
 $currentDate = date("Y-m-d");
+// $dateTimeUTC = "2023-01-25";
+// $currentDate = $dateTimeUTC;
+// echo $currentDate;
 foreach($keyValues as $key){
     //get and assign data value to $checkInObj[];<- like I did in the call function
     $ReJsonData = $redis->get($key);
     $ReJsonData = json_decode($ReJsonData,true);
     $dataDate = date('Y-m-d',strtotime($ReJsonData['date']));
-    // if (is_null($ReJsonData['date'])){
-    //     echo "yep";
-    // }
     if ($currentDate == $dataDate && !is_null($key)){ //find current data only. For Today's eyes only
         $checkInObj[$key] = $ReJsonData;
     }
 }
-// print_r($checkInObj['98681']);
-// if(!is_null($checkInObj[0]['date'])){
-    // echo "yep";
-// }
 
 // unfortunately this is necessary as it is auto added when the list is created above. Not sure how to fix permenately but this works in it's place, else
 // you end up with a empty key set with no data in it.
 unset($checkInObj[0]);
-// print_r($checkInObj);
-// die();
-// foreach($checkInObj as $check){
-//     echo $check['date']."<br>";
-// }
 
 //now we just need to iterate through the keys. The data is already conditionalized so we can make this a simple process.
 ?>
