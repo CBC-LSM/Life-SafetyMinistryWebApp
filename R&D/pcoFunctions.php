@@ -27,11 +27,16 @@ function timeConvert($datetime){
     $dateTime = $datetime; 
     $newDateTime = new DateTime($dateTime); 
     $newDateTime->setTimezone(new DateTimeZone("America/New_York")); 
-    $dateTimeNYC = $newDateTime->format("H:i:s");
+    $dateTimeNYC = $newDateTime->format("Y-m-d H:i:s");
     return $dateTimeNYC;
 }
-function dayofweek($date){
-    $day_of_week = date('l', strtotime($date));
-    return $day_of_week;
+function timeConvertUTC($datetime){
+    //Convert local server time (NYC) to UTC time to get accurate account
+    $dateTime = $datetime; 
+    $newDateTime = new DateTime($dateTime); 
+    $newDateTime->setTimezone(new DateTimeZone("UTC")); 
+    $dateTimeUTC = $newDateTime->format("Y-m-d H:i:s");
+    return $dateTimeUTC;
 }
+
 

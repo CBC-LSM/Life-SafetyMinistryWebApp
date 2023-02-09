@@ -58,7 +58,6 @@ while(!is_null($next)){
                                 $checkInObj[$LocationId]->data->$integer->age = $age;
                                 $checkInObj[$LocationId]->data->$integer->security_code = $securityCode;
                                 $checkInObj[$LocationId]->data->$integer->birthdate = $birthdate;
-                                $checkInObj[$LocationId]->data->$integer->EventID = $EventID;
                                 echo "done ".$integer."<br>";
                                 $integer++;
                             }
