@@ -1,0 +1,59 @@
+/* Dark theme */
+
+body {
+    background-color: #333;
+    color: #fff;
+  }
+  
+  /* Style for thumbnails on index page */
+  .thumbnails {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .thumbnails a {
+    display: block;
+    width: 30%;
+    margin-bottom: 2em;
+  }
+  
+  .thumbnails img {
+    max-width: 100%;
+  }
+  
+  /* Style for image pages */
+  .image-container {
+    width: 80vw;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    margin: 0 auto;
+  }
+  
+  .image-container img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+  
+  
+  .go-back {
+    position: absolute;
+    font: 25px;
+    top: 1em;
+    right: 1em;
+  }
+  
+  .image-title {
+    text-align: center;
+    font-size: 2em;
+  }
+  
+  .image-description {
+    text-align: center;
+    margin-top: 2em;
+  }
+  
