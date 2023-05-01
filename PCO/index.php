@@ -1,5 +1,5 @@
 <?php
-$pageName = "Emergency Roster - Redis";
+$pageName = "Emergency Roster";
 
 require_once '../database/load.php';
 require_once 'common.php';
@@ -32,7 +32,7 @@ unset($checkInObj[0]);
 //now we just need to iterate through the keys. The data is already conditionalized so we can make this a simple process.
 ?>
 <script>
-    setTimeout("location.reload(true);", 10000);
+    // setTimeout("location.reload(true);", 10000);
 </script>
 <div class="panel-box">
     <table class="tableContainer">

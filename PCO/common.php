@@ -8,8 +8,8 @@ $dateTime = date("Y-m-d");
 // $dateTimeUTC = $newDateTime->format("Y-m-d");
 
 //use this to change the date for testing purposes only.
-$dateTimeUTC = "2023-02-08";
-// $dateTimeUTC = $dateTime;
+// $dateTimeUTC = "2023-02-12";
+$dateTimeUTC = $dateTime;
 //Set up the API Call
 $username = 'acb91b6afa5699d6740e5ac75c03859fa25e1100378afb94e4b67c4ebec33086';
 $password = '31bcfe2689f4c3d24f8af1f51795236cab843e529c6fc6b93e019b78e101aa94';

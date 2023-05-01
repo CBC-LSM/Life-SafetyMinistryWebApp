@@ -43,8 +43,9 @@ $checkouttime   = date('Y-m-d H:i:s');
             <?php foreach($teamStatus as $team):?>
                 <tr>
                     <td class="body-text-left"><?php echo $team['membername']; ?></td>
-                    <td class="body-text-center"><?php echo $team['radioname']; ?></td>
                     <td class="body-text-center"><?php echo $team['positionname']; ?></td>
+                    <td class="body-text-center"><?php echo $team['radioname']; ?></td>
+                    <!-- <td class="body-text-center"><?php echo $team['positionname']; ?></td> -->
                     <!-- <td class="body-text-center"><?php echo $team['dsmname']; ?></td> -->
                     <!-- <td class="body-text-center"><?php echo $team['flashlightname']; ?></td> -->
                     <!-- <td class="body-text-center"><?php echo $team['tourniquetname']; ?></td> -->

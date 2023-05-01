@@ -55,40 +55,55 @@ if ($day == "Sunday"){
       </table>
 
 <?php
-
-while (is_null($ReJsonData)){
 $ReJsonData = $redis->get($key);
 $ReJsonData = json_decode($ReJsonData,true);
 $classroom = $ReJsonData['name'];
 $datas = $ReJsonData['data'];
+if (is_null($ReJsonData)){
+    // include '../../pages/loading.php';
+    // echo "Not ready yet";
 }
+
+// while (is_null($ReJsonData)){
+//     $ReJsonData = $redis->get($key);
+//     $ReJsonData = json_decode($ReJsonData,true);
+//     $classroom = $ReJsonData['name'];
+//     $datas = $ReJsonData['data'];
+//     if (is_null($ReJsonData)){
+//         echo "Not ready yet";
+//         include 'pages/footer.php';
+//         sleep(2); 
+//     }
+// }
 ?>
 <script>
-    setTimeout("location.reload(true);", 5000);
+    setTimeout("location.reload(true);", 5500);
 </script>
-<div class="panel-box">
-    <table class="tableContainer">
-            <thead>
-            <tr>
-                <th colspan="3" style="text-align:center; color: #D4D4C9; font-family: Arial; font-size: 30px;"><?=$classroom;?></th>
-            </tr>
-            <tr class="entry_header" style="color: #D4D4C9; font-family: Arial;">
-                <th class="header-text-left" style="width:33%; text-align: left">First Name</th>
-                <th class="header-text-center" style="width:33%; text-align: left">Last Name</th>
-                <th class="header-text-center" style="width:33%; text-align: center">Check-In Time</th>
-            </tr>
-        </thead>
-        <tbody class="dashboard_table_body">
-            <?php foreach($datas as $data):?>
+<?php if (!is_null($ReJsonData)):?>
+    <div class="panel-box">
+        <table class="tableContainer">
+                <thead>
                 <tr>
-                    <td class="body-text-left"><?php echo ucfirst($data['first_name']); ?></td>
-                    <td class="body-text-left"><?php echo ucfirst($data['last_name']); ?></td>
-                    <td class="body-text-center"><?php echo timeConvert($data['check_in_time']); ?></td>
+                    <th colspan="3" style="text-align:center; color: #D4D4C9; font-family: Arial; font-size: 30px;"><?=$classroom;?></th>
                 </tr>
-            <?php endforeach;?>
-        </tbody>
-    </table>
-</div>
+                <tr class="entry_header" style="color: #D4D4C9; font-family: Arial;">
+                    <th class="header-text-left" style="width:33%; text-align: left">First Name</th>
+                    <th class="header-text-center" style="width:33%; text-align: left">Last Name</th>
+                    <th class="header-text-center" style="width:33%; text-align: center">Check-In Time</th>
+                </tr>
+            </thead>
+            <tbody class="dashboard_table_body">
+                <?php foreach($datas as $data):?>
+                    <tr>
+                        <td class="body-text-left"><?php echo ucfirst($data['first_name']); ?></td>
+                        <td class="body-text-left"><?php echo ucfirst($data['last_name']); ?></td>
+                        <td class="body-text-center"><?php echo timeConvert($data['check_in_time']); ?></td>
+                    </tr>
+                <?php endforeach;?>
+            </tbody>
+        </table>
+    </div>
+<?php endif;?>
 <?php include 'pages/footer.php';?>
 
 
