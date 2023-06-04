@@ -8,8 +8,8 @@ $arList = $redis->keys("*");
 foreach($arList as $key){
     
     //use this for testing code and seeing redis. Comment back so that this data isn't exposed.
-    // $ReJsonData = $redis->get($key);
-    // $ReJsonData = json_decode($ReJsonData,true);
-    // print_r($ReJsonData);
+    $ReJsonData = $redis->get($key);
+    $ReJsonData = json_decode($ReJsonData,true);
+    print_r($ReJsonData);
 }
 ?>
