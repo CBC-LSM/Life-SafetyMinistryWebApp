@@ -4,6 +4,7 @@
 $pageName = "Dashboard";
 require_once 'database/load.php';
 include 'pages/dashboardHeader.php';
+redirect('SportsCamp/SCDashboard.php', false);
 $AllNames = findAllnames();
 $allRadios = findAllRadios();
 $allDSMs = findAllDSMs();
