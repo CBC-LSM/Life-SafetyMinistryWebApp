@@ -1,0 +1,10 @@
+Inside our Server:
+
+<crontab -e>
+
+You'll find:
+0 0 * * * cd /var/www/html/cbc-gear-page && php resetRoverDaily.php
+* * * * * date>> /tmp/date.log
+* * * * * cd /var/www/html/cbc-gear-page/PCO && php pcoCall.php
+* * * * * sleep 30; date>> /tmp/date.log && cd /var/www/html/cbc-gear-page/PCO && php redis_del.php &&  cd $
+
