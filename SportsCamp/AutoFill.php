@@ -27,7 +27,7 @@ $AutoFilldata = [
     [
         'name' => 'Michael Vaughn',
         'position' => 'Registration',
-        'radio' => 'Lobby 1'
+        'radio' => 'Lobby 5'
     ],
     [
         'name' => 'Beth Hickey',
@@ -42,24 +42,29 @@ $AutoFilldata = [
     [
         'name' => '',
         'position' => 'Arts/Crafts',
-        'radio' => 'Radio 6'
+        'radio' => 'Lobby 1'
     ],
     [
         'name' => '',
         'position' => 'Arts/Crafts',
-        'radio' => 'Radio 7'
+        'radio' => 'Lobby 2'
     ],
     [
         'name' => '',
         'position' => 'Arts/Crafts',
-        'radio' => 'Radio 8'
+        'radio' => 'Lobby 4'
     ],
     [
-        'name' => 'Jason Walsh',
-        'position' => 'Photography',
+        'name' => 'Daryl Smith',
+        'position' => 'Latonia Terrace',
+        'radio' => 'Parking 2'
+    ] 
+    ,
+    [
+        'name' => 'Steve Martin',
+        'position' => 'Latonia Elementary',
         'radio' => 'Radio 9'
-    ]
-    
+    ]     
 ];
 
 foreach ($AutoFilldata as $item) {
@@ -82,11 +87,11 @@ if (!$namecheck){
 //retrieve id for all components
 $positionID     = findSCPositionID($position);
 $radioID        = findSCRadioID($radio);
-changeSCStatus($radioID,"SCRadio","Checked Out");
+changeSCStatus($radioID,"SCRadio","Checked In");
 $checkouttime   = date('Y-m-d H:i:s ');
 //add this new data to the teamStatus table
 
-$added = addSCGearStatus($nameID,$positionID,$radioID,$checkouttime);
+$added = startSCGearStatus($nameID,$positionID,$radioID,$checkouttime);
     echo "Name: " . $item['name'] . "<br>";
     echo "Position: " . $item['position'] . "<br>";
     echo "Radio: " . $item['radio'] . "<br>";

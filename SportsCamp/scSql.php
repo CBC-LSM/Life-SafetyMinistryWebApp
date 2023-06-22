@@ -58,6 +58,15 @@ function addSCGearStatus($nameID,$positionID,$radioID,$checkouttime){
 	$db->query($sql);
 	return ($db->affected_rows() === 1) ? true : false;
 }
+function startSCGearStatus($nameID,$positionID,$radioID,$checkouttime){
+	global $db;
+	$sql = "INSERT INTO `SCGearStatus`(`id`,`nameID`, `positionID`, `radioID`, "; 
+	$sql .= "`status`, `checkout`) VALUES ";
+    $sql .= "('','{$nameID}','{$positionID}','{$radioID}','Checked In','{$checkouttime}');";
+    // die(print_r($sql));
+	$db->query($sql);
+	return ($db->affected_rows() === 1) ? true : false;
+}
 function findSCComponentStatusID($id){
 	global $db;
 	$sql = "SELECT * FROM `SCGearStatus` WHERE `id` ='{$id}'";
