@@ -37,74 +37,37 @@ unset($checkInObj[0]);
 <script>
     // setTimeout("location.reload(true);", 10000);
 </script>
-<div class="panel-box">
-    <div style = "display:flex;">
-        <div style = "width: 50%">
-            <table>
-                <thead>
-                    <tr class = "entry_header" style ="color: #D4D4C9; font-family: Arial  ;">
-                        <th class="header-text-left" style="width:33%">Name</th>
-                        <!-- <th class="header-text-center" style="width:33%">Last Name</th> -->
-                        <th class="header-text-center" style="width:33%">Check-In Time</th>
-                    </tr>
-                </thead>
-                <tbody class="dashboard_table_body">
-                    <?php foreach($checkInObj as $check):
-                        $eventid = $check['id'];
-                        $eventName = $check['name'];
-                        $datas = $check['data'];
-                        // print_r($datas);
-                        // die();
-                        ?>
-                        <tr>
-                        <td colspan = "3" class="body-text-center" style ="color: #e0e019;"><strong><?=$eventName;?></strong></td>
+<<div class="panel-box" >
+    <table class="tableContainer"style = "width: 33%">
+        <thead>
+            <tr class = "entry_header" style ="color: #D4D4C9; font-family: Arial  ;">
+                <th class="header-text-left" style="width:25%">Name</th>
+                <!-- <th class="header-text-center" style="width:33%">Last Name</th> -->
+                <th class="header-text-center" style="width:25%">Check-In Time</th>
+            </tr>
+        </thead>
+        <tbody class="dashboard_table_body">
+            <?php foreach($checkInObj as $check):
+                $eventid = $check['id'];
+                $eventName = $check['name'];
+                $datas = $check['data'];
+                // print_r($datas);
+                // die();
+                ?>
+                <tr>
+                <td colspan = "2" class="body-text-center" style ="color: #e0e019;"><strong><?=$eventName;?></strong></td>
 
-                            <!-- <td class="body-text-left"></td> -->
-                            <?php foreach($datas as $data):?>
-                                <tr>
-                                    <td class="body-text-left"><?php echo $data['first_name']." ".$data['last_name']; ?></td>
-                                    <!-- <td class="body-text-center"><?php ; ?></td> -->
-                                    <td class="body-text-center"><?php echo timeConvert($data['check_in_time']); ?></td>
-                                </tr>
-                            <?php endforeach;?>
+                    <!-- <td class="body-text-left"></td> -->
+                    <?php foreach($datas as $data):?>
+                        <tr>
+                            <td class="body-text-left"><?php echo $data['first_name']." ".$data['last_name']; ?></td>
+                            <!-- <td class="body-text-center"><?php ; ?></td> -->
+                            <td class="body-text-center"><?php echo timeConvert($data['check_in_time']); ?></td>
                         </tr>
                     <?php endforeach;?>
-                </tbody>
-            </table>
-        </div>
-        <div style = "width: 50%">
-            <table>
-                <thead>
-                    <tr class = "entry_header" style ="color: #D4D4C9; font-family: Arial  ;">
-                        <th class="header-text-left" style="width:33%">Name</th>
-                        <!-- <th class="header-text-center" style="width:33%">Last Name</th> -->
-                        <th class="header-text-center" style="width:33%">Check-In Time</th>
-                    </tr>
-                </thead>
-                <tbody class="dashboard_table_body">
-                    <?php foreach($checkInObj as $check):
-                        $eventid = $check['id'];
-                        $eventName = $check['name'];
-                        $datas = $check['data'];
-                        // print_r($datas);
-                        // die();
-                        ?>
-                        <tr>
-                        <td colspan = "3" class="body-text-center" style ="color: #e0e019;"><strong><?=$eventName;?></strong></td>
-
-                            <!-- <td class="body-text-left"></td> -->
-                            <?php foreach($datas as $data):?>
-                                <tr>
-                                    <td class="body-text-left"><?php echo $data['first_name']." ".$data['last_name']; ?></td>
-                                    <!-- <td class="body-text-center"><?php ; ?></td> -->
-                                    <td class="body-text-center"><?php echo timeConvert($data['check_in_time']); ?></td>
-                                </tr>
-                            <?php endforeach;?>
-                        </tr>
-                    <?php endforeach;?>
-                </tbody>
-            </table>
-        </div>
-    </div>
+                </tr>
+            <?php endforeach;?>
+        </tbody>
+    </table>
 </div>
 <?php include 'pages/footer.php';?>
