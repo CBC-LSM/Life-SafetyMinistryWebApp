@@ -44,6 +44,10 @@
   width: 75%;
   margin: 0 auto;
   padding-top: 25px;
+}.ERtableContainer {
+  width: 25%;
+  margin: 0 auto;
+  padding-top: 25px;
 }
 .modal-picture {
   display: block;
@@ -229,7 +233,7 @@
 }.dashboard_table_body{
   color: white;
   font-family: Arial;
-  font-size: 25px;
+  font-size: 18px;
 }.dashboard_table_body tr:nth-child(odd){
   background-color: #414141;
 }
@@ -248,7 +252,11 @@
   width:90%;
   font-size: 15px;
 }
-
+.mid-left-center {
+  text-align: left;
+  display: flex;
+  align-items: center;
+}
 
 @media screen and (max-width: 420px) {
   .login-page{

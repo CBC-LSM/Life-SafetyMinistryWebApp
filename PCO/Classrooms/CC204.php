@@ -1,5 +1,7 @@
 <?php
+// redirect('../../PCO/index.php', false);
 $pageName = "CC204";
+
 require_once '../../database/load.php';
 require_once '../common.php';
 require_once '../redisConnection.php';

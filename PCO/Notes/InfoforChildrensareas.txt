@@ -1,0 +1,24 @@
+Sunday School Hour:
+Baby Nursery        id: 192324
+Toddler Nursery     id: 192325
+2s and 3s           id: 192328
+4s and 5s           id: 192329
+K and 1st Grade     id: 192331
+2nd and 3rd Grades  id: 943197
+4th and 5th Grades  id: 192332
+Jump Jr             id: 233887
+7th Grade           id: 233883
+8th Grade           id: 233884
+Freshman            id: 233871
+Sophomore           id: 233872
+Juniors             id: 233873
+Seniors             id: 233874
+
+
+10:30 Sunday Worship:
+Baby Nursery                id: 242983
+Toddler Nursery             id: 242985
+DiscipleKids Worship        id: 242989
+Disciple Kids Worship Jr.   id: 242987
+
+Add a current time function to choose which list to pull from?

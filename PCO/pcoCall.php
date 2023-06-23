@@ -12,6 +12,7 @@ $integer = 0;
 while(!is_null($next)){
     // die(print_r($URL));
     $next = pcoCall($URL);
+    // echo $URL."<br>";
     //This works to iterate through all the "current" check in datas
     //Add a redis comand that will add the "event id's" to a key
     foreach($includes as $included){
