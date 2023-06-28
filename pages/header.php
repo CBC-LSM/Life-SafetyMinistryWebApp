@@ -82,7 +82,7 @@ $group_names = find_all_groups();
             <li><a href="/" target="_self">Home</a></li>
             <li><a href="/PCO/index.php" target="_self">Emergency Roster</a></li>
             <li><a href="/gearpage/gearpage.php" target="_self">Gear Page</a></li>
-            <li><a href="/" target="_self">BOLO</a></li>
+            <li><a href="/BOLO/index.php" target="_self">BOLO</a></li>
             <!-- <li><a href="/SportsCamp/index.php" target="_self">Sports Camp Gear Page</a></li> -->
             <!-- <li><a href="/rfid/accesslog.php" target="_self">RFID Scan Log</a></li> -->
             <li><a href="/users/users.php" target="_self">User</a></li>
