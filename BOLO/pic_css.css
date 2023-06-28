@@ -1,0 +1,75 @@
+.gallery-container {
+    width: 65%;
+    margin: 0 auto;
+    text-align: center;
+    font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, sans-serif;
+}
+
+.image-container {
+    margin-bottom: 20px;
+}
+
+#gallery-image {
+    max-width: 100%;
+    max-height: 400px;
+}
+
+.caption-container {
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+#image-name {
+    color: #fff;
+}
+
+#image-date {
+    color: #fff;
+}
+
+#image-notes {
+    color: #fff;
+}
+
+.arrow-container {
+    font-size: 0;
+    position: relative;
+}
+
+#prev-btn,
+#next-btn {
+    text-decoration: none;
+    color: #fff;
+    font-size: 36px;
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#prev-btn i,
+#next-btn i {
+    display: inline-block;
+}
+
+#prev-btn {
+    left: 10px;
+}
+
+#next-btn {
+    right: 10px;
+}
+
+#prev-btn:hover,
+#next-btn:hover {
+    background-color: #333;
+}
