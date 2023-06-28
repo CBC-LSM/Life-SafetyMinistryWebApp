@@ -26,4 +26,5 @@ $WorshipHourid=array(
 
 
 //This is to just combine for now until we work out the timing or whatever.
-$mergedArray = array_merge($SSid, $WorshipHourid);
+// $mergedArray = array_merge_recursive($SSid, $WorshipHourid);
+$mergedArray = $SSid + $WorshipHourid;

@@ -15,7 +15,7 @@ $keyValues = $arList = $redis->keys("*");
 $keyValues = $mergedArray;
 
 // $currentDate = date("Y-m-d");
-$dateTimeUTC = "2023-06-18";
+// $dateTimeUTC = "2023-06-18";
 $currentDate = $dateTimeUTC;
 // echo $currentDate;
 foreach($keyValues as $key){
@@ -38,7 +38,7 @@ unset($checkInObj[0]);
     // setTimeout("location.reload(true);", 10000);
 </script>
 <<div class="panel-box" >
-    <table class="tableContainer"style = "width: 33%">
+    <table class="tableContainer"style = "width: 65%">
         <thead>
             <tr class = "entry_header" style ="color: #D4D4C9; font-family: Arial  ;">
                 <th class="header-text-left" style="width:25%">Name</th>

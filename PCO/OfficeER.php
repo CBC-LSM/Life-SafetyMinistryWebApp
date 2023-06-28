@@ -38,6 +38,12 @@ foreach($keyValues as $key){
 // you end up with a empty key set with no data in it.
 unset($checkInObj[0]);
 
+// Check if $checkInObj is empty and refresh the page if true
+if (empty($checkInObj)) {
+    header("Refresh:0");
+    exit();
+}
+
 //now we just need to iterate through the keys. The data is already conditionalized so we can make this a simple process.
 ?>
 
@@ -79,7 +85,7 @@ unset($checkInObj[0]);
     // setTimeout("location.reload(true);", 10000);
 </script>
 <<div class="panel-box" >
-    <table class="tableContainer"style = "width: 33%">
+    <table class="tableContainer"style = "width: 65%">
         <thead>
             <tr class = "entry_header" style ="color: #D4D4C9; font-family: Arial  ;">
                 <th class="header-text-left" style="width:25%">Name</th>
