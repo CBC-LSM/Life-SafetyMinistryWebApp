@@ -9,8 +9,8 @@ $dateTime = date("Y-m-d");
 
 //use this to change the date for testing purposes only.
 
-// $dateTimeUTC = $dateTime;
-$dateTimeUTC = "2023-06-25";
+$dateTimeUTC = $dateTime;
+//$dateTimeUTC = "2023-06-25";
 
 //Set up the API Call
 $username = 'acb91b6afa5699d6740e5ac75c03859fa25e1100378afb94e4b67c4ebec33086';

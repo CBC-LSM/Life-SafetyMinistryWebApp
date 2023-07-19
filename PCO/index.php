@@ -60,6 +60,7 @@ unset($checkInObj[0]);
                     <!-- <td class="body-text-left"></td> -->
                     <?php foreach($datas as $data):?>
                         <tr>
+                            <!-- <td class="body-text-left"><?php echo $data['first_name']." ".substr($data['last_name'],0,1)."."; ?></td> -->
                             <td class="body-text-left"><?php echo $data['first_name']." ".$data['last_name']; ?></td>
                             <!-- <td class="body-text-center"><?php ; ?></td> -->
                             <td class="body-text-center"><?php echo timeConvert($data['check_in_time']); ?></td>
