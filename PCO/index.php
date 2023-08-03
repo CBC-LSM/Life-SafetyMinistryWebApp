@@ -38,7 +38,7 @@ unset($checkInObj[0]);
     // setTimeout("location.reload(true);", 10000);
 </script>
 <<div class="panel-box" >
-    <table class="tableContainer"style = "width: 65%">
+    <table class="ERtableContainer2">
         <thead>
             <tr class = "entry_header" style ="color: #D4D4C9; font-family: Arial  ;">
                 <th class="header-text-left" style="width:25%">Name</th>
@@ -51,17 +51,19 @@ unset($checkInObj[0]);
                 $eventid = $check['id'];
                 $eventName = $check['name'];
                 $datas = $check['data'];
+                $count = count($datas);
                 // print_r($datas);
                 // die();
                 ?>
                 <tr>
-                <td colspan = "2" class="body-text-center" style ="color: #e0e019;"><strong><?=$eventName;?></strong></td>
-
+                <!-- <td colspan = "2" class="body-text-center" style ="color: #e0e019;"><strong><?=$eventName;?></strong></td> -->
+                <td class="class_body-text-center" style ="color: #e0e019;"><strong><?=$eventName;?></strong></td>
+                <td class="class_body-text-center" style ="color: #e0e019;"><strong><?=$count;?></strong></td>
                     <!-- <td class="body-text-left"></td> -->
                     <?php foreach($datas as $data):?>
                         <tr>
                             <!-- <td class="body-text-left"><?php echo $data['first_name']." ".substr($data['last_name'],0,1)."."; ?></td> -->
-                            <td class="body-text-left"><?php echo $data['first_name']." ".$data['last_name']; ?></td>
+                            <td class="class_body-text-left"><?php echo $data['first_name']." ".$data['last_name']; ?></td>
                             <!-- <td class="body-text-center"><?php ; ?></td> -->
                             <td class="body-text-center"><?php echo timeConvert($data['check_in_time']); ?></td>
                         </tr>
