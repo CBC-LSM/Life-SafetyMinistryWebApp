@@ -5,6 +5,11 @@ button {
     display: block;
     margin: 0 auto;
 }
+.square-btn {
+    width: 25px; /* Adjust the width as needed */
+    height: 25px; /* Adjust the height as needed */
+    padding: 0; /* Remove padding to make it a square */
+}
 
 .modal {
     display: none;
@@ -24,6 +29,13 @@ button {
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
+}
+.form-group {
+    display: flex;
+    align-items: center;
+}
+.form-group1 {
+    padding-bottom: 10px;
 }
 
 /* Mobile styles */

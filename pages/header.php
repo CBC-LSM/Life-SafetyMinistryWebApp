@@ -55,6 +55,7 @@ $group_names = find_all_groups();
           <button class="dropbtn"><span class="glyphicon glyphicon-menu-hamburger"></span></button>
           <div class="dropdown-content">
             <a href="/" target="_self">Home</a>
+            <a href="/incidentreporting/index.php" target="_self">Incident Report</a>
             <?php if ($session->isUserLoggedIn()):?>
               <a href="/pages/rover.php" target="_self">Rover Checklist</a>
               <?php if ($_SESSION['userLevel']>=1 && $_SESSION['userLevel']<=3):?>
@@ -80,8 +81,8 @@ $group_names = find_all_groups();
       <nav class="nav_header" id="menu">
         <ul>
             <li><a href="/" target="_self">Home</a></li>
+            <li><a href="/gearpage/gearpage.php" target="_self">Check In</a></li>
             <li><a href="/PCO/index.php" target="_self">Emergency Roster</a></li>
-            <li><a href="/gearpage/gearpage.php" target="_self">Gear Page</a></li>
             <li><a href="/BOLO/index.php" target="_self">BOLO</a></li>
             <!-- <li><a href="/SportsCamp/index.php" target="_self">Sports Camp Gear Page</a></li> -->
             <!-- <li><a href="/rfid/accesslog.php" target="_self">RFID Scan Log</a></li> -->

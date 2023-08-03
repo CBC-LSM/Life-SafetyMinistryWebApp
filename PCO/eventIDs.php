@@ -24,7 +24,12 @@ $WorshipHourid=array(
     'Disciple Kids Worship Jr.' => '242987'
 );
 
+$WednesdayNightId=array(
+    'Summer CU' => '1351745'
+);
 
 //This is to just combine for now until we work out the timing or whatever.
-// $mergedArray = array_merge_recursive($SSid, $WorshipHourid);
-$mergedArray = $SSid + $WorshipHourid;
+// $mergedArray = array_merge_recursive$SSid, $WorshipHourid);
+$mergedArray = $SSid + $WorshipHourid + $WednesdayNightId;
+// var_dump($mergedArray);
+// die();

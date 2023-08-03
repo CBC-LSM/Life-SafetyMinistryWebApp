@@ -34,15 +34,13 @@ foreach($keyValues as $key){
 }
 
 
+
 // unfortunately this is necessary as it is auto added when the list is created above. Not sure how to fix permenately but this works in it's place, else
 // you end up with a empty key set with no data in it.
 unset($checkInObj[0]);
 
-// Check if $checkInObj is empty and refresh the page if true
-if (empty($checkInObj)) {
-    header("Refresh:0");
-    exit();
-}
+// Your PHP code to check if $checkInObj is empty and set the JavaScript variable accordingly
+$isCheckInObjEmpty = empty($checkInObj) ? true : false;
 
 //now we just need to iterate through the keys. The data is already conditionalized so we can make this a simple process.
 ?>
@@ -70,44 +68,51 @@ if (empty($checkInObj)) {
 	</head>
 	
   <body style="background-color:#1E1E1E">
+  <!-- If $isCheckInObjEmpty is true, show the centered div -->
+
   <div class = "MainContainer">
     <table class="header_table">
         <tbody>
         <tr>
           <td></td>
-          <td><img src="../../images/LSM_weblogo.png" alt=""/></td>
-          <td>
-          </td>
+            <td>
+                <img src="../../images/LSM_weblogo.png" alt="" style="width: 100px; height: auto;">
+            </td>
+          <td></td>
         </tr>
         </tbody>
       </table>
-      <script>
-    // setTimeout("location.reload(true);", 10000);
-</script>
-<<div class="panel-box" >
-    <table class="tableContainer"style = "width: 65%">
-        <thead>
-            <tr class = "entry_header" style ="color: #D4D4C9; font-family: Arial  ;">
-                <th class="header-text-left" style="width:25%">Name</th>
+<div class="panel-box" >
+    <?php if ($isCheckInObjEmpty): ?>
+        <div class="centered-div">
+            <p>No one is checked in at this moment.</p>
+        </div>
+    <?php endif; ?>
+    <table class="ERtableContainer2">
+        <!-- <thead> -->
+            <!-- <tr class = "entry_header" style ="color: #D4D4C9; font-family: Arial  ;"> -->
+                <!-- <th class="header-text-left" style="width:50%">Name</th> -->
                 <!-- <th class="header-text-center" style="width:33%">Last Name</th> -->
-                <th class="header-text-center" style="width:25%">Check-In Time</th>
-            </tr>
-        </thead>
+                <!-- <th class="header-text-center" style="width:50%">Check-In Time</th> -->
+            <!-- </tr> -->
+        <!-- </thead> -->
         <tbody class="dashboard_table_body">
             <?php foreach($checkInObj as $check):
                 $eventid = $check['id'];
                 $eventName = $check['name'];
                 $datas = $check['data'];
+                $count = count($datas);
                 // print_r($datas);
                 // die();
                 ?>
                 <tr>
-                <td colspan = "2" class="body-text-center" style ="color: #e0e019;"><strong><?=$eventName;?></strong></td>
-
+                <!-- <td colspan = "2" class="class_body-text-center" style ="color: #e0e019;"><strong><?=$eventName."---".$count;?></strong></td> -->
+                <td class="class_body-text-center" style ="color: #e0e019;"><strong><?=$eventName;?></strong></td>
+                <td class="class_body-text-center" style ="color: #e0e019;"><strong><?=$count;?></strong></td>
                     <!-- <td class="body-text-left"></td> -->
                     <?php foreach($datas as $data):?>
-                        <tr>
-                            <td class="body-text-left"><?php echo $data['first_name']." ".$data['last_name']; ?></td>
+                        <tr class="table_names">
+                            <td class="class_body-text-left"><?php echo $data['first_name']." ".$data['last_name']; ?></td>
                             <!-- <td class="body-text-center"><?php ; ?></td> -->
                             <td class="body-text-center"><?php echo timeConvert($data['check_in_time']); ?></td>
                         </tr>
@@ -117,4 +122,12 @@ if (empty($checkInObj)) {
         </tbody>
     </table>
 </div>
+
+ <!-- JavaScript variable to hold the object status -->
+ <script>
+    var isCheckInObjEmpty = <?php echo $isCheckInObjEmpty ? 'true' : 'false'; ?>;
+</script>
+<!-- Include your JavaScript script that will handle background updates -->
+<script src="refresh.js"></script>
+
 <?php include 'pages/footer.php';?>

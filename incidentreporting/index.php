@@ -41,10 +41,10 @@ include '../pages/header.php';
     ?>
     
     <div id="ReportModal" class="modal">
-        <div class="modal-content">
+        <div class="modal-content" style="text-align: left;">
             <span class="close" onclick="closeModal()">&times;</span>
-            <form action="process_form.php" method="POST">
-                <h2>Add New Incident</h2>
+            <form action="process_form.php" method="POST" enctype="multipart/form-data">
+                <h2 style="text-align: center;">Add New Incident</h2>
 
                 <div class="form-group">
                     <label for="incidentDate">Date of Incident:</label>
@@ -76,9 +76,7 @@ include '../pages/header.php';
                     <input type="text" id="reportWrittenBy" name="reportWrittenBy" required>
                 </div>
 
-                
-
-                <div class="form-group">
+                <div class="form-group1">
                     <h3>People Involved</h3>
                     <button type="button" class="btn btn-default addPersonInvolved" onclick="addPersonInvolved()">
                         <span class="glyphicon glyphicon-plus"></span> Add Person Involved
@@ -87,15 +85,24 @@ include '../pages/header.php';
                         <div class="personInvolved">
                             <input type="text" class="personLastName" name="personLastName[]" placeholder="Last Name" required>
                             <input type="text" class="personFirstName" name="personFirstName[]" placeholder="First Name" required>
-                            <input type="text" class="personInvolvement" name="personInvolvement[]" placeholder="Involvement" required>
-                            <button type="button" class="btn btn-danger deletePersonInvolved" onclick="deletePersonInvolved(this)">
+                            <select class="personInvolvement" name="personInvolvement[]" required>
+                                <option value="" disabled selected>Select an Involvement</option>
+                                <option value="Victim">Victim</option>
+                                <option value="Medical">Medical</option>
+                                <option value="Safety">Safety</option>
+                                <option value="Safety Leader">Safety Leader</option>
+                                <option value="First Responder">First Responder</option>
+                                <option value="Offender">Offender</option>
+                                <option value="Witness">Witness</option>
+                            </select>
+                            <button type="button" class="btn btn-danger square-btn" onclick="deletePersonInvolved(this)">
                                 <span class="glyphicon glyphicon-trash"></span>
                             </button>
                         </div>
                     </div>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group1">
                     <h3>Emergency Contact</h3>
                     <div class="emergencyContact">
                         <input type="text" class="emergencyFirstName" name="emergencyFirstName" placeholder="First Name" required>
@@ -123,7 +130,10 @@ include '../pages/header.php';
                     <label for="medicalSupplies">Were Any Medical Supplies Used? Describe.</label>
                     <textarea id="medicalSupplies" name="medicalSupplies" required></textarea>
                 </div>
-
+                <div class="form-group">
+                    <label for="incidentImage">Upload Image:</label>
+                    <input type="file" id="incidentImage" name="incidentImage">
+                </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary">
                         <span class="glyphicon glyphicon-ok"></span> Submit

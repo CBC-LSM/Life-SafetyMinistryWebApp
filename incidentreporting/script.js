@@ -18,7 +18,7 @@ function addPersonInvolved() {
         <input type="text" class="personLastName" name="personLastName[]" placeholder="Last Name" required>
         <input type="text" class="personFirstName" name="personFirstName[]" placeholder="First Name" required>
         <input type="text" class="personInvolvement" name="personInvolvement[]" placeholder="Involvement" required>
-        <button type="button" class="btn btn-danger deletePersonInvolved" onclick="deletePersonInvolved(this)"><span class="glyphicon glyphicon-trash"></span></button>
+        <button type="button" class="btn btn-danger square-btn" onclick="deletePersonInvolved(this)"><span class="glyphicon glyphicon-trash"></span></button>
     `;
     container.appendChild(personInvolved);
 }

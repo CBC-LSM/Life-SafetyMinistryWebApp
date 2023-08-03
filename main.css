@@ -257,8 +257,43 @@
   display: flex;
   align-items: center;
 }
-
+/* Base styles for all devices */
+.ERtableContainer2 {
+  width: 100%; /* Occupy the full width of the parent element */
+  max-width: 420px; /* Set a maximum width for larger screens */
+  margin: 0 auto; /* Center the container horizontally */
+  padding-top: 25px; /* Add spacing at the top */
+}td.class_body-text-left {
+  text-align: left;
+}.centered-div {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 20px;
+  display: block;
+}
+/* Media query for screens up to 420px (e.g., iPhones) */
 @media screen and (max-width: 420px) {
+  .ERtableContainer2 {
+    padding-top: 15px; /* Reduce the spacing for smaller screens if needed */
+  }.class_body-text-center {
+    width: 50%;
+    height: 18px;
+    text-align: center;
+    font-size: 16px;
+  }td.class_body-text-left {
+    width: 45%;
+    height: 15px;
+    font-size: 18px;
+  }.table_names{
+    height:0px;
+    line-height: 0px;
+  }
   .login-page{
     width: 90%;
     margin: 0% auto;

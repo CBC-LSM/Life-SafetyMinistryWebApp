@@ -14,6 +14,7 @@ class Media {
 	public $fileTempPath;
 	//Set destination for upload
 	public $userPath = SITE_ROOT.DS.'..'.DS.'/images/users';
+	public $incidentPath = SITE_ROOT.DS.'..'.DS.'/incidentreporting/uploads';
 	public $productPath = SITE_ROOT.DS.'..'.DS.'/images/products';
 
 
@@ -55,6 +56,7 @@ class Media {
 	 */
 	public function upload($file) {
 		if (!$file || empty($file) || !is_array($file)):
+			
 			$this->errors[] = "No file was uploaded.";
 		return false;
 		elseif ($file['error'] != 0):
@@ -187,7 +189,46 @@ class Media {
 			}
 		}
 	}
+	/*--------------------------------------------------------------*/
+	/* Function for Process Incident image
+  /*--------------------------------------------------------------*/
 
+	/**
+	 *
+	 * @param unknown $id
+	 * @return unknown
+	 */
+	public function processIncidentImg() {
+
+		if (!empty($this->errors)) {
+			echo print_r($this->errors);
+			// echo "this uploaded somewhere...";
+			return false;
+		}
+		if (empty($this->fileName) || empty($this->fileTempPath)) {
+			$this->errors[] = "The file location was not available.";
+			return false;
+		}
+		if (!is_writable($this->incidentPath)) {
+			$this->errors[] = $this->incidentPath." Must be writable!!!.";
+			return false;
+		}
+
+		$ext = explode(".", $this->fileName);
+		$new_name = randString(8).$id.'.' . end($ext);
+		$this->fileName = $new_name;
+		global $imageFullPath;
+		$imageFullPath = $this->incidentPath.'/'.$this->fileName;
+		if (move_uploaded_file($this->fileTempPath, $imageFullPath)) {
+			echo "this uploaded somewhere...";
+			return true;
+		} else {
+			echo "failed....";
+			$this->errors[] = "The file upload failed, possibly due to incorrect permissions on the upload folder.";
+			return false;
+		}
+
+	}
 
 	/*--------------------------------------------------------------*/
 	/* Function for Update user image
