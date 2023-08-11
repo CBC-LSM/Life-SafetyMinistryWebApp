@@ -30,7 +30,7 @@ function upcomingevents($results){
     $previousSunday = $currentDate->format('Y-m-d'); // Format: 2023-08-06
 
     // Calculate +10 days from the previous Sunday
-    $currentDate->modify('+10 days'); // Move 10 days ahead
+    $currentDate->modify('+6 days'); // Move 10 days ahead
     $nextTenDays = $currentDate->format('Y-m-d'); // Format: 2023-08-16
 
 
@@ -67,10 +67,6 @@ function upcomingevents($results){
                 ];
             }
         }
-    }
-
-    foreach ($upcomingEvents as $event) {
-        //echo $event['name']." ".$event['type'] . " coming up: " . $event['date'] . "<br>";
     }
     return $upcomingEvents;
 }
