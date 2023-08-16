@@ -25,11 +25,16 @@ $WorshipHourid=array(
 );
 
 $WednesdayNightId=array(
-    'Summer CU' => '1351745'
+    'Summer CU' => '1351745',
+    'Puggles' => '233759',
+    'Wed Baby Nursery' => '261760',
+    'Wed Toddler Nursery' => '261761',
+    'Cubbies' => '233761',
+    'Sparks' => '233760',
+    'TNT' => '233762',
+    'Ignite'=> '252325',
+    'Connect'> '252327',
+    'Wed JUMP Jr.'=> '252328',
 );
 
-//This is to just combine for now until we work out the timing or whatever.
-// $mergedArray = array_merge_recursive$SSid, $WorshipHourid);
 $mergedArray = $SSid + $WorshipHourid + $WednesdayNightId;
-// var_dump($mergedArray);
-// die();
