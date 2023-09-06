@@ -3,11 +3,12 @@
 function openModal() {
     var modal = document.getElementById("ReportModal");
     modal.style.display = "block";
+    modal.style.overflow = "auto";
+    modal.style.margin = "auto";
 }
 
 function closeModal() {
-    var modal = document.getElementById("ReportModal");
-    modal.style.display = "none";
+    window.location.href = "index.php";
 }
 
 function addPersonInvolved() {

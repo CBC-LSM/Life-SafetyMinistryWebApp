@@ -16,6 +16,16 @@ include 'add_report_modal.php';
 
 $sql = "SELECT * FROM `IncidentReports`";
 $results = find_by_sql($sql);
+
+function findDate($id){
+	$sql = "SELECT * FROM `IncidentReports`WHERE `id`={$id}";
+    $report = find_by_sql($sql);
+	$jsonString = $report[0]['form_data'];
+	$data = jsoncntrlerrorhandling($jsonString);
+	$date = $data['IncidentDate'];
+	return $date;
+}
+
 ?>
 
 <head>
@@ -43,17 +53,19 @@ $results = find_by_sql($sql);
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($results as $result):?>
+            <?php foreach ($results as $result):
+                if ($result['status']=='Active'):?>
                 <tr style ="color: #D4D4C9; font-size: 100%; background-color:#1E1E1E;">
                     <td class="text-left"><div class="mobile-only"><strong>First Name</strong></div><strong><?php echo $result['firstname']; ?></strong></td>
                     <td class="text-left"><div class="mobile-only"><strong>Last Name</strong></div><strong><?php echo $result['lastname']; ?></strong></td>
                     <td class="text-left"><div class="mobile-only"><strong>Involvement Type</strong></div><strong><?php echo $result['involvementtype']; ?></strong></td>
-                    <td class="text-left"><div class="mobile-only"><strong>Date</strong></div><strong><?php echo $result['date']; ?></strong></td>
-                    <td><button type="button" class="btn btn-warning" id ="edit" title="Edit Report" value = "<?php echo $result['id'];?>" onClick="<?php echo $result['id']?>" 
+                    <td class="text-left"><div class="mobile-only"><strong>Date</strong></div><strong><?php echo findDate($result['id']); ?></strong></td>
+                    <td><button type="button" class="btn btn-warning" id ="edit" title="Edit Report <?=$result['id'];?>" value = "<?php echo $result['id'];?>" onClick="<?php echo $result['id']?>" 
                                 data-toggle="modal" data-target="#edit_report_modal<?=$result['id'];?>" VALIGN=MIDDLE><span class="glyphicon glyphicon-pencil"></button>
                     </td>
                 </tr>
                 <?php include 'edit_report_modal.php'; ?>
+                <?php endif;?>
             <?php endforeach;?>     
         </tbody>
     </table>

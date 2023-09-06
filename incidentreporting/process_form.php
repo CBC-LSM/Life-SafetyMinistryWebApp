@@ -1,24 +1,10 @@
 <?php
-error_reporting(E_ALL);
-
-require('fpdf/fpdf.php');
 
 require_once '../database/load.php';
 
-if ($_FILES['incidentImage']['name']) {
-    $photo = new Media();
-    $photo->upload($_FILES['incidentImage']);
-    
-    if (!$photo->processIncidentImg()) {
-        echo 'Error: Please upload a valid image file (JPEG, PNG, GIF).';
-        exit;
-    }
-}else{
-    $imageFullPath ='';
-}
-
-
+$previd = 0;
 // Get form data
+$previd = $_POST['prevID'];
 $incidentDate = $_POST['incidentDate'];
 $incidentTime = $_POST['incidentTime'];
 $incidentLocation = $_POST['incidentLocation'];
@@ -28,11 +14,27 @@ $reportTime = $_POST['reportTime'];
 $personLastNames = $_POST['personLastName'];
 $personFirstNames = $_POST['personFirstName'];
 $personInvolvements = $_POST['personInvolvement'];
-$emergencyContact = $_POST['emergencyContact']; //this isn't 100% correct. Need to update
+$emergencyFirstName = $_POST['emergencyFirstName'];
+$emergencyLastName = $_POST['emergencyLastName'];
+$emergencyPhone = $_POST['emergencyPhone'];
 $description = $_POST['description'];
 $injuryDamage = $_POST['injuryDamage'];
 $actionTaken = $_POST['actionTaken'];
 $medicalSupplies = $_POST['medicalSupplies'];
+
+//Disable the previous version if editing.
+if (!$previd==0){
+    $sql = "UPDATE `IncidentReports` SET `status` = 'Inactive' WHERE `IncidentReports`.`id` = {$previd}";
+    if ($db->query($sql)) {
+        // Success
+        // die(print_r($sql));
+        echo "Success";
+    } else {
+        // Failed
+        die(print_r($sql));
+        echo "Failed";
+    }
+}
 
 // Generate a timestamp
 $timestamp = date('YmdHis'); // Format: YearMonthDayHourMinuteSecond
@@ -49,7 +51,16 @@ for ($i = 0; $i < count($personLastNames); $i++) {
     $peopleInvolved[] = $person;
 }
 
+//Emergency Contact Info
+$emergencyContact = array(
+    'emergencyFirstName'=> $emergencyFirstName,
+    'emergencyLastName'=> $emergencyLastName,
+    'emergencyPhone'=> $emergencyPhone,
+);
+
+
 $jsonData = array(
+    // 'id' => $id,
     'IncidentDate' => $incidentDate,
     'IncidentTime' => $incidentTime,
     'IncidentLocation' => $incidentLocation,
@@ -102,8 +113,8 @@ if ($victimFirstName && $victimLastName && $offenderFirstName && $offenderLastNa
 $filepath = 'incident_reports/CBC-LSM_IR-' . $timestamp . '.pdf';
 
 // Prepare SQL statement for inserting JSON data
-$sql = "INSERT INTO `IncidentReports` (`firstname`, `lastname`, `involvementtype`, `date`, `img`, `status`, `form_data`)";
-$sql .= " VALUES ('{$reportFirstName}', '{$reportLastName}', '{$reporttype}', '{$date}', '{$imageFullPath}', 'Active','{$jsonString}')";
+$sql = "INSERT INTO `IncidentReports` (`firstname`, `lastname`, `involvementtype`, `date`, `status`, `form_data`)";
+$sql .= " VALUES ('{$reportFirstName}', '{$reportLastName}', '{$reporttype}', '{$date}', 'Active','{$jsonString}')";
 
 if ($db->query($sql)) {
     // Success

@@ -129,3 +129,37 @@ function checkOut($id){
 	}
 
 }
+function jsoncntrlerrorhandling($jsonString){
+	// Check if the JSON data is empty or whitespace
+if (trim($jsonString) === '') {
+	$msg = 'JSON data is empty.';
+    echo $msg;
+} else {
+    // Attempt to decode JSON
+    $data = json_decode($jsonString, true);
+
+    // Check if there was an error during decoding
+    if ($data === null && json_last_error() !== JSON_ERROR_NONE) {
+        // Check for the specific control character error
+        if (json_last_error() === JSON_ERROR_CTRL_CHAR) {
+            // You can handle the control character error here
+            // For example, you can remove or replace problematic characters
+            $jsonString = preg_replace('/[[:cntrl:]]/', '', $jsonString);
+			$data = json_decode($jsonString, true);
+			return $data;
+        } else {
+			// Handle other JSON decoding errors
+			$msg = 'JSON decoding error: ' . json_last_error_msg();
+			echo $msg;
+			return $msg;
+			
+        }
+	}
+	return $data;
+
+    // Now, $data contains the decoded data, or it may have been modified to remove control characters
+}
+
+
+
+}
