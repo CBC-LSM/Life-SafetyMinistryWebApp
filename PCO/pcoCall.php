@@ -35,6 +35,8 @@ while(!is_null($next)){
                         //Find attributes to the specific person found and then report the data.
                         if ($included['id']==$personalID){
                             $childStatus = $included['attributes']['child'];
+                            // echo "Child Status ".$childStatus."<br>";
+                            // echo "Checkout Time ".$checkedOutTime."<br>";
                             $grade = $included['attributes']['grade'];
                             $birthdate = $included['attributes']['birthdate'];
                             //one day it may prove to be useful to put this into a function but I don't know if necessary right now.
@@ -44,6 +46,7 @@ while(!is_null($next)){
                             $age = $age->y;
                             //report only if a child
                             if($childStatus && is_null($checkedOutTime)){
+                            // if($childStatus){
                                 $checkInObj[$LocationId]->name = $LocationName;
                                 $checkInObj[$LocationId]->id = $LocationId;
                                 $checkInObj[$LocationId]->date = $dateTimeUTC;

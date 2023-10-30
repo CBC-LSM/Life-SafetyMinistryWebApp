@@ -34,9 +34,16 @@ unset($checkInObj[0]);
 
 //now we just need to iterate through the keys. The data is already conditionalized so we can make this a simple process.
 ?>
-<script>
-    // setTimeout("location.reload(true);", 10000);
-</script>
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p id="modal-content"></p>
+  </div>
+</div>
+<head>
+    <script src="script.js"></script>
+</head>
+
 <<div class="panel-box" >
     <table class="ERtableContainer2">
         <thead>
@@ -63,7 +70,20 @@ unset($checkInObj[0]);
                     <?php foreach($datas as $data):?>
                         <tr>
                             <!-- <td class="body-text-left"><?php echo $data['first_name']." ".substr($data['last_name'],0,1)."."; ?></td> -->
-                            <td class="class_body-text-left"><?php echo $data['first_name']." ".$data['last_name']; ?></td>
+                            <!-- <td class="class_body-text-left"><?php echo $data['first_name']." ".$data['last_name']; ?></td> -->
+                            <?php
+                            $firstname = $data['first_name'];
+                            $lastname = $data['last_name'];
+                            $emContact = $data['emergency_contact_name'];
+                            $phoneNum = $data['emergency_contact_number'];
+                            // echo $phoneNum;
+                            ?>
+                            <td class="class_body-text-left">
+                                <a href="#" onclick="handleClick(event, '<?=$firstname?>','<?=$lastname?>', '<?=$emContact?>','<?=$phoneNum?>')">
+                                    <?php echo $data['first_name']." ".$data['last_name']; ?>
+                                </a>
+                            </td>
+
                             <!-- <td class="body-text-center"><?php ; ?></td> -->
                             <td class="body-text-center"><?php echo timeConvert($data['check_in_time']); ?></td>
                         </tr>
@@ -73,4 +93,5 @@ unset($checkInObj[0]);
         </tbody>
     </table>
 </div>
+
 <?php include 'pages/footer.php';?>

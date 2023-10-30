@@ -33,7 +33,7 @@ $WednesdayNightId=array(
     'Sparks' => '233760',
     'TNT' => '233762',
     'Ignite'=> '252325',
-    'Connect'> '252327',
+    'Connect'=> '252327',
     'Wed JUMP Jr.'=> '252328',
 );
 
