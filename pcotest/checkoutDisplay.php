@@ -43,7 +43,7 @@
     display: inline-block;
   }
  </style>
- <meta http-equiv="refresh" content="30">
+ <meta http-equiv="refresh" content="2">
 </head>
 <body>
   <h1>Pickup:</h1><br>
