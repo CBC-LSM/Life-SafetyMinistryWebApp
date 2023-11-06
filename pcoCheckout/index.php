@@ -23,7 +23,7 @@
  }
 
  h1{
-   font-size: 60px;
+   font-size: 80px;
    color: white;
   background-color: rgba(0, 0, 0, 0.5);
   display: inline-block;
@@ -33,7 +33,7 @@
 
   .child {
     text-align: right;
-    font-size: 50px;
+    font-size: 80px;
     padding: 5px;
     padding-left: 20px;
     padding-right: 20px;
@@ -65,23 +65,23 @@ if(!isset($_GET['locations'])){
 <p>Locations Parameter not set.  Please add ?locations= followed by the location id's seperated by comma's to the end of the url.</0>
   <div class="locationsList">
   <ul>
-    <li>Sunday Children's Ministry - EventID: 27232922</li>
+    <li>Sunday Children's Ministry - EventID: 27354867</li>
 	  <ul>
-      <li>Baby Nursery - LocationID: 1451137</li>
-      <li>Toddler Nursery - LocationID: 1451138</li>
-      <li>Children's Ministry Admin - LocationID: 1451155</li>
-      <li>Sunday School Hour - LocationID: 1451144</li>
+      <li>Baby Nursery - LocationID: 1452290</li>
+      <li>Toddler Nursery - LocationID: 1452291</li>
+      <li>Children's Ministry Admin - LocationID: 1452301</li>
+      <li>Sunday School Hour - LocationID: 1452292</li>
       <ul>
-        <li>2s and 3s - LocationID: 1451152</li>
-        <li>4s and 5s - LocationID: 1451154</li>
-        <li>K and 1st Grade - LocationID: 1451149</li>
-        <li>2nd and 3rd Grade - LocationID: 1451146</li>
-        <li>4th and 5th Grade - LocationID: 1451147</li>
+        <li>2s and 3s - LocationID: 1452296</li>
+        <li>4s and 5s - LocationID: 1452297</li>
+        <li>K and 1st Grade - LocationID: 1452295</li>
+        <li>2nd and 3rd Grade - LocationID: 1452293</li>
+        <li>4th and 5th Grade - LocationID: 1452294</li>
       </ul>
-      <li>Worship Hour - LocationID: 1451145</li>
+      <li>Worship Hour - LocationID: 1452298</li>
         <ul>
-        <li>Disciple Kids Worship Jr. - LocationID: 1451139</li>
-        <li>Disciple Kids Worship - LocationID: 1451140</li>
+        <li>Disciple Kids Worship Jr. - LocationID: 1452299</li>
+        <li>Disciple Kids Worship - LocationID: 1452300</li>
         </ul>
   </ul>
   </ul>
