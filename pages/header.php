@@ -55,6 +55,7 @@ $group_names = find_all_groups();
           <button class="dropbtn"><span class="glyphicon glyphicon-menu-hamburger"></span></button>
           <div class="dropdown-content">
             <a href="/" target="_self">Home</a>
+            <a href="/evacuation/index.php" target="_self">Evacuation Plans</a>
             <a href="/incidentreporting/index.php" target="_self">Incident Report</a>
             <?php if ($session->isUserLoggedIn()):?>
               <a href="/pages/rover.php" target="_self">Rover Checklist</a>
