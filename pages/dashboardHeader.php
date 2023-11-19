@@ -27,7 +27,7 @@
         <tbody>
         <tr>
           <td></td>
-          <td><a href="/"><img src="../../images/LSM_weblogo.png" alt=""/></a></td>
+          <td><img src="../../images/LSM_weblogo.png" alt=""/></td>
           <td>
           </td>
         </tr>
