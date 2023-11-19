@@ -20,6 +20,7 @@ function pcoCallbirthday($URL){
 
 function upcomingevents($results){
     $currentDate = new DateTime(); // Get current date and time
+    // $currentDate = new DateTime('2023-11-12');
     $dayOfWeek = $currentDate->format('w'); // Get the day of the week (0 = Sunday, 1 = Monday, ...)
 
     // Calculate the previous Sunday
