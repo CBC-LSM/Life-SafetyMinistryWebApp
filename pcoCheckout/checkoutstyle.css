@@ -1,0 +1,35 @@
+body{
+    text-align: left;
+    /*background-image: url("dkbackground.jpg");*/
+    background-image: linear-gradient(#e79323, #c83d96);
+    background-size: 100vw 100vh;
+  }
+ 
+  h1{
+    font-size: 80px;
+   margin-left: auto;
+   margin-right: auto;
+   text-align: center;
+ 
+  }
+ 
+   .child {
+     padding: 0px;
+     margin-right: 40px;
+     font-size: 50px;
+     flex-wrap: nowrap;
+     white-space: nowrap;
+     overflow-x: hidden;
+     float: left;
+     width: 30vw;
+   }
+ 
+   .newChild {
+     color: lawngreen;
+   }
+ 
+   ul {
+     display: table;
+     margin: 0 auto;
+     text-align: left;
+   }
