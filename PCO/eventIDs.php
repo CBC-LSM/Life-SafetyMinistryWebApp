@@ -1,27 +1,30 @@
 <?php
 
+$current_time = strtotime(date('H:i:s'));
+$cutoff_time = strtotime('10:30:00');
+
 $SSid =array(
-    'Baby Nursery' => '192324',
-    'Toddler Nursery' => '192325',
-    '2s and 3s' => '192328',
-    '4s and 5s' => '192329',
-    'K and 1st Grade' => '192331',
-    '2nd and 3rd Grades' => '943197',
-    '4th and 5th Grades' => '192332',
+    'Baby Nursery'=>'1452290',
+    'Toddler Nursery'=>'1452291',
+    '2s and 3s'=>'1452296',
+    '4s and 5s'=>'1452297',
+    'K and 1st Grade'=>'1452295',
+    '2nd and 3rd Grade'=>'1452293',
+    '4th and 5th Grade'=>'1452294',
     'Jump Jr' => '233887',
     '7th Grade' => '233883',
     '8th Grade' => '233884',
     'Freshman' => '233871',
     'Sophomore' => '233872',
     'Juniors' => '233873',
-    'Seniors' => '233874'
+    'Seniors' => '233874',
 );
 
 $WorshipHourid=array(
-    'Baby Nursery' => '242983',
-    'Toddler Nursery' => '242985',
-    'DiscipleKids Worship' => '242989',
-    'Disciple Kids Worship Jr.' => '242987'
+    'Baby Nursery'=>'1452290',
+    'Toddler Nursery'=>'1452291',
+    'Disciple Kids Worship Jr.' => '1452299',
+    'Disciple Kids Worship' => '1452300'
 );
 
 $WednesdayNightId=array(
@@ -36,5 +39,16 @@ $WednesdayNightId=array(
     'Connect'=> '252327',
     'Wed JUMP Jr.'=> '252328',
 );
+// Compare the current time with the cutoff time
+if ($current_time > $cutoff_time) {
+    // Do something if the current time is past 10:30 am
+    // echo "It's past 10:30 am. Do something.";
+    
+    $mergedArray = $WorshipHourid + $WednesdayNightId;
+} else {
+    // Do something else if the current time is before 10:30 am
+    $mergedArray = $SSid + $WednesdayNightId;
+    // echo "It's before 10:30 am. Do something else.";
+}
 
-$mergedArray = $SSid + $WorshipHourid + $WednesdayNightId;
+// $mergedArray = $SSid + $WorshipHourid + $WednesdayNightId;

@@ -101,7 +101,10 @@ $isCheckInObjEmpty = empty($checkInObj) ? true : false;
                 $eventid = $check['id'];
                 $eventName = $check['name'];
                 $datas = $check['data'];
-                $count = count($datas);
+                // $count = count($datas);
+                $count = count(array_filter($datas, function($element) {
+                    return $element['checkoutstatus']== 0;
+                }));
                 // print_r($datas);
                 // die();
                 ?>
@@ -111,11 +114,13 @@ $isCheckInObjEmpty = empty($checkInObj) ? true : false;
                 <td class="class_body-text-center" style ="color: #e0e019;"><strong><?=$count;?></strong></td>
                     <!-- <td class="body-text-left"></td> -->
                     <?php foreach($datas as $data):?>
+                        <?php if ($data['checkoutstatus']==0):?>
                         <tr class="table_names">
                             <td class="class_body-text-left"><?php echo $data['first_name']." ".$data['last_name']; ?></td>
                             <!-- <td class="body-text-center"><?php ; ?></td> -->
                             <td class="body-text-center"><?php echo timeConvert($data['check_in_time']); ?></td>
                         </tr>
+                        <?php endif;?>
                     <?php endforeach;?>
                 </tr>
             <?php endforeach;?>

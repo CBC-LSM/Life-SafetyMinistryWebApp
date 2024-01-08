@@ -8,3 +8,9 @@ You'll find:
 * * * * * cd /var/www/html/cbc-gear-page/PCO && php pcoCall.php
 * * * * * sleep 30.123; date>> /tmp/date.log && cd /var/www/html/cbc-gear-page/PCO && php redis_del.php &&  cd $
 
+
+#The new way on how we are doing stuff in the background and scripting that occurs automatically.
+sudo nano /etc/systemd/system/mytimer.service
+sudo systemctl daemon-reload
+sudo systemctl start mytimer.timer
+sudo systemctl enable mytimer.timer

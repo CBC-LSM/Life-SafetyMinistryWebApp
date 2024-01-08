@@ -13,7 +13,7 @@ $checkInObj[] = new stdClass();//New Event (key) is being looped through so rese
 $keyValues = $arList = $redis->keys("*");
 
 $keyValues = $mergedArray;
-
+// die(var_dump($keyValues));
 // $currentDate = date("Y-m-d");
 // $dateTimeUTC = "2023-06-18";
 $currentDate = $dateTimeUTC;
@@ -44,7 +44,7 @@ unset($checkInObj[0]);
     <script src="script.js"></script>
 </head>
 
-<<div class="panel-box" >
+<div class="panel-box" >
     <table class="ERtableContainer2">
         <thead>
             <tr class = "entry_header" style ="color: #D4D4C9; font-family: Arial  ;">
@@ -58,7 +58,10 @@ unset($checkInObj[0]);
                 $eventid = $check['id'];
                 $eventName = $check['name'];
                 $datas = $check['data'];
-                $count = count($datas);
+                $count = count(array_filter($datas, function($element) {
+                    return $element['checkoutstatus']== 0;
+                }));
+                // $count = count($datas);
                 // print_r($datas);
                 // die();
                 ?>
@@ -68,6 +71,7 @@ unset($checkInObj[0]);
                 <td class="class_body-text-center" style ="color: #e0e019;"><strong><?=$count;?></strong></td>
                     <!-- <td class="body-text-left"></td> -->
                     <?php foreach($datas as $data):?>
+                        <?php if ($data['checkoutstatus']==0):?>
                         <tr>
                             <!-- <td class="body-text-left"><?php echo $data['first_name']." ".substr($data['last_name'],0,1)."."; ?></td> -->
                             <!-- <td class="class_body-text-left"><?php echo $data['first_name']." ".$data['last_name']; ?></td> -->
@@ -86,7 +90,9 @@ unset($checkInObj[0]);
 
                             <!-- <td class="body-text-center"><?php ; ?></td> -->
                             <td class="body-text-center"><?php echo timeConvert($data['check_in_time']); ?></td>
+                            
                         </tr>
+                        <?php endif;?>
                     <?php endforeach;?>
                 </tr>
             <?php endforeach;?>

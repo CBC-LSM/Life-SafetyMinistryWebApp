@@ -6,9 +6,9 @@ function checkObjectStatus() {
       .then(data => {
         if (data.isFilled) {
           // The object is filled, update the page without refreshing
-          console.log('The object is filled!');
+          console.log('The object is filled! wait 3s');
           // Access the $checkInObj data using data.checkInObj and update the page accordingly
-          setTimeout("location.reload(true);", 15000); //updates every 15 seconds.
+          setTimeout("location.reload(true);", 3000); //updates every 15 seconds.
         } else {
           console.log('The object is Empty!');
           // The object is still empty, continue checking after a delay
