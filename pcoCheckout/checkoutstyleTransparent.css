@@ -1,0 +1,26 @@
+body{
+    text-align: left;
+    background-color: rgba(0,0,0,0);
+  }
+ 
+  h1{
+    font-size: 80px;
+   text-align: left;
+ 
+  }
+ 
+   .child {
+     padding: 0px;
+     font-size: 50px;
+     background-color: rgba(0, 0, 0, .5);
+     color: white;
+     width: max-content;
+   }
+ 
+   .newChild {
+     color: red;
+   }
+ 
+   ul {
+     text-align: left;
+   }

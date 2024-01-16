@@ -260,7 +260,7 @@
 /* Base styles for all devices */
 .ERtableContainer2 {
   width: 100%; /* Occupy the full width of the parent element */
-  max-width: 420px; /* Set a maximum width for larger screens */
+  max-width: 500px; /* Set a maximum width for larger screens */
   margin: 0 auto; /* Center the container horizontally */
   padding-top: 25px; /* Add spacing at the top */
 }td.class_body-text-left {
@@ -282,7 +282,7 @@
   .ERtableContainer2 {
     padding-top: 15px; /* Reduce the spacing for smaller screens if needed */
   }.class_body-text-center {
-    width: 50%;
+    width: 65%;
     height: 18px;
     text-align: center;
     font-size: 16px;
