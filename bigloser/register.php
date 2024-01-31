@@ -1,5 +1,4 @@
 <?php
-// require_once('check_login.php');
 session_start();
 
 require_once('db_connection.php');
@@ -22,12 +21,23 @@ if (isset($_POST['register'])) {
     $username = mysqli_real_escape_string($conn, $username);
     $password = mysqli_real_escape_string($conn, $password);
 
+    // Check if the username already exists
+    $checkQuery = "SELECT * FROM users WHERE username = '$username' AND organization_code = '$organizationCode'";
+    $result = $conn->query($checkQuery);
+
+    if ($result->num_rows > 0) {
+        // Username already exists, redirect with an error message
+        $errorMessage = "Username already exists. Please choose another username.";
+        header("Location: error.php?org=".$organizationCode."&message=" . urlencode($errorMessage));
+        exit();
+    }
+
     // Hash the password
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
     // Insert the user into the database with organization code
-    $query = "INSERT INTO users (username, password, organization_code) VALUES ('$username', '$hashedPassword', '$organizationCode')";
-    $conn->query($query);
+    $insertQuery = "INSERT INTO users (username, password, organization_code) VALUES ('$username', '$hashedPassword', '$organizationCode')";
+    $conn->query($insertQuery);
 
     // Redirect to weight entry page
     $_SESSION['user_id'] = $conn->insert_id; // Set the session with the new user's ID

@@ -33,6 +33,8 @@
             echo "<p style='color: red;'>An error occurred.</p>";
         }
         ?>
+        <br>
+        <a href="register.php?org=<?= $_GET['org']; ?>">Back to Registration</a>
     </div>
 </body>
 </html>
