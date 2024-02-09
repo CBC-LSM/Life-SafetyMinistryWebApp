@@ -210,6 +210,25 @@ button:hover {
   .dropdown:hover .dropdown-content {display: block;}
   
   .dropdown:hover .dropbtn {background-color: #414141;}
+
+
+/* Add this style to your CSS file */
+.orange-button {
+  display: inline-block;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  background-color: orange;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.orange-button:hover {
+  background-color: darkorange; /* Change color on hover */
+}
+
 /* Apply mobile-specific styles */
 @media (max-width: 768px) {
   .container {

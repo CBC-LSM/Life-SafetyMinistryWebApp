@@ -70,6 +70,7 @@ $conn->close();
             <input type="password" id="password" name="password" required>
 
             <button type="submit" name="register">Register</button>
+            <a href="login.php" class="orange-button">Already Registered!</a>
         </form>
     </div>
 </body>

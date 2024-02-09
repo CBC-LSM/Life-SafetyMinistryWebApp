@@ -84,7 +84,6 @@ while ($row = $resultEntries->fetch_assoc()) {
 <table class="stats_table">
         <tbody>
             <tr>
-                <td class="table-column-50">
                     <div class="stats_container">
                         <!-- <h2>Dashboard</h2> -->
                         <!-- <h3> Competitions Starts Jan. 22nd until April 1st </h3> -->
@@ -117,8 +116,8 @@ while ($row = $resultEntries->fetch_assoc()) {
                             ?>
                         </p>
                     </div>
-                </td>
-                <td class="table-column-50">
+            </tr>
+            <tr>
                     <!-- Display line graph -->
                     <h3 style=color:white;>Your Progress</h3>
                     <canvas id="weightChart" class="canvas-container"></canvas>
@@ -217,7 +216,6 @@ while ($row = $resultEntries->fetch_assoc()) {
                         });
                     </script>
                 </div>  
-                </td>
             </tr>
         </tbody>
     </table>
