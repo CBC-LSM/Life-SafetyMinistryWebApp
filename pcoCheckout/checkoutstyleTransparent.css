@@ -4,8 +4,10 @@ body{
   }
  
   h1{
-    font-size: 80px;
+    font-size: 60px;
    text-align: left;
+   margin-top: -25px;
+   padding: 0px
  
   }
  
@@ -18,7 +20,7 @@ body{
    }
  
    .newChild {
-     color: red;
+     color: lawngreen;
    }
  
    ul {

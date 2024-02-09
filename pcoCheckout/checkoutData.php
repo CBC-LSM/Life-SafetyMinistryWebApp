@@ -20,10 +20,14 @@
 
         foreach($checkoutEvent['relationships']['locations']['data'] as $locationData){
             if(in_array($locationData['id'], $locationsArray)){
+                $checkoutTime= new DateTime($checkoutEvent['attributes']['checked_out_at'], new DateTimeZone('UTC'));
+                $checkoutTimeUnformatted = $checkoutTime->setTimezone(new DateTimeZone('America/New_York'));
+                $checkoutTimeConverted = date_format($checkoutTimeUnformatted, "Y/m/d H:i:s");
                 $checkoutArray[] =  array(
                     "checkoutID" => $checkoutEvent['id'],
                     "firstName" => $checkoutEvent['attributes']['first_name'],
-                    "lastName" => $checkoutEvent['attributes']['last_name']
+                    "lastName" => $checkoutEvent['attributes']['last_name'],
+                    "checkoutTime" => $checkoutTimeConverted
                 );
             break;
             }
