@@ -19,7 +19,7 @@
     padding-top: 10px;
     width:100%;
   }.stats_table{
-    width: 100%;
+    width: 75%;
     padding-top:10px;
     padding-bottom: 30px;
     text-align: center;
@@ -33,7 +33,14 @@
   padding-top: 10px;
   width:100%;
 }.stats_container {
-  max-width: 100%;
+  max-width: 85%;
+  margin: 20px auto;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}.stats_container2 {
+  max-width: 40%;
   margin: 20px auto;
   background-color: white;
   padding: 20px;
@@ -102,10 +109,25 @@ button {
     background-color: #4caf50;
     color: white;
     cursor: pointer;
+    border-radius: 5px;
 }
 
 button:hover {
     background-color: #45a049;
+}.submit-button {
+  background-color: #4CAF50; /* Green color */
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px; /* Adjust the border-radius as needed */
+  cursor: pointer;
+  font-size: 16px; /* Adjust the font size as needed */
+  font-family: 'Arial', sans-serif; /* Adjust the font family as needed */
+}
+
+/* Add hover effect */
+.submit-button:hover {
+  background-color: #45a049; /* Darker green on hover */
 }
 .dropbtn {
     background-color: #212529;
@@ -227,6 +249,47 @@ button:hover {
 
 .orange-button:hover {
   background-color: darkorange; /* Change color on hover */
+}/* Add the modal styles to your existing CSS */
+.entrymodal {
+  display: none;
+  position: fixed;
+  z-index: 1050;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 65%;
+  max-width: 300px; /* Adjust the max-width as needed */
+}
+
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+.outline-box-with-margin {
+  border: 2px solid #333; /* Charcoal color */
+  padding: 1px; /* Add padding as needed */
+  margin: 1px; /* Add margin as needed */
+  border-radius: 10px;
+}.mobile-name-header{
+  font-size: 20px;
 }
 
 /* Apply mobile-specific styles */
@@ -234,6 +297,8 @@ button:hover {
   .container {
       max-width: 100%;
       border-radius: 0;
+  }.mobile-name-header{
+    font-size: 15px;
   }
   .canvas-container {
       width: 100%;
@@ -243,12 +308,19 @@ button:hover {
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow for a container-like effect */
   }
   .stats-container {
-      max-width: 100%;
-      margin: 1px auto;
+      max-width: 95%;
+      margin: 0px auto;
       background-color: white;
-      padding: 2px;
+      padding: 0px;
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }.stats_container2 {
+    max-width: 85%;
+    margin: 20px auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
 }
 
