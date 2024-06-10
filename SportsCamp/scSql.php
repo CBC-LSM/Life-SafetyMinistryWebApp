@@ -8,7 +8,7 @@ function findAllSCnames(){
 }
 function findAllSCRadios(){
 	global $db;
-	$sql = "SELECT * FROM `SCRadio` WHERE 1";
+	$sql = "SELECT * FROM `SCRadio` ORDER BY `SCRadio`.`radioname` ASC";
     $result = find_by_sql($sql);
 	return $result;
 }
