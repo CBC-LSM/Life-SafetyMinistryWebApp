@@ -24,7 +24,7 @@ function findAllSCTeamStatus($date1,$date2){
 	$sql .= "m.membername,scPos.positionname,scRad.radioname from SCGearStatus scGS LEFT JOIN teamMembers m ON ";
 	$sql .= "scGS.nameID=m.id LEFT JOIN SCPositions scPos on scGS.positionID = scPos.id ";
 	$sql .= "LEFT JOIN SCRadio scRad on scGS.radioID = scRad.id ";
-	$sql .= "where scGS.checkout between '{$date1}' and '{$date2}' order by scGS.status ASC;";
+	$sql .= "where scGS.checkout between '{$date1}' and '{$date2}' order by scGS.status DESC, m.membername ASC;;";
 	// die(print_r($sql));
 	$result = find_by_sql($sql);
 	return $result;

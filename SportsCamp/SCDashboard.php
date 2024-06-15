@@ -37,9 +37,9 @@ $checkouttime   = date('Y-m-d H:i:s');
                     <td class="body-text-center"><?php echo $team['radioname']; ?></td>
                     <td class="body-text-center"><?php 
                     if ($team['status'] == "Checked Out"):?>
-                        <div class="btn btn-warning">Checked Out</div>
+                        <div class="btn btn-warning" style="width:100px; height:25px; align-items:center;">Checked Out</div>
                     <?php else:?>
-                        <div class="btn btn-success">Checked In</div>
+                        <div class="btn btn-success" style="width:100px; height:25px; align-items:center;">Checked In</div>
                     <?php endif; ?>
                     </td>
                 </tr>

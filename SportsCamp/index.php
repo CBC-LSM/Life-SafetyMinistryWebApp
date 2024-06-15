@@ -10,7 +10,7 @@
 $pageName = "Sports Camp Gear Check";
 include '../database/load.php';
 include 'scSql.php'; //adding only the sql for sports camp
-if (!$session->isUserLoggedIn()){redirect("/",false);}
+//if (!$session->isUserLoggedIn()){redirect("/",false);}
 include '../pages/header.php';
 ?>
 
