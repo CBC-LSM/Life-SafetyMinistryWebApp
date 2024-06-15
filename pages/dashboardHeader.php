@@ -27,7 +27,7 @@
         <tbody>
         <tr>
           <td></td>
-          <td><img src="../../images/LSM_weblogo.png" alt=""/></td>
+          <td style="padding: 60px 0px 0px 0px;"><img src="../../images/LSM_weblogo.png" alt="" style="width:35%; height:auto;"/></td>
           <td>
           </td>
         </tr>
