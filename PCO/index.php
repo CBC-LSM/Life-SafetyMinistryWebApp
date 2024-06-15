@@ -31,6 +31,7 @@ foreach($keyValues as $key){
 // unfortunately this is necessary as it is auto added when the list is created above. Not sure how to fix permenately but this works in it's place, else
 // you end up with a empty key set with no data in it.
 unset($checkInObj[0]);
+$totalcount = 0;
 
 //now we just need to iterate through the keys. The data is already conditionalized so we can make this a simple process.
 ?>
@@ -58,9 +59,11 @@ unset($checkInObj[0]);
                 $eventid = $check['id'];
                 $eventName = $check['name'];
                 $datas = $check['data'];
+                // die(var_dump($datas));
                 $count = count(array_filter($datas, function($element) {
-                    return $element['checkoutstatus']== 0;
+                    return $element['checkoutstatus'] == 0 || $element['checkoutstatus'] == 1;
                 }));
+                
                 // $count = count($datas);
                 // print_r($datas);
                 // die();
@@ -69,9 +72,10 @@ unset($checkInObj[0]);
                 <!-- <td colspan = "2" class="body-text-center" style ="color: #e0e019;"><strong><?=$eventName;?></strong></td> -->
                 <td class="class_body-text-center" style ="color: #e0e019;"><strong><?=$eventName;?></strong></td>
                 <td class="class_body-text-center" style ="color: #e0e019;"><strong><?=$count;?></strong></td>
+                <?php $totalcount = $totalcount + $count;?>
                     <!-- <td class="body-text-left"></td> -->
                     <?php foreach($datas as $data):?>
-                        <?php if ($data['checkoutstatus']==0):?>
+                        <?php if ($data['checkoutstatus']==0 || $data['checkoutstatus']==1):?>
                         <tr>
                             <!-- <td class="body-text-left"><?php echo $data['first_name']." ".substr($data['last_name'],0,1)."."; ?></td> -->
                             <!-- <td class="class_body-text-left"><?php echo $data['first_name']." ".$data['last_name']; ?></td> -->
@@ -96,6 +100,9 @@ unset($checkInObj[0]);
                     <?php endforeach;?>
                 </tr>
             <?php endforeach;?>
+            <tr>
+                <td colspan="5" style="text-align: center;">Total Count: <?php echo $totalcount; ?></td>
+            </tr>
         </tbody>
     </table>
 </div>
