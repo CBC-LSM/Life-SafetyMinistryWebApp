@@ -1,0 +1,237 @@
+/* General mobile-first styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(100, 100, 100); /* Charcoal grey base color */
+    color: #333; /* Light color for text to contrast the dark background */
+    background-image: url('414_logo.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Overlay effect for slight transparency */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(51, 51, 51, 0.1); /* Slightly transparent charcoal overlay */
+    pointer-events: none; /* Ensures the overlay doesn't block any interactions */
+    z-index: -1; /* Places the overlay behind content */
+}
+
+
+/* Header styling */
+.header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 2px;
+    background-color: transparent; /* Removes any blue background */
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+/* Hamburger menu styling */
+.hamburger-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 10px 0px;
+    margin-right: 10px; /* Adjusts spacing to keep it from being offscreen */
+}
+
+.hamburger-menu span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #333; /* Dark line color for menu bars */
+    border-radius: 2px;
+    transition: transform 0.3s ease;
+}
+
+/* Navigation menu styling */
+.nav-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    padding-top: 60px;
+    z-index: 999;
+    flex-direction: column;
+}
+
+.nav-menu.active {
+    display: flex;
+}
+
+.nav-menu a {
+    padding: 15px 20px;
+    color: #007BFF;
+    text-decoration: none;
+    border-bottom: 1px solid #eee;
+}
+
+.nav-menu a:hover {
+    background-color: #f1f1f1;
+}
+
+
+/* Centered title */
+.centered-title {
+    font-size: 24px;
+    color: #007BFF;
+    text-align: center;
+    margin-top: 80px; /* Offset for fixed header */
+    margin-bottom: 20px;
+}
+
+/* Form container */
+.container, .form-container {
+    max-width: 60%;
+    width: 90%;
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    margin: 0 auto;
+}.form-container input[type="email"],
+.form-container input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+button, input[type="submit"] {
+    padding: 12px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}/* Submit button styling */
+.submit-button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover, input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.progress-info-box {
+    background-color: rgba(50, 50, 50, 0.7); /* Semi-transparent background for readability */
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    margin: 20px auto;
+    width: 80%;
+    max-width: 400px;
+    max-height: 600px;   /* Set max height to control growth */
+    overflow-y: auto;    /* Enable vertical scroll if content exceeds max height */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Style for pie chart canvas to control size */
+#progressPieChart {
+    max-width: 100%;
+    height: 150px; /* Adjust height to control box growth */
+    margin-top: 20px;
+}
+/* Minimalist Button Styling */
+.log-button, .back-button {
+    padding: 6px 10px;  /* Further reduced padding */
+    font-size: 14px;  /* Slightly smaller font for a compact look */
+    border-radius: 4px;  /* Slightly smaller radius */
+}
+
+.log-button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.log-button:hover {
+    background-color: #0056b3;
+}
+
+/* Back to Dashboard Button with Minimal Styling */
+.back-button {
+    display: inline-block;
+    padding: 8px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #007BFF;
+    background-color: #f0f4ff;  /* Light blue background */
+    border: 1px solid #007BFF;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.back-button:hover {
+    background-color: #e0e8ff;  /* Slightly darker on hover */
+    color: #0056b3;  /* Darker blue text on hover */
+}
+
+/* Scrollable Chapter Grid */
+.checkbox-grid {
+    max-height: 250px;  /* Reduced height for smaller screen usage */
+    overflow-y: auto;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    margin-bottom: 60px; /* Space at the bottom for sticky buttons */
+}
+
+/* Compact Sticky Buttons */
+.sticky-buttons {
+    position: fixed;
+    bottom: 10px;  /* Adjusted to bring closer to the bottom */
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    padding: 6px 0;  /* Further reduced padding */
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+

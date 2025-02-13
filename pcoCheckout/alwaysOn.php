@@ -76,7 +76,7 @@ if(isset($_GET['locations'])){
 
   var intervalId = window.setInterval(function(){
     getNewCheckout();
-  }, 2000);
+  }, 5000);
 
   var colorChangingDot = window.setInterval(function(){
     colorChange();
